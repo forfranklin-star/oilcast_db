@@ -1,0 +1,93 @@
+# =====================================================================
+# 多因素油价智能分析与预测系统 —— 全局配置
+# 所有模块只从此文件读取可调参数，避免在代码里写死魔法数字。
+# =====================================================================
+
+system:
+  # 基准时区：报告日期按北京时间（UTC+8）落盘，cron 设定为 UTC 02:00
+  report_timezone: "Asia/Shanghai"
+  random_seed: 42
+  # 网络请求通用设置（遵守 robots.txt、慢速抓取）
+  request:
+    timeout_sec: 10
+    retry: 1
+    sleep_between_requests_sec: 1.0
+    user_agent: "OilCastResearchBot/1.0 (+https://github.com/your-name/oilcast; academic research)"
+
+# ------------------------- 数据开关 -----------------------------------
+# true = 优先抓真实源，失败自动回退到结构一致的合成数据（并在报告中标注）
+# false = 直接使用合成数据（离线演示 / CI 环境）
+data_sources:
+  prefer_live: true
+  # EIA 官方 API（可选）：https://www.eia.gov/opendata/ 注册后填入环境变量 EIA_API_KEY
+  eia_api_key_env: "EIA_API_KEY"
+  # FRED（美联储圣路易斯分行）无需 key 的 CSV 端点，提供美债收益率/CPI/非农等
+  fred_base_csv: "https://fred.stlouisfed.org/graph/fredgraph.csv"
+  # Google News RSS（无需 key），用于地缘事件挖掘
+  google_news_rss: "https://news.google.com/rss/search"
+  news_keywords:
+    - "OPEC oil production"
+    - "Russia oil sanctions"
+    - "Red Sea shipping attack"
+    - "Iran oil"
+    - "oil price forecast"
+    - "crude oil supply disruption"
+
+# ------------------------- 价格标的 -----------------------------------
+instruments:
+  wti:
+    yf_ticker: "CL=F"        # NYMEX WTI 近月连续
+    display: "WTI原油"
+    unit: "美元/桶"
+  brent:
+    yf_ticker: "BZ=F"        # ICE Brent 近月连续
+    display: "布伦特原油"
+    unit: "美元/桶"
+  # 国内 0# 柴油批发价（人民币/吨）：真实源（金投网/生意社/发改委）结构易变，
+  # 预留接口 diesel.py，默认以与国际油价联动 + 汇率/调价周期逻辑的合成序列兜底
+  diesel:
+    display: "国内0#柴油批发价"
+    unit: "元/吨"
+    fx_usdcny: 7.15
+    barrel_per_tonne_diesel: 7.31   # 1 吨柴油 ≈ 7.31 桶（API 32 左右）
+    tax_and_logistics: 2600         # 税费+物流+炼化升贴水的近似常数（元/吨），可被真实数据覆盖
+
+# ------------------------- 训练 / 预测参数 -----------------------------
+model:
+  history_days: 1095        # 合成回填/抓取的历史长度（自然日，约 3 年）
+  rolling_window: 180       # 滚动训练窗口（交易日）
+  short_horizon_td: 10      # 两周 ≈ 10 个交易日
+  mid_horizon_td: 66        # 三个月 ≈ 66 个交易日
+  long_horizon_td: 252      # 长期：12 个月 ≈ 252 个交易日
+  ci_levels: [0.50, 0.80, 0.95]   # 概率区间
+  n_monte_carlo: 2000       # 长期蒙特卡洛路径数
+  # 权重自适应：新拟合权重与历史权重做指数平滑（越大越依赖历史，越稳）
+  weight_ema_alpha: 0.6
+  # 模型权重相对人工先验的收缩系数（1=完全相信模型，0=完全用先验）
+  prior_shrinkage: 0.7
+
+# 人工先验权重（归一化前的初始判断，模型会在其基础上自适应调整）
+prior_weights:
+  supply_disruption: 0.20   # 供给中断 / OPEC+ 减产增产
+  geopolitical_risk: 0.18   # 地缘政治风险（战争/制裁/袭击）
+  usd_index: 0.14           # 美元指数
+  us_treasury_10y: 0.08     # 美债10Y收益率（流动性/衰退预期）
+  cpi_surprise: 0.10        # 美国通胀超预期程度（货币政策路径）
+  jobs_surprise: 0.06       # 非农等就业数据
+  fed_policy_expectation: 0.10  # 美联储加息/降息预期
+  demand_outlook: 0.08      # 需求前景（IEA/EIA/OPEC 月报、机构观点）
+  institutional_view: 0.06  # 投行评级/目标价调整
+
+# 长期情景假设（相对当前均衡价的年化漂移与波动，用于情景 + 蒙特卡洛）
+scenarios:
+  bull:   {label: "高油价（供给冲击）", prob_prior: 0.25, drift_annual: 0.18, vol_annual: 0.34}
+  base:   {label: "基准（供需再平衡）", prob_prior: 0.50, drift_annual: 0.02, vol_annual: 0.28}
+  bear:   {label: "低油价（需求衰退）", prob_prior: 0.25, drift_annual: -0.15, vol_annual: 0.32}
+
+# ------------------------- 存储 ---------------------------------------
+storage:
+  sqlite_path: "data/oilcast.db"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  archive_dir: "reports/archive"
+  latest_dir: "reports/latest"
