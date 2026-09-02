@@ -165,7 +165,7 @@ def _lineage_rows(report: dict) -> List[dict]:
                     "status_cn": STATUS_CN.get(L.get("status"), L.get("status")),
                     "source": L.get("source_name", ""), "url": L.get("url", ""),
                     "last": L.get("last_observed") or "—", "n": L.get("n_obs", 0),
-                    "note": L.get("note", "")})
+                    "note": L.get("note", ""), "tried": L.get("tried_sources", "")})
     return out
 
 
@@ -238,13 +238,13 @@ TEMPLATE = r"""
  <h2>数据谱系与质量门（每个数字都可追溯到来源与观测日期）</h2>
  <div class="card" style="overflow-x:auto">
  <table>
-   <tr><th>字段</th><th>含义</th><th>状态</th><th>来源</th><th>末次观测</th><th>样本数</th><th>说明</th></tr>
+   <tr><th>字段</th><th>含义</th><th>状态</th><th>命中来源</th><th>末次观测</th><th>样本数</th><th>数据源优先级尝试链（✓采用 / ✗失败原因）</th></tr>
    {% for L in lineage_rows %}
    <tr>
      <td>{{ L.field }}</td><td>{{ L.display }}</td>
      <td><span class="st" style="background:{{ {'ok':'#2e7d32','stale':'#e08a00','insufficient':'#e08a00','unavailable':'#b03434'}[L.status] }}">{{ L.status_cn }}</span></td>
      <td>{% if L.url %}<a href="{{ L.url }}" target="_blank" rel="noopener">{{ L.source }}</a>{% else %}{{ L.source }}{% endif %}</td>
-     <td>{{ L.last }}</td><td>{{ L.n }}</td><td class="mut">{{ L.note }}</td>
+     <td>{{ L.last }}</td><td>{{ L.n }}</td><td class="mut" style="font-size:12px">{{ L.tried or L.note }}</td>
    </tr>
    {% endfor %}
  </table>

@@ -12,7 +12,8 @@ system:
     timeout_sec: 10
     retry: 1
     sleep_between_requests_sec: 1.0
-    user_agent: "OilCastResearchBot/1.0 (+https://github.com/your-name/oilcast; academic research)"
+    # 可识别的学术研究 UA（避免使用 "bot" 字样：部分政府/财经站点会直接丢弃该类请求）
+    user_agent: "Mozilla/5.0 (compatible; OilCastResearch/1.0; academic; +https://github.com/your-name/oilcast)"
 
 # ------------------------- 数据原则（最高优先级）----------------------
 # strict（默认）：只允许真实、可追溯、带观测日期的数据；任何缺失/过期/无法
@@ -38,12 +39,58 @@ data_sources:
     payems: "PAYEMS"         # 非农就业（月频）
     fedfunds: "FEDFUNDS"     # 联邦基金利率（月频）
     demand_proxy: "INDPRO"   # 工业生产指数（月频，同比作为真实需求景气代理）
-  # yfinance 作为期货价格的第二信源（CL=F / BZ=F / DX-Y.NYB），与 FRED 交叉印证
+  # yfinance 作为期货价格的备份信源（CL=F / BZ=F / DX-Y.NYB），与 FRED 交叉印证
   yfinance_backup: true
-  # Google News RSS（无需 key），用于地缘事件挖掘；不可达时事件模块留空，不造事件
+  # Yahoo 原生 chart API（不依赖 yfinance 库，海外 GitHub Actions 可达）
+  yahoo_chart: "https://query1.finance.yahoo.com/v8/finance/chart/{symbol}"
+  # Google News RSS（无需 key），用于地缘事件挖掘；不可达时自动尝试后续源
   google_news_rss: "https://news.google.com/rss/search"
-  # 日频地缘风险指数（Caldara & Iacoviello），不可达则该因素标记缺失
-  gprd_url: "https://www.matteoiacoviello.com/research_files/gprd_web_current.csv"
+  bing_news_rss: "https://www.bing.com/news/search"
+  # 美国财政部官方收益率曲线 CSV（FRED 利率的官方备源，无 key）
+  treasury_yield_csv: "https://home.treasury.gov/resource-center/data-chart-center/interest-rates/daily-treasury-rates.csv/{year}/all?type=daily_treasury_yield_curve&field_tdr_date_value={year}&page&_format=csv"
+  # 日频地缘风险指数（Caldara & Iacoviello）：两个地址按序尝试，均不可达则用
+  # 【真实新闻计数代理】（由真实 RSS 事件衍生，口径会在谱系中标注）
+  gprd_urls:
+    - "https://www.matteoiacoviello.com/research_files/gprd_web_current.csv"
+    - "https://www.matteoiacoviello.com/gpr_files/data_gpr_export.xls"
+  gprd_url: "https://www.matteoiacoviello.com/research_files/gprd_web_current.csv"  # 向后兼容
+  # ------------------------------------------------------------------
+  # 多数据源优先级链：每个字段按 providers 顺序依次尝试，第一个返回足量
+  # 真实观测的源被采用；每次尝试（含失败原因/耗时）都写入数据谱系，全程可审计。
+  # 全部失败才标记 unavailable，绝不造数。海外可达性标注：
+  #   world=全球稳定可达；us=海外（含 GitHub Actions）可达，个别地区网络可能受限。
+  # ------------------------------------------------------------------
+  source_chains:
+    wti:
+      - {name: "FRED:DCOILWTICO",        kind: fred,   reach: world, ref: DCOILWTICO}
+      - {name: "EIA:RWTC(需EIA_API_KEY)", kind: eia,    reach: world, ref: "PET.RWTC.D"}
+      - {name: "Yahoo:CL=F",             kind: yahoo,  reach: us,    ref: "CL=F"}
+      - {name: "yfinance:CL=F",          kind: yfinance, reach: us,  ref: "CL=F"}
+    brent:
+      - {name: "FRED:DCOILBRENTEU",      kind: fred,   reach: world, ref: DCOILBRENTEU}
+      - {name: "EIA:RBRTE(需EIA_API_KEY)", kind: eia,  reach: world, ref: "PET.RBRTE.D"}
+      - {name: "Yahoo:BZ=F",             kind: yahoo,  reach: us,    ref: "BZ=F"}
+      - {name: "yfinance:BZ=F",          kind: yfinance, reach: us,  ref: "BZ=F"}
+    us10y:
+      - {name: "FRED:DGS10",             kind: fred,    reach: world, ref: DGS10}
+      - {name: "USTreasury:10Y",         kind: treasury, reach: world, ref: "10 Yr"}
+    us2y:
+      - {name: "FRED:DGS2",              kind: fred,    reach: world, ref: DGS2}
+      - {name: "USTreasury:2Y",          kind: treasury, reach: world, ref: "2 Yr"}
+    dxy:
+      - {name: "FRED:DTWEXBGS",          kind: fred,    reach: world, ref: DTWEXBGS}
+      - {name: "Yahoo:DX-Y.NYB",         kind: yahoo,   reach: us, ref: "DX-Y.NYB"}
+  # 事件/机构观点 RSS 源（按序累积去重，直到拿满条数或源用尽；全部失败才留空）
+  # OilPrice 为能源垂直专业源（全球可达、相关度最高），其余为综合财经/搜索源。
+  news_rss_feeds:
+    - {name: "OilPrice",  kind: rss_feed, reach: world,
+       url: "https://oilprice.com/rss/main", energy_focus: true}
+    - {name: "GoogleNews", kind: google,  reach: us}
+    - {name: "BingNews",   kind: bing,    reach: us}
+    - {name: "WSJMarkets", kind: rss_feed, reach: world,
+       url: "https://feeds.content.dowjones.io/public/rss/RSSMarketsMain"}
+    - {name: "MarketWatch", kind: rss_feed, reach: world,
+       url: "https://www.marketwatch.com/rss/topstories"}
   news_keywords:
     - "OPEC oil production"
     - "Russia oil sanctions"

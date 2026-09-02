@@ -142,3 +142,44 @@ def test_model_refuses_insufficient_real_data():
     feats = build_features(b["prices"], b["macro"], b["events"], b["views"]).tail(100)
     with pytest.raises(InsufficientData):
         ShortTermForecaster(horizon=5).fit(feats, b["prices"]["wti"].loc[feats.index])
+
+
+# ----------------------------------------------------- 多数据源优先级链
+def test_chain_failover_to_second_source():
+    from oilcast.data_sources.sources import run_chain
+    import pandas as pd
+    calls = []
+    def dead():
+        calls.append("A"); return None
+    def alive():
+        calls.append("B"); return (pd.Series([1.0, 2.0, 3.0]), {"k": 1})
+    res = run_chain([("源A", dead), ("源B", alive)], field_name="x", min_obs=2)
+    assert res.ok and res.used == "源B" and calls == ["A", "B"]
+    assert res.attempts[0].ok is False and res.attempts[1].ok is True
+    assert "源A✗" in res.trail_text() and "源B✓" in res.trail_text()
+
+
+def test_chain_all_sources_fail():
+    from oilcast.data_sources.sources import run_chain
+    res = run_chain([("A", lambda: None), ("B", lambda: None)], field_name="x")
+    assert not res.ok and res.used is None and len(res.attempts) == 2
+
+
+def test_chain_insufficient_obs_falls_through():
+    from oilcast.data_sources.sources import run_chain
+    import pandas as pd
+    thin = lambda: (pd.Series([1.0]), {})
+    full = lambda: (pd.Series([1., 2., 3.]), {})
+    res = run_chain([("薄源", thin), ("足源", full)], field_name="x", min_obs=3)
+    assert res.used == "足源" and "薄源" in res.trail_text()
+
+
+def test_chain_provider_exception_isolated():
+    from oilcast.data_sources.sources import run_chain
+    import pandas as pd
+    def boom():
+        raise RuntimeError("网络中断")
+    res = run_chain([("崩源", boom), ("好源", lambda: (pd.Series([1., 2.]), {}))],
+                    field_name="x", min_obs=1)
+    assert res.ok and res.used == "好源"
+    assert "RuntimeError" in res.attempts[0].reason

@@ -29,7 +29,7 @@ CREATE TABLE IF NOT EXISTS data_lineage (
     report_date TEXT, field TEXT, display TEXT, status TEXT, source_name TEXT,
     url TEXT, frequency TEXT, retrieved_at TEXT, n_obs INTEGER,
     first_observed TEXT, last_observed TEXT, stale INTEGER, mode TEXT, note TEXT,
-    PRIMARY KEY(report_date, field));
+    tried_sources TEXT, PRIMARY KEY(report_date, field));
 CREATE TABLE IF NOT EXISTS events (
     date TEXT, title TEXT, source TEXT, theme TEXT, sentiment TEXT,
     intensity REAL, est_price_impact REAL, url TEXT, UNIQUE(date, title));
@@ -94,12 +94,12 @@ class OilCastDB:
         with self._conn() as con:
             con.execute("DELETE FROM data_lineage WHERE report_date=?", (report_date,))
             con.executemany(
-                "INSERT INTO data_lineage VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+                "INSERT INTO data_lineage VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                 [(report_date, f, L.get("display", ""), L.get("status", ""),
                   L.get("source_name", ""), L.get("url", ""), L.get("frequency", ""),
                   L.get("retrieved_at", ""), int(L.get("n_obs", 0) or 0),
                   L.get("first_observed"), L.get("last_observed"),
-                  L.get("stale"), mode, L.get("note", ""))
+                  L.get("stale"), mode, L.get("note", ""), L.get("tried_sources", ""))
                  for f, L in lineage.items()])
 
     def save_events(self, events: pd.DataFrame) -> None:

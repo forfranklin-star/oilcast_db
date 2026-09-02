@@ -110,25 +110,48 @@ streamlit run src/oilcast/app.py
 `reports/archive/YYYY-MM-DD.{json,html}`、`data/oilcast.db`。
 一键脚本：`bash scripts/run_once.sh`。
 
-## 4. 真实数据源（均可在线核验口径与观测日期）
+## 4. 真实数据源与多源优先级链（failover）
 
-| 模块 | 真实源（FRED 序列页即原始出处说明） | 需要 Key | 不可达时 |
-|---|---|---|---|
-| WTI 现货 | FRED `DCOILWTICO`（源头 EIA）；备份 yfinance `CL=F`；可选 EIA v2 | 否（EIA 需 `EIA_API_KEY`） | 该标的 unavailable，不造数 |
-| Brent 现货 | FRED `DCOILBRENTEU`；备份 `BZ=F` | 否 | 同上 |
-| 美债/美元 | FRED `DGS10` `DGS2` `DTWEXBGS`（广义美元指数） | 否 | 该因素剔除、不参与权重 |
-| CPI/非农/联邦基金/需求 | FRED `CPIAUCSL` `PAYEMS` `FEDFUNDS` `INDPRO`（月频 vintage） | 否 | 同上 |
-| 地缘风险 | GPRD（Caldara & Iacoviello）日频 | 否 | 用真实事件代理；事件也无则剔除 |
-| 事件 / 机构观点 | Google News RSS + 规则打分 / 正则抽取 | 否 | 空表并标注，不生成模拟条目 |
-| 国内 0# 柴油 | **预留钩子** `diesel.fetch_diesel_live`（金投网/生意社/发改委） | 视站点 | **unavailable，不按国际油价推算冒充** |
+每个字段都在 `config.yaml → data_sources.source_chains / news_rss_feeds` 中配置一张
+**有序源列表**，运行时按优先级依次尝试，第一个返回足量真实观测的源被采用；每次尝试
+（源名、成功/失败、观测条数、耗时、失败原因）都写入数据谱系的"数据源优先级尝试链"列
+与数据库 `data_lineage.tried_sources`，全程可审计。源之间**绝不混合拼接**；所有源都
+失败才标记 `unavailable`，绝不造数。
 
-> 注意：FRED `GASDESM` 是**美国**柴油零售价（美元/加仑），口径不同，
-> 系统只作参考序列，绝不用它冒充中国柴油。
+### 4.1 价格 / 宏观源链（world=全球稳定可达；us=海外机房可达）
+| 字段 | 优先级链（从左到右依次尝试） | Key |
+|---|---|---|
+| WTI | FRED `DCOILWTICO`(world) → EIA `PET.RWTC.D`(world,需 EIA_API_KEY) → Yahoo `CL=F`(us) → yfinance(us) | 否 |
+| Brent | FRED `DCOILBRENTEU` → EIA `PET.RBRTE.D` → Yahoo `BZ=F` → yfinance | 否 |
+| 美债 10Y/2Y | FRED `DGS10/DGS2`(world) → **美国财政部官方收益率曲线 CSV**(world) | 否 |
+| 美元指数 | FRED `DTWEXBGS` 广义美元(world) → Yahoo `DX-Y.NYB`(us) | 否 |
+| CPI/非农/联邦基金/需求 | FRED `CPIAUCSL`/`PAYEMS`/`FEDFUNDS`/`INDPRO`（月频，逐点带发布日期 vintage） | 否 |
+| 地缘风险 GPRD | GPRD 当前 CSV → GPRD `data_gpr_export.xls` 备份地址；均不可达时用**多源真实事件计数代理**（明确标注口径） | 否 |
 
-爬虫礼仪：统一 `PoliteSession`（自定义 UA、请求间隔、有限重试、分级超时预算）；
-新增数据源前先检查 `/robots.txt` 与服务条款。接入国内柴油真实源时，在
-`fetch_diesel_live` 中解析并返回 `pd.Series(index=发布日期, values=元/吨)` 与来源 meta，
-质量门、入库、建模、报告链路自动生效。
+### 4.2 事件 / 机构观点 RSS 源链（按序累积、去重，直到拿满或源用尽）
+| 顺序 | 源 | 类型 | 可达性 | 说明 |
+|---|---|---|---|---|
+| 1 | **OilPrice** `oilprice.com/rss/main` | 能源垂直 feed | world | 油气专业媒体，相关度最高，无需检索词 |
+| 2 | Google News RSS | 关键词检索 | us | 海外机房可达 |
+| 3 | Bing News RSS | 关键词检索 | us | 海外机房可达 |
+| 4 | WSJ Markets RSS | 综合财经 feed | world | 兜底 |
+| 5 | MarketWatch RSS | 综合财经 feed | world | 兜底 |
+
+标题经主题归类 + 多空词典打分，输出"若该事件单独主导的单日价格影响（美元/桶）"。
+源可达但当天确无某主题事件记为真实 0；**某主题在整个窗口一次都未出现则该因素保持缺失**
+（不把"没监测到"伪装成"恒为 0 可建模"）。
+
+### 4.3 国内柴油与边界
+- 国内 0# 柴油没有可稳定核验、合规免费的海外公开序列，**保持 unavailable**，预留钩子
+  `diesel.fetch_diesel_live`（金投网/生意社/发改委），接入后全链路自动生效；绝不按国际
+  油价固定比率推算冒充。
+- FRED `GASDESM` 是**美国**柴油零售价（美元/加仑），口径不同，仅作参考序列。
+
+### 4.4 爬虫礼仪与扩展
+统一 `PoliteSession`：可识别的研究 UA（规避被部分官网丢弃的 "bot" 字样，可按源覆盖浏览器
+头）、请求间隔、有限重试、分级超时预算、**同主机连续失败熔断**避免不可达源拖垮流水线。
+新增数据源前先检查 `/robots.txt` 与服务条款；新增一个源只需在 config 链表里加一项并在
+对应 client 实现抓取，优先级、留痕、质量门、熔断自动生效。
 
 ## 5. 模型方法论
 

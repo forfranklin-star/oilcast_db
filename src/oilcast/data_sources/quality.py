@@ -39,6 +39,7 @@ class FieldLineage:
     stale: Optional[int] = None      # 滞后：日频=工作日数，月频=自然日数
     status: str = "unavailable"      # ok / stale / insufficient / unavailable
     note: str = ""
+    tried_sources: str = ""          # 多源优先级链完整尝试记录（含失败原因），可审计
 
     def to_dict(self) -> dict:
         return asdict(self)
@@ -50,12 +51,13 @@ def business_days_between(a: pd.Timestamp, b: pd.Timestamp) -> int:
 
 def assess_daily(field: str, display: str, series: Optional[pd.Series], as_of: pd.Timestamp,
                  source_name: str, url: str, gate: dict,
-                 retrieved_at: Optional[str] = None, note: str = "") -> FieldLineage:
+                 retrieved_at: Optional[str] = None, note: str = "",
+                 tried_sources: str = "") -> FieldLineage:
     """评估日频（工作日）字段。series 只允许包含真实观测，不得预先插值。"""
     lin = FieldLineage(field=field, display=display, source_name=source_name, url=url,
                        frequency="daily_business",
                        retrieved_at=retrieved_at or now_beijing().strftime("%Y-%m-%d %H:%M:%S"),
-                       note=note)
+                       note=note, tried_sources=tried_sources)
     if series is None:
         lin.status = "unavailable"
         lin.note = (lin.note + "；源未返回数据").strip("；")
@@ -82,11 +84,12 @@ def assess_daily(field: str, display: str, series: Optional[pd.Series], as_of: p
 
 def assess_monthly(field: str, display: str, series: Optional[pd.Series], as_of: pd.Timestamp,
                    source_name: str, url: str, gate: dict,
-                   retrieved_at: Optional[str] = None) -> FieldLineage:
+                   retrieved_at: Optional[str] = None, tried_sources: str = "") -> FieldLineage:
     """评估月频字段（CPI/非农/联邦基金利率）。发布滞后按自然日计。"""
     lin = FieldLineage(field=field, display=display, source_name=source_name, url=url,
                        frequency="monthly",
-                       retrieved_at=retrieved_at or now_beijing().strftime("%Y-%m-%d %H:%M:%S"))
+                       retrieved_at=retrieved_at or now_beijing().strftime("%Y-%m-%d %H:%M:%S"),
+                       tried_sources=tried_sources)
     if series is None:
         lin.status = "unavailable"
         return lin

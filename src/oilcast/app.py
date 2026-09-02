@@ -106,10 +106,13 @@ with st.expander("📋 数据谱系与质量门（字段状态 / 真实来源 / 
     lin = pd.DataFrame(report.get("lineage", {}).values())
     if not lin.empty:
         lin["状态"] = lin["status"].map(STATUS_CN).fillna(lin["status"])
+        if "tried_sources" not in lin.columns:
+            lin["tried_sources"] = ""
         st.dataframe(lin[["field", "display", "状态", "source_name",
-                          "last_observed", "n_obs", "note"]].rename(
-            columns={"field": "字段", "display": "含义", "source_name": "来源",
-                     "last_observed": "末次观测", "n_obs": "样本数", "note": "说明"}),
+                          "last_observed", "n_obs", "tried_sources"]].rename(
+            columns={"field": "字段", "display": "含义", "source_name": "命中来源",
+                     "last_observed": "末次观测", "n_obs": "样本数",
+                     "tried_sources": "数据源优先级尝试链"}),
             width="stretch", hide_index=True)
 
 # --------------------------------------------------------------- 预测卡片

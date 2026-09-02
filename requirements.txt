@@ -8,6 +8,8 @@ feedparser>=6.0.10
 beautifulsoup4>=4.12
 lxml>=5.0
 tqdm>=4.66
+xlrd>=2.0.1            # 读取 GPRD 地缘风险指数的 .xls 备份地址（主地址失效时启用）
+openpyxl>=3.1
 
 # ---- 建模 ----
 scikit-learn>=1.3

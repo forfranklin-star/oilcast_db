@@ -44,7 +44,7 @@ class PoliteSession:
     CIRCUIT_FAIL_THRESHOLD = 2
     CIRCUIT_COOLDOWN_SEC = 600
 
-    def __init__(self) -> None:
+    def __init__(self, extra_headers: Optional[dict] = None) -> None:
         cfg = get_config()["system"]["request"]
         self.timeout = int(cfg["timeout_sec"])
         self.retry = int(cfg["retry"])
@@ -54,6 +54,8 @@ class PoliteSession:
             "User-Agent": str(cfg["user_agent"]),
             "Accept-Language": "en-US,en;q=0.9,zh-CN;q=0.8",
         })
+        if extra_headers:                       # 个别源需要浏览器兼容头时按源覆盖
+            self.session.headers.update(extra_headers)
 
     def get(self, url: str, params: Optional[dict] = None,
             encoding: Optional[str] = None) -> Optional[requests.Response]:

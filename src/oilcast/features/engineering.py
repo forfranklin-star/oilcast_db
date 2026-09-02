@@ -57,7 +57,7 @@ def aggregate_events(events: pd.DataFrame, index: pd.DatetimeIndex,
     cols = list(THEME_TO_COL.values())
     if not source_available:
         return pd.DataFrame(np.nan, index=index, columns=cols)
-    out = pd.DataFrame(0.0, index=index, columns=cols)
+    out = pd.DataFrame(np.nan, index=index, columns=cols)
     if events is None or events.empty:
         return out
     ev = events.copy()
@@ -66,6 +66,8 @@ def aggregate_events(events: pd.DataFrame, index: pd.DatetimeIndex,
     daily = daily.reindex(index).fillna(0.0)
     for theme, col in THEME_TO_COL.items():
         if theme in daily.columns:
+            # 该主题至少真实出现过：无事件日记真实 0，滚动 5 日强度；
+            # 从未出现的主题保持 NaN（没有该类信号 ≠ 该因素恒为 0 可建模）
             out[col] = daily[theme].rolling(5, min_periods=1).sum()
     return out
 
