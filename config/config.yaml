@@ -1,0 +1,129 @@
+# =====================================================================
+# 多因素油价智能分析与预测系统 —— 全局配置
+# 所有模块只从此文件读取可调参数，避免在代码里写死魔法数字。
+# =====================================================================
+
+system:
+  # 基准时区：报告日期按北京时间（UTC+8）落盘，cron 设定为 UTC 02:00
+  report_timezone: "Asia/Shanghai"
+  random_seed: 42
+  # 网络请求通用设置（遵守 robots.txt、慢速抓取）
+  request:
+    timeout_sec: 10
+    retry: 1
+    sleep_between_requests_sec: 1.0
+    user_agent: "OilCastResearchBot/1.0 (+https://github.com/your-name/oilcast; academic research)"
+
+# ------------------------- 数据原则（最高优先级）----------------------
+# strict（默认）：只允许真实、可追溯、带观测日期的数据；任何缺失/过期/无法
+#   验证的数据一律保持缺失，禁止插值外推、禁止用合成值补齐；数据不足以建模时
+#   对应预测显式标注 unavailable，而不是输出假数字。
+# demo：仅用于离线演示，全部数据为合成；报告全程强制「演示·非真实观测」水印，
+#   且严禁与真实数据混合。必须通过命令行 --demo 显式开启。
+data_sources:
+  mode: "strict"
+  # EIA 官方 API（可选）：https://www.eia.gov/opendata/ 注册后填入环境变量 EIA_API_KEY
+  eia_api_key_env: "EIA_API_KEY"
+  # FRED（美联储圣路易斯分行）无需 key 的 CSV 端点
+  fred_base_csv: "https://fred.stlouisfed.org/graph/fredgraph.csv"
+  # 真实序列映射（FRED series id；口径与观测日期均可在 FRED 官网核验）
+  fred_series_map:
+    wti: "DCOILWTICO"        # Cushing OK WTI 现货，美元/桶（EIA 原始，FRED 转发，工作日日频）
+    brent: "DCOILBRENTEU"    # 欧洲 Brent 现货，美元/桶（工作日日频）
+    us_diesel_retail: "GASDESM"  # 【美国】柴油零售价 美元/加仑（月频）——不可冒充中国柴油
+    us10y: "DGS10"           # 10Y 国债收益率（工作日日频）
+    us2y: "DGS2"
+    dxy: "DTWEXBGS"          # 名义广义美元指数（工作日日频，DXY 的官方口径替代）
+    cpi_level: "CPIAUCSL"    # CPI（月频）
+    payems: "PAYEMS"         # 非农就业（月频）
+    fedfunds: "FEDFUNDS"     # 联邦基金利率（月频）
+    demand_proxy: "INDPRO"   # 工业生产指数（月频，同比作为真实需求景气代理）
+  # yfinance 作为期货价格的第二信源（CL=F / BZ=F / DX-Y.NYB），与 FRED 交叉印证
+  yfinance_backup: true
+  # Google News RSS（无需 key），用于地缘事件挖掘；不可达时事件模块留空，不造事件
+  google_news_rss: "https://news.google.com/rss/search"
+  # 日频地缘风险指数（Caldara & Iacoviello），不可达则该因素标记缺失
+  gprd_url: "https://www.matteoiacoviello.com/research_files/gprd_web_current.csv"
+  news_keywords:
+    - "OPEC oil production"
+    - "Russia oil sanctions"
+    - "Red Sea shipping attack"
+    - "Iran oil"
+    - "oil price forecast"
+    - "crude oil supply disruption"
+
+# ------------------------- 数据质量门 ---------------------------------
+# 只有通过质量门的真实字段才允许进入模型；状态：ok / stale（过期）/
+# insufficient（样本不足）/ unavailable（源不可达或无此观测）
+quality_gate:
+  price_daily:
+    min_obs: 120            # 最少真实观测数（工作日）
+    max_stale_bdays: 7      # 最后观测距报告日超过 7 个工作日 → stale
+  macro_daily:
+    min_obs: 120
+    max_stale_bdays: 10
+    ffill_limit_bdays: 3    # 日频仅允许填补节假日级短缺口（≤3 工作日），超出保持缺失
+  macro_monthly:
+    max_stale_days: 60      # 月频指标发布滞后容忍度（天）
+  events:
+    lookback_days: 30
+
+# ------------------------- 价格标的 -----------------------------------
+instruments:
+  wti:
+    yf_ticker: "CL=F"
+    fred_id: "DCOILWTICO"
+    display: "WTI原油"
+    unit: "美元/桶"
+  brent:
+    yf_ticker: "BZ=F"
+    fred_id: "DCOILBRENTEU"
+    display: "布伦特原油"
+    unit: "美元/桶"
+  # 国内 0# 柴油批发价（人民币/吨）：目前没有可稳定核验、合规免费的公开序列，
+  # strict 模式下保持 unavailable（接入 diesel.fetch_diesel_live 真实源后自动启用），
+  # 绝不按国际油价"推算"一个数字冒充观测。
+  diesel:
+    display: "国内0#柴油批发价"
+    unit: "元/吨"
+
+# ------------------------- 训练 / 预测参数 -----------------------------
+model:
+  history_days: 1095        # 抓取历史长度（自然日，约 3 年）
+  rolling_window: 180       # 滚动训练窗口（交易日）
+  short_horizon_td: 10      # 两周 ≈ 10 个交易日
+  mid_horizon_td: 66        # 三个月 ≈ 66 个交易日
+  long_horizon_td: 252      # 长期：12 个月 ≈ 252 个交易日
+  ci_levels: [0.50, 0.80, 0.95]   # 概率区间
+  n_monte_carlo: 2000       # 长期蒙特卡洛路径数
+  min_train_obs: 250        # 训练模型所需的最少真实样本，不足则该模型 unavailable
+  # 权重自适应：新拟合权重与历史权重做指数平滑（越大越依赖历史，越稳）
+  weight_ema_alpha: 0.6
+  # 模型权重相对人工先验的收缩系数（1=完全相信模型，0=完全用先验）
+  prior_shrinkage: 0.7
+
+# 人工先验权重（仅对【有真实数据】的因素归一化；缺失因素不参与、不填零冒充）
+prior_weights:
+  supply_disruption: 0.20
+  geopolitical_risk: 0.18
+  usd_index: 0.14
+  us_treasury_10y: 0.08
+  cpi_surprise: 0.10
+  jobs_surprise: 0.06
+  fed_policy_expectation: 0.10
+  demand_outlook: 0.08
+  institutional_view: 0.06
+
+# 长期情景假设（相对当前均衡价的年化漂移与波动，用于情景 + 蒙特卡洛）
+scenarios:
+  bull:   {label: "高油价（供给冲击）", prob_prior: 0.25, drift_annual: 0.18, vol_annual: 0.34}
+  base:   {label: "基准（供需再平衡）", prob_prior: 0.50, drift_annual: 0.02, vol_annual: 0.28}
+  bear:   {label: "低油价（需求衰退）", prob_prior: 0.25, drift_annual: -0.15, vol_annual: 0.32}
+
+# ------------------------- 存储 ---------------------------------------
+storage:
+  sqlite_path: "data/oilcast.db"
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  archive_dir: "reports/archive"
+  latest_dir: "reports/latest"
