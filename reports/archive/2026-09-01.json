@@ -1,0 +1,7754 @@
+{
+  "report_date": "2026-09-01",
+  "generated_at": "2026-09-05 14:25:59 +0800",
+  "mode": "strict",
+  "lineage": {
+    "wti": {
+      "field": "wti",
+      "display": "WTI原油现货",
+      "source_name": "CNBC:@CL.1近月期货",
+      "url": "",
+      "frequency": "daily_business",
+      "retrieved_at": "2026-09-05 14:23:10",
+      "n_obs": 748,
+      "first_observed": "2023-09-05",
+      "last_observed": "2026-09-01",
+      "stale": 0,
+      "status": "ok",
+      "note": "口径：近月连续期货；新鲜度优先选源链：CNBC:@CL.1近月期货✓采用748条/末次09-01/3427ms → FRED:DCOILWTICO现货✓745条/末次09-01/2567ms → EIA:RWTC(需EIA_API_KEY)✗(无返回) → Yahoo:CL=F✗(无返回) → yfinance:CL=F✗(无返回)",
+      "tried_sources": "CNBC:@CL.1近月期货✓采用748条/末次09-01/3427ms → FRED:DCOILWTICO现货✓745条/末次09-01/2567ms → EIA:RWTC(需EIA_API_KEY)✗(无返回) → Yahoo:CL=F✗(无返回) → yfinance:CL=F✗(无返回)"
+    },
+    "brent": {
+      "field": "brent",
+      "display": "布伦特原油现货",
+      "source_name": "CNBC:@LCO.1近月期货",
+      "url": "",
+      "frequency": "daily_business",
+      "retrieved_at": "2026-09-05 14:23:10",
+      "n_obs": 771,
+      "first_observed": "2023-09-04",
+      "last_observed": "2026-09-01",
+      "stale": 0,
+      "status": "ok",
+      "note": "口径：近月连续期货；新鲜度优先选源链：CNBC:@LCO.1近月期货✓采用771条/末次09-01/2994ms → FRED:DCOILBRENTEU现货✓758条/末次09-01/2941ms → EIA:RBRTE(需EIA_API_KEY)✗(无返回) → Yahoo:BZ=F✗(无返回) → yfinance:BZ=F✗(无返回)",
+      "tried_sources": "CNBC:@LCO.1近月期货✓采用771条/末次09-01/2994ms → FRED:DCOILBRENTEU现货✓758条/末次09-01/2941ms → EIA:RBRTE(需EIA_API_KEY)✗(无返回) → Yahoo:BZ=F✗(无返回) → yfinance:BZ=F✗(无返回)"
+    },
+    "diesel": {
+      "field": "diesel",
+      "display": "国内0#柴油批发价",
+      "source_name": "UNAVAILABLE（国内柴油真实源待接入 diesel.fetch_diesel_live）",
+      "url": "",
+      "frequency": "",
+      "retrieved_at": "",
+      "n_obs": 0,
+      "first_observed": null,
+      "last_observed": null,
+      "stale": null,
+      "status": "unavailable",
+      "note": "未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充",
+      "tried_sources": ""
+    },
+    "events": {
+      "field": "events",
+      "display": "地缘与宏观事件",
+      "source_name": "多源RSS(MarketWatch,OilPrice,WSJMarkets)+规则打分",
+      "url": "",
+      "frequency": "event",
+      "retrieved_at": "",
+      "n_obs": 10,
+      "first_observed": "2026-09-02",
+      "last_observed": "2026-09-04",
+      "stale": null,
+      "status": "ok",
+      "note": "",
+      "tried_sources": "OilPrice✓保留1条 → GoogleNews✗(无有效条目/不可达) → BingNews✗(无有效条目/不可达) → WSJMarkets✓保留8条 → MarketWatch✓保留1条"
+    },
+    "institutional_view": {
+      "field": "institutional_view",
+      "display": "机构观点",
+      "source_name": "UNAVAILABLE",
+      "url": "",
+      "frequency": "",
+      "retrieved_at": "",
+      "n_obs": 0,
+      "first_observed": null,
+      "last_observed": null,
+      "stale": null,
+      "status": "unavailable",
+      "note": "各源未抽取到可核验机构观点，保持空缺",
+      "tried_sources": "OilPrice✗(无机构观点条目) → GoogleNews✗(无机构观点条目) → BingNews✗(无机构观点条目) → WSJMarkets✗(无机构观点条目) → MarketWatch✗(无机构观点条目)"
+    },
+    "usd_index": {
+      "field": "usd_index",
+      "display": "美元广义指数",
+      "source_name": "FRED:DTWEXBGS",
+      "url": "",
+      "frequency": "daily_business",
+      "retrieved_at": "2026-09-05 14:25:31",
+      "n_obs": 747,
+      "first_observed": "2023-09-05",
+      "last_observed": "2026-08-28",
+      "stale": 2,
+      "status": "ok",
+      "note": "源优先级链：FRED:DTWEXBGS✓采用747条/末次08-28/1907ms",
+      "tried_sources": "FRED:DTWEXBGS✓采用747条/末次08-28/1907ms"
+    },
+    "us_treasury_10y": {
+      "field": "us_treasury_10y",
+      "display": "美国10年期国债收益率",
+      "source_name": "FRED:DGS10",
+      "url": "",
+      "frequency": "daily_business",
+      "retrieved_at": "2026-09-05 14:25:31",
+      "n_obs": 748,
+      "first_observed": "2023-09-05",
+      "last_observed": "2026-09-01",
+      "stale": 0,
+      "status": "ok",
+      "note": "源优先级链：FRED:DGS10✓采用748条/末次09-01/3299ms",
+      "tried_sources": "FRED:DGS10✓采用748条/末次09-01/3299ms"
+    },
+    "fed_policy_expectation": {
+      "field": "fed_policy_expectation",
+      "display": "美联储政策预期(短端利率推导)",
+      "source_name": "由 FRED:DGS2 短端利率推导",
+      "url": "",
+      "frequency": "daily_business",
+      "retrieved_at": "2026-09-05 14:25:31",
+      "n_obs": 699,
+      "first_observed": "2023-10-03",
+      "last_observed": "2026-09-01",
+      "stale": 0,
+      "status": "ok",
+      "note": "",
+      "tried_sources": ""
+    },
+    "geopolitical_risk": {
+      "field": "geopolitical_risk",
+      "display": "地缘风险(GPRD/事件代理)",
+      "source_name": "多源真实事件代理（GPRD官方长序列不可达）",
+      "url": "",
+      "frequency": "event",
+      "retrieved_at": "",
+      "n_obs": 2,
+      "first_observed": null,
+      "last_observed": "2026-09-04",
+      "stale": null,
+      "status": "ok",
+      "note": "GPRD指数不可达，改以多源真实地缘/供给事件强度代理，口径不同于GPRD",
+      "tried_sources": "OilPrice✓保留1条 → GoogleNews✗(无有效条目/不可达) → BingNews✗(无有效条目/不可达) → WSJMarkets✓保留8条 → MarketWatch✓保留1条"
+    },
+    "cpi_surprise": {
+      "field": "cpi_surprise",
+      "display": "美国CPI同比(月频)",
+      "source_name": "FRED:CPIAUCSL（月频，值为最近发布值并附发布日期）",
+      "url": "https://fred.stlouisfed.org/series/CPIAUCSL",
+      "frequency": "monthly",
+      "retrieved_at": "2026-09-05 14:25:31",
+      "n_obs": 744,
+      "first_observed": "2023-09-04",
+      "last_observed": "2026-08-05",
+      "stale": 27,
+      "status": "ok",
+      "note": "",
+      "tried_sources": ""
+    },
+    "jobs_surprise": {
+      "field": "jobs_surprise",
+      "display": "非农就业意外(月频)",
+      "source_name": "FRED:PAYEMS（月频，值为最近发布值并附发布日期）",
+      "url": "https://fred.stlouisfed.org/series/PAYEMS",
+      "frequency": "monthly",
+      "retrieved_at": "2026-09-05 14:25:31",
+      "n_obs": 782,
+      "first_observed": "2023-09-04",
+      "last_observed": "2026-09-01",
+      "stale": 0,
+      "status": "ok",
+      "note": "",
+      "tried_sources": ""
+    },
+    "demand_outlook": {
+      "field": "demand_outlook",
+      "display": "工业产出同比/需求代理(月频)",
+      "source_name": "FRED:INDPRO（月频，值为最近发布值并附发布日期）",
+      "url": "https://fred.stlouisfed.org/series/INDPRO",
+      "frequency": "monthly",
+      "retrieved_at": "2026-09-05 14:25:31",
+      "n_obs": 763,
+      "first_observed": "2023-09-04",
+      "last_observed": "2026-08-05",
+      "stale": 27,
+      "status": "ok",
+      "note": "",
+      "tried_sources": ""
+    },
+    "supply_disruption": {
+      "field": "supply_disruption",
+      "display": "供给中断/OPEC+政策(事件)",
+      "source_name": "多源RSS(MarketWatch,OilPrice,WSJMarkets)·供给主题",
+      "url": "",
+      "frequency": "event",
+      "retrieved_at": "",
+      "n_obs": 1,
+      "first_observed": null,
+      "last_observed": "2026-09-04",
+      "stale": null,
+      "status": "ok",
+      "note": "多源真实新闻按供给/制裁/减产主题打分；无事件日记为真实0",
+      "tried_sources": "OilPrice✓保留1条 → GoogleNews✗(无有效条目/不可达) → BingNews✗(无有效条目/不可达) → WSJMarkets✓保留8条 → MarketWatch✓保留1条"
+    }
+  },
+  "factor_availability": {
+    "supply_disruption": true,
+    "geopolitical_risk": true,
+    "usd_index": true,
+    "us_treasury_10y": true,
+    "cpi_surprise": true,
+    "jobs_surprise": true,
+    "fed_policy_expectation": true,
+    "demand_outlook": true,
+    "institutional_view": false
+  },
+  "current": {
+    "wti": 90.22,
+    "brent": 94.65,
+    "diesel": null
+  },
+  "current_meta": {
+    "wti": {
+      "value": 90.22,
+      "observed_date": "2026-09-01",
+      "status": "ok",
+      "source": "CNBC:@CL.1近月期货"
+    },
+    "brent": {
+      "value": 94.65,
+      "observed_date": "2026-09-01",
+      "status": "ok",
+      "source": "CNBC:@LCO.1近月期货"
+    },
+    "diesel": {
+      "value": null,
+      "observed_date": null,
+      "status": "unavailable",
+      "source": "UNAVAILABLE（国内柴油真实源待接入 diesel.fetch_diesel_live）",
+      "reason": "未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充"
+    }
+  },
+  "units": {
+    "wti": "美元/桶",
+    "brent": "美元/桶",
+    "diesel": "元/吨"
+  },
+  "names": {
+    "wti": "WTI原油",
+    "brent": "布伦特原油",
+    "diesel": "国内0#柴油批发价"
+  },
+  "history": [
+    {
+      "date": "2025-12-24",
+      "wti": 58.35,
+      "brent": 62.24,
+      "diesel": NaN
+    },
+    {
+      "date": "2025-12-25",
+      "wti": NaN,
+      "brent": NaN,
+      "diesel": NaN
+    },
+    {
+      "date": "2025-12-26",
+      "wti": 56.74,
+      "brent": 60.64,
+      "diesel": NaN
+    },
+    {
+      "date": "2025-12-29",
+      "wti": 58.08,
+      "brent": 61.94,
+      "diesel": NaN
+    },
+    {
+      "date": "2025-12-30",
+      "wti": 57.95,
+      "brent": 61.92,
+      "diesel": NaN
+    },
+    {
+      "date": "2025-12-31",
+      "wti": 57.42,
+      "brent": 60.85,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-01",
+      "wti": NaN,
+      "brent": NaN,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-02",
+      "wti": 57.32,
+      "brent": 60.75,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-05",
+      "wti": 58.32,
+      "brent": 61.76,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-06",
+      "wti": 57.13,
+      "brent": 60.7,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-07",
+      "wti": 55.99,
+      "brent": 59.96,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-08",
+      "wti": 57.76,
+      "brent": 61.99,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-09",
+      "wti": 59.12,
+      "brent": 63.34,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-12",
+      "wti": 59.5,
+      "brent": 63.87,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-13",
+      "wti": 61.15,
+      "brent": 65.47,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-14",
+      "wti": 62.02,
+      "brent": 66.52,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-15",
+      "wti": 59.19,
+      "brent": 63.76,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-16",
+      "wti": 59.44,
+      "brent": 64.13,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-19",
+      "wti": NaN,
+      "brent": 63.94,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-20",
+      "wti": 60.34,
+      "brent": 64.92,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-21",
+      "wti": 60.62,
+      "brent": 65.24,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-22",
+      "wti": 59.36,
+      "brent": 64.06,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-23",
+      "wti": 61.07,
+      "brent": 65.88,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-26",
+      "wti": 60.63,
+      "brent": 65.59,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-27",
+      "wti": 62.39,
+      "brent": 67.57,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-28",
+      "wti": 63.21,
+      "brent": 68.4,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-29",
+      "wti": 65.42,
+      "brent": 70.71,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-01-30",
+      "wti": 65.21,
+      "brent": 70.69,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-02",
+      "wti": 62.14,
+      "brent": 66.3,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-03",
+      "wti": 63.21,
+      "brent": 67.33,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-04",
+      "wti": 65.14,
+      "brent": 69.46,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-05",
+      "wti": 63.29,
+      "brent": 67.55,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-06",
+      "wti": 63.55,
+      "brent": 68.05,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-09",
+      "wti": 64.36,
+      "brent": 69.04,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-10",
+      "wti": 63.96,
+      "brent": 68.8,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-11",
+      "wti": 64.63,
+      "brent": 69.4,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-12",
+      "wti": 62.84,
+      "brent": 67.52,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-13",
+      "wti": 62.89,
+      "brent": 67.75,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-16",
+      "wti": NaN,
+      "brent": 68.65,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-17",
+      "wti": 62.33,
+      "brent": 67.42,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-18",
+      "wti": 65.19,
+      "brent": 70.35,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-19",
+      "wti": 66.43,
+      "brent": 71.66,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-20",
+      "wti": 66.39,
+      "brent": 71.76,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-23",
+      "wti": 66.31,
+      "brent": 71.49,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-24",
+      "wti": 65.63,
+      "brent": 70.77,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-25",
+      "wti": 65.42,
+      "brent": 70.85,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-26",
+      "wti": 65.21,
+      "brent": 70.75,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-02-27",
+      "wti": 67.02,
+      "brent": 72.48,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-02",
+      "wti": 71.23,
+      "brent": 77.74,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-03",
+      "wti": 74.56,
+      "brent": 81.4,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-04",
+      "wti": 74.66,
+      "brent": 81.4,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-05",
+      "wti": 81.01,
+      "brent": 85.41,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-06",
+      "wti": 90.9,
+      "brent": 92.69,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-09",
+      "wti": 94.77,
+      "brent": 98.96,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-10",
+      "wti": 83.45,
+      "brent": 87.8,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-11",
+      "wti": 87.25,
+      "brent": 91.98,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-12",
+      "wti": 95.73,
+      "brent": 100.46,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-13",
+      "wti": 98.71,
+      "brent": 103.14,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-16",
+      "wti": 93.5,
+      "brent": 100.21,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-17",
+      "wti": 96.21,
+      "brent": 103.42,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-18",
+      "wti": 96.32,
+      "brent": 107.38,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-19",
+      "wti": 96.14,
+      "brent": 108.65,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-20",
+      "wti": 98.32,
+      "brent": 112.19,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-23",
+      "wti": 88.13,
+      "brent": 99.94,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-24",
+      "wti": 92.35,
+      "brent": 104.49,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-25",
+      "wti": 90.32,
+      "brent": 102.22,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-26",
+      "wti": 94.48,
+      "brent": 108.01,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-27",
+      "wti": 99.64,
+      "brent": 112.57,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-30",
+      "wti": 102.88,
+      "brent": 112.78,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-03-31",
+      "wti": 101.38,
+      "brent": 118.35,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-01",
+      "wti": 100.12,
+      "brent": 101.16,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-02",
+      "wti": 111.54,
+      "brent": 109.03,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-03",
+      "wti": NaN,
+      "brent": NaN,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-06",
+      "wti": 112.41,
+      "brent": 109.77,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-07",
+      "wti": 112.95,
+      "brent": 109.27,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-08",
+      "wti": 94.41,
+      "brent": 94.75,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-09",
+      "wti": 97.87,
+      "brent": 95.92,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-10",
+      "wti": 96.57,
+      "brent": 95.2,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-13",
+      "wti": 99.08,
+      "brent": 99.36,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-14",
+      "wti": 91.28,
+      "brent": 94.79,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-15",
+      "wti": 91.29,
+      "brent": 94.93,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-16",
+      "wti": 94.69,
+      "brent": 99.39,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-17",
+      "wti": 83.85,
+      "brent": 90.38,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-20",
+      "wti": 89.61,
+      "brent": 95.48,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-21",
+      "wti": NaN,
+      "brent": 98.48,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-22",
+      "wti": 92.96,
+      "brent": 101.91,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-23",
+      "wti": 95.85,
+      "brent": 105.07,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-24",
+      "wti": 94.4,
+      "brent": 105.33,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-27",
+      "wti": 96.37,
+      "brent": 108.23,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-28",
+      "wti": 99.93,
+      "brent": 111.26,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-29",
+      "wti": 106.88,
+      "brent": 118.03,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-04-30",
+      "wti": 105.07,
+      "brent": 114.01,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-01",
+      "wti": 101.94,
+      "brent": 108.17,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-04",
+      "wti": 106.42,
+      "brent": 114.44,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-05",
+      "wti": 102.27,
+      "brent": 109.87,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-06",
+      "wti": 95.08,
+      "brent": 101.27,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-07",
+      "wti": 94.81,
+      "brent": 100.06,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-08",
+      "wti": 95.42,
+      "brent": 101.29,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-11",
+      "wti": 98.07,
+      "brent": 104.21,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-12",
+      "wti": 102.18,
+      "brent": 107.77,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-13",
+      "wti": 101.02,
+      "brent": 105.63,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-14",
+      "wti": 101.17,
+      "brent": 105.72,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-15",
+      "wti": 105.42,
+      "brent": 109.26,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-18",
+      "wti": 108.66,
+      "brent": 112.1,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-19",
+      "wti": NaN,
+      "brent": 111.28,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-20",
+      "wti": 98.26,
+      "brent": 105.02,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-21",
+      "wti": 96.35,
+      "brent": 102.58,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-22",
+      "wti": 96.6,
+      "brent": 103.54,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-25",
+      "wti": NaN,
+      "brent": 96.14,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-26",
+      "wti": 93.89,
+      "brent": 99.58,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-27",
+      "wti": 88.68,
+      "brent": 94.29,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-28",
+      "wti": 88.9,
+      "brent": 93.71,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-05-29",
+      "wti": 87.36,
+      "brent": 92.05,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-01",
+      "wti": 92.16,
+      "brent": 94.98,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-02",
+      "wti": 93.76,
+      "brent": 96.0,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-03",
+      "wti": 96.02,
+      "brent": 97.81,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-04",
+      "wti": 93.04,
+      "brent": 95.03,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-05",
+      "wti": 90.54,
+      "brent": 93.09,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-08",
+      "wti": 91.3,
+      "brent": 94.25,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-09",
+      "wti": 88.2,
+      "brent": 91.45,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-10",
+      "wti": 90.03,
+      "brent": 93.1,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-11",
+      "wti": 87.71,
+      "brent": 90.38,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-12",
+      "wti": 84.88,
+      "brent": 87.33,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-15",
+      "wti": 80.75,
+      "brent": 83.17,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-16",
+      "wti": 76.05,
+      "brent": 78.96,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-17",
+      "wti": 76.79,
+      "brent": 79.55,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-18",
+      "wti": 76.6,
+      "brent": 79.85,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-19",
+      "wti": NaN,
+      "brent": 80.57,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-22",
+      "wti": 74.82,
+      "brent": 77.9,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-23",
+      "wti": 73.21,
+      "brent": 77.08,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-24",
+      "wti": 70.34,
+      "brent": 73.74,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-25",
+      "wti": 71.92,
+      "brent": 75.26,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-26",
+      "wti": 69.23,
+      "brent": 71.99,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-29",
+      "wti": 70.75,
+      "brent": 73.15,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-06-30",
+      "wti": 69.5,
+      "brent": 72.92,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-01",
+      "wti": 68.58,
+      "brent": 71.57,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-02",
+      "wti": 68.69,
+      "brent": 71.8,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-03",
+      "wti": NaN,
+      "brent": 72.12,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-06",
+      "wti": 68.55,
+      "brent": 71.99,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-07",
+      "wti": 70.44,
+      "brent": 74.16,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-08",
+      "wti": 73.52,
+      "brent": 78.02,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-09",
+      "wti": 72.08,
+      "brent": 76.3,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-10",
+      "wti": 71.41,
+      "brent": 76.01,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-13",
+      "wti": 78.14,
+      "brent": 83.3,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-14",
+      "wti": 79.34,
+      "brent": 84.73,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-15",
+      "wti": 79.6,
+      "brent": 84.95,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-16",
+      "wti": 78.95,
+      "brent": 84.23,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-17",
+      "wti": 82.49,
+      "brent": 88.1,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-20",
+      "wti": 83.23,
+      "brent": 89.22,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-21",
+      "wti": 84.91,
+      "brent": 91.01,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-22",
+      "wti": NaN,
+      "brent": 94.07,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-23",
+      "wti": 92.19,
+      "brent": 100.69,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-24",
+      "wti": 89.31,
+      "brent": 96.78,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-27",
+      "wti": 82.61,
+      "brent": 88.36,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-28",
+      "wti": 79.26,
+      "brent": 84.09,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-29",
+      "wti": 84.46,
+      "brent": 90.74,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-30",
+      "wti": 83.59,
+      "brent": 89.03,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-07-31",
+      "wti": 84.67,
+      "brent": 90.12,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-03",
+      "wti": 80.34,
+      "brent": 83.77,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-04",
+      "wti": 75.77,
+      "brent": 79.36,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-05",
+      "wti": 75.22,
+      "brent": 79.45,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-06",
+      "wti": 77.29,
+      "brent": 82.49,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-07",
+      "wti": 78.18,
+      "brent": 83.55,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-10",
+      "wti": 82.13,
+      "brent": 87.72,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-11",
+      "wti": 83.2,
+      "brent": 88.91,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-12",
+      "wti": 83.27,
+      "brent": 88.98,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-13",
+      "wti": 81.25,
+      "brent": 87.07,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-14",
+      "wti": 82.4,
+      "brent": 88.52,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-17",
+      "wti": 84.5,
+      "brent": 90.87,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-18",
+      "wti": 84.94,
+      "brent": 91.02,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-19",
+      "wti": 85.83,
+      "brent": 91.62,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-20",
+      "wti": 87.83,
+      "brent": 93.78,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-21",
+      "wti": 87.06,
+      "brent": 94.39,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-24",
+      "wti": 85.01,
+      "brent": 92.17,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-25",
+      "wti": 82.36,
+      "brent": 88.58,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-26",
+      "wti": 82.23,
+      "brent": 87.84,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-27",
+      "wti": 83.53,
+      "brent": 89.7,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-28",
+      "wti": 83.4,
+      "brent": 89.31,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-08-31",
+      "wti": 85.76,
+      "brent": 90.49,
+      "diesel": NaN
+    },
+    {
+      "date": "2026-09-01",
+      "wti": 90.22,
+      "brent": 94.65,
+      "diesel": NaN
+    }
+  ],
+  "forecasts": {
+    "short": {
+      "wti": {
+        "status": "ok",
+        "endpoint": {
+          "target_date": "2026-09-15",
+          "mean": 86.73,
+          "q05": 72.21,
+          "q25": 81.06,
+          "q75": 98.92,
+          "q95": 106.05,
+          "pct_mean": -3.87,
+          "prob_up": 0.392,
+          "prob_down": 0.608
+        },
+        "path": [
+          {
+            "date": "2026-09-02",
+            "mean": 91.35,
+            "q50": 91.35,
+            "q05": 87.01,
+            "q25": 89.22,
+            "q75": 93.13,
+            "q95": 98.57
+          },
+          {
+            "date": "2026-09-03",
+            "mean": 93.47,
+            "q50": 93.47,
+            "q05": 89.04,
+            "q25": 91.3,
+            "q75": 95.3,
+            "q95": 100.87
+          },
+          {
+            "date": "2026-09-04",
+            "mean": 92.36,
+            "q50": 92.36,
+            "q05": 85.32,
+            "q25": 89.71,
+            "q75": 96.23,
+            "q95": 101.22
+          },
+          {
+            "date": "2026-09-07",
+            "mean": 91.15,
+            "q50": 91.15,
+            "q05": 81.66,
+            "q25": 88.04,
+            "q75": 97.06,
+            "q95": 101.45
+          },
+          {
+            "date": "2026-09-08",
+            "mean": 91.03,
+            "q50": 91.03,
+            "q05": 79.08,
+            "q25": 87.43,
+            "q75": 99.05,
+            "q95": 102.89
+          },
+          {
+            "date": "2026-09-09",
+            "mean": 88.34,
+            "q50": 88.34,
+            "q05": 76.1,
+            "q25": 84.39,
+            "q75": 97.04,
+            "q95": 101.44
+          },
+          {
+            "date": "2026-09-10",
+            "mean": 89.7,
+            "q50": 89.7,
+            "q05": 76.61,
+            "q25": 85.22,
+            "q75": 99.46,
+            "q95": 104.63
+          },
+          {
+            "date": "2026-09-11",
+            "mean": 88.19,
+            "q50": 88.19,
+            "q05": 74.68,
+            "q25": 83.33,
+            "q75": 98.71,
+            "q95": 104.5
+          },
+          {
+            "date": "2026-09-14",
+            "mean": 86.46,
+            "q50": 86.46,
+            "q05": 72.6,
+            "q25": 81.25,
+            "q75": 97.69,
+            "q95": 104.07
+          },
+          {
+            "date": "2026-09-15",
+            "mean": 86.73,
+            "q50": 86.73,
+            "q05": 72.21,
+            "q25": 81.06,
+            "q75": 98.92,
+            "q95": 106.05
+          }
+        ],
+        "arima_benchmark": {
+          "mean": 91.02,
+          "pct_mean": 0.89
+        },
+        "train_meta": {
+          "n_rows": 540,
+          "n_valid": 540,
+          "window": 180,
+          "train_start": "2024-08-07",
+          "train_end": "2026-09-01",
+          "n_steps": 10,
+          "fitted_at": "2026-09-05 14:25:33"
+        },
+        "observed_date": "2026-09-01"
+      },
+      "brent": {
+        "status": "ok",
+        "endpoint": {
+          "target_date": "2026-09-15",
+          "mean": 90.81,
+          "q05": 76.37,
+          "q25": 84.88,
+          "q75": 102.84,
+          "q95": 118.88,
+          "pct_mean": -4.05,
+          "prob_up": 0.397,
+          "prob_down": 0.603
+        },
+        "path": [
+          {
+            "date": "2026-09-02",
+            "mean": 95.88,
+            "q50": 95.88,
+            "q05": 91.62,
+            "q25": 94.08,
+            "q75": 98.87,
+            "q95": 101.75
+          },
+          {
+            "date": "2026-09-03",
+            "mean": 95.53,
+            "q50": 95.53,
+            "q05": 91.28,
+            "q25": 93.74,
+            "q75": 98.51,
+            "q95": 101.38
+          },
+          {
+            "date": "2026-09-04",
+            "mean": 94.46,
+            "q50": 94.46,
+            "q05": 87.75,
+            "q25": 92.04,
+            "q75": 99.39,
+            "q95": 102.83
+          },
+          {
+            "date": "2026-09-07",
+            "mean": 94.05,
+            "q50": 94.05,
+            "q05": 84.94,
+            "q25": 91.01,
+            "q75": 100.97,
+            "q95": 105.04
+          },
+          {
+            "date": "2026-09-08",
+            "mean": 92.87,
+            "q50": 92.87,
+            "q05": 81.55,
+            "q25": 89.24,
+            "q75": 101.74,
+            "q95": 106.41
+          },
+          {
+            "date": "2026-09-09",
+            "mean": 91.37,
+            "q50": 91.37,
+            "q05": 79.54,
+            "q25": 87.31,
+            "q75": 100.76,
+            "q95": 107.51
+          },
+          {
+            "date": "2026-09-10",
+            "mean": 89.98,
+            "q50": 89.98,
+            "q05": 77.66,
+            "q25": 85.51,
+            "q75": 99.89,
+            "q95": 108.74
+          },
+          {
+            "date": "2026-09-11",
+            "mean": 90.64,
+            "q50": 90.64,
+            "q05": 77.55,
+            "q25": 85.66,
+            "q75": 101.29,
+            "q95": 112.49
+          },
+          {
+            "date": "2026-09-14",
+            "mean": 91.21,
+            "q50": 91.21,
+            "q05": 77.37,
+            "q25": 85.72,
+            "q75": 102.6,
+            "q95": 116.26
+          },
+          {
+            "date": "2026-09-15",
+            "mean": 90.81,
+            "q50": 90.81,
+            "q05": 76.37,
+            "q25": 84.88,
+            "q75": 102.84,
+            "q95": 118.88
+          }
+        ],
+        "arima_benchmark": {
+          "mean": 95.37,
+          "pct_mean": 0.76
+        },
+        "train_meta": {
+          "n_rows": 540,
+          "n_valid": 540,
+          "window": 180,
+          "train_start": "2024-08-07",
+          "train_end": "2026-09-01",
+          "n_steps": 10,
+          "fitted_at": "2026-09-05 14:25:39"
+        },
+        "observed_date": "2026-09-01"
+      },
+      "diesel": {
+        "status": "unavailable",
+        "reason": "国内0#柴油批发价真实数据不可用（unavailable）：未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充"
+      }
+    },
+    "mid": {
+      "wti": {
+        "status": "ok",
+        "endpoint": {
+          "target_date": "2026-12-02",
+          "mean": 94.58,
+          "q05": 66.92,
+          "q25": 80.98,
+          "q75": 108.39,
+          "q95": 130.53,
+          "pct_mean": 4.83,
+          "prob_up": 0.564,
+          "prob_down": 0.436
+        },
+        "path": [
+          {
+            "date": "2026-09-02",
+            "mean": 90.41,
+            "q05": 87.0,
+            "q25": 89.35,
+            "q50": 90.42,
+            "q75": 91.68,
+            "q95": 93.84
+          },
+          {
+            "date": "2026-09-03",
+            "mean": 90.48,
+            "q05": 85.3,
+            "q25": 88.6,
+            "q50": 90.43,
+            "q75": 92.25,
+            "q95": 95.23
+          },
+          {
+            "date": "2026-09-04",
+            "mean": 90.54,
+            "q05": 83.88,
+            "q25": 88.13,
+            "q50": 90.46,
+            "q75": 92.9,
+            "q95": 96.58
+          },
+          {
+            "date": "2026-09-07",
+            "mean": 90.6,
+            "q05": 83.85,
+            "q25": 87.76,
+            "q50": 90.43,
+            "q75": 93.31,
+            "q95": 97.62
+          },
+          {
+            "date": "2026-09-08",
+            "mean": 90.67,
+            "q05": 83.13,
+            "q25": 87.49,
+            "q50": 90.59,
+            "q75": 93.74,
+            "q95": 98.33
+          },
+          {
+            "date": "2026-09-09",
+            "mean": 90.73,
+            "q05": 81.77,
+            "q25": 87.39,
+            "q50": 90.78,
+            "q75": 94.19,
+            "q95": 99.17
+          },
+          {
+            "date": "2026-09-10",
+            "mean": 90.79,
+            "q05": 81.56,
+            "q25": 87.47,
+            "q50": 91.22,
+            "q75": 94.4,
+            "q95": 100.17
+          },
+          {
+            "date": "2026-09-11",
+            "mean": 90.86,
+            "q05": 81.0,
+            "q25": 87.18,
+            "q50": 91.1,
+            "q75": 94.83,
+            "q95": 101.32
+          },
+          {
+            "date": "2026-09-14",
+            "mean": 90.92,
+            "q05": 79.48,
+            "q25": 86.86,
+            "q50": 90.93,
+            "q75": 95.28,
+            "q95": 102.09
+          },
+          {
+            "date": "2026-09-15",
+            "mean": 90.98,
+            "q05": 79.05,
+            "q25": 86.74,
+            "q50": 91.18,
+            "q75": 95.55,
+            "q95": 102.95
+          },
+          {
+            "date": "2026-09-16",
+            "mean": 91.04,
+            "q05": 78.3,
+            "q25": 86.42,
+            "q50": 91.43,
+            "q75": 95.7,
+            "q95": 102.87
+          },
+          {
+            "date": "2026-09-17",
+            "mean": 91.11,
+            "q05": 77.55,
+            "q25": 86.51,
+            "q50": 91.32,
+            "q75": 96.22,
+            "q95": 103.58
+          },
+          {
+            "date": "2026-09-18",
+            "mean": 91.17,
+            "q05": 77.93,
+            "q25": 86.28,
+            "q50": 91.34,
+            "q75": 96.96,
+            "q95": 104.67
+          },
+          {
+            "date": "2026-09-21",
+            "mean": 91.23,
+            "q05": 78.61,
+            "q25": 85.68,
+            "q50": 91.7,
+            "q75": 97.22,
+            "q95": 106.03
+          },
+          {
+            "date": "2026-09-22",
+            "mean": 91.3,
+            "q05": 78.04,
+            "q25": 85.65,
+            "q50": 91.67,
+            "q75": 97.61,
+            "q95": 106.18
+          },
+          {
+            "date": "2026-09-23",
+            "mean": 91.36,
+            "q05": 77.11,
+            "q25": 85.27,
+            "q50": 91.79,
+            "q75": 97.91,
+            "q95": 106.85
+          },
+          {
+            "date": "2026-09-24",
+            "mean": 91.42,
+            "q05": 76.26,
+            "q25": 85.04,
+            "q50": 91.73,
+            "q75": 98.42,
+            "q95": 107.44
+          },
+          {
+            "date": "2026-09-25",
+            "mean": 91.49,
+            "q05": 75.85,
+            "q25": 84.55,
+            "q50": 91.78,
+            "q75": 98.8,
+            "q95": 109.4
+          },
+          {
+            "date": "2026-09-28",
+            "mean": 91.55,
+            "q05": 76.09,
+            "q25": 84.29,
+            "q50": 92.1,
+            "q75": 98.69,
+            "q95": 109.57
+          },
+          {
+            "date": "2026-09-29",
+            "mean": 91.61,
+            "q05": 75.77,
+            "q25": 84.6,
+            "q50": 91.89,
+            "q75": 99.15,
+            "q95": 111.22
+          },
+          {
+            "date": "2026-09-30",
+            "mean": 91.68,
+            "q05": 75.76,
+            "q25": 84.5,
+            "q50": 91.81,
+            "q75": 99.51,
+            "q95": 112.2
+          },
+          {
+            "date": "2026-10-01",
+            "mean": 91.74,
+            "q05": 75.26,
+            "q25": 84.71,
+            "q50": 91.93,
+            "q75": 98.97,
+            "q95": 113.48
+          },
+          {
+            "date": "2026-10-02",
+            "mean": 91.8,
+            "q05": 75.12,
+            "q25": 84.16,
+            "q50": 92.09,
+            "q75": 99.15,
+            "q95": 114.29
+          },
+          {
+            "date": "2026-10-05",
+            "mean": 91.87,
+            "q05": 75.39,
+            "q25": 84.53,
+            "q50": 91.9,
+            "q75": 99.27,
+            "q95": 113.67
+          },
+          {
+            "date": "2026-10-06",
+            "mean": 91.93,
+            "q05": 73.88,
+            "q25": 85.03,
+            "q50": 92.39,
+            "q75": 99.37,
+            "q95": 115.41
+          },
+          {
+            "date": "2026-10-07",
+            "mean": 92.0,
+            "q05": 73.79,
+            "q25": 84.5,
+            "q50": 92.28,
+            "q75": 100.28,
+            "q95": 114.11
+          },
+          {
+            "date": "2026-10-08",
+            "mean": 92.06,
+            "q05": 73.87,
+            "q25": 83.45,
+            "q50": 92.52,
+            "q75": 100.04,
+            "q95": 113.42
+          },
+          {
+            "date": "2026-10-09",
+            "mean": 92.12,
+            "q05": 74.24,
+            "q25": 83.07,
+            "q50": 92.4,
+            "q75": 100.44,
+            "q95": 113.51
+          },
+          {
+            "date": "2026-10-12",
+            "mean": 92.19,
+            "q05": 74.14,
+            "q25": 83.19,
+            "q50": 92.49,
+            "q75": 100.71,
+            "q95": 114.84
+          },
+          {
+            "date": "2026-10-13",
+            "mean": 92.25,
+            "q05": 73.72,
+            "q25": 82.99,
+            "q50": 92.31,
+            "q75": 100.57,
+            "q95": 115.33
+          },
+          {
+            "date": "2026-10-14",
+            "mean": 92.31,
+            "q05": 73.18,
+            "q25": 82.94,
+            "q50": 92.06,
+            "q75": 100.93,
+            "q95": 116.2
+          },
+          {
+            "date": "2026-10-15",
+            "mean": 92.38,
+            "q05": 72.73,
+            "q25": 82.99,
+            "q50": 92.47,
+            "q75": 101.57,
+            "q95": 116.18
+          },
+          {
+            "date": "2026-10-16",
+            "mean": 92.44,
+            "q05": 72.88,
+            "q25": 83.4,
+            "q50": 92.0,
+            "q75": 101.61,
+            "q95": 116.11
+          },
+          {
+            "date": "2026-10-19",
+            "mean": 92.51,
+            "q05": 73.07,
+            "q25": 83.19,
+            "q50": 91.87,
+            "q75": 101.89,
+            "q95": 116.88
+          },
+          {
+            "date": "2026-10-20",
+            "mean": 92.57,
+            "q05": 73.07,
+            "q25": 83.11,
+            "q50": 91.75,
+            "q75": 101.93,
+            "q95": 117.64
+          },
+          {
+            "date": "2026-10-21",
+            "mean": 92.63,
+            "q05": 72.88,
+            "q25": 83.08,
+            "q50": 91.46,
+            "q75": 102.63,
+            "q95": 119.6
+          },
+          {
+            "date": "2026-10-22",
+            "mean": 92.7,
+            "q05": 72.47,
+            "q25": 82.68,
+            "q50": 91.5,
+            "q75": 103.15,
+            "q95": 120.33
+          },
+          {
+            "date": "2026-10-23",
+            "mean": 92.76,
+            "q05": 72.23,
+            "q25": 82.55,
+            "q50": 91.71,
+            "q75": 103.07,
+            "q95": 119.85
+          },
+          {
+            "date": "2026-10-26",
+            "mean": 92.83,
+            "q05": 72.8,
+            "q25": 83.13,
+            "q50": 92.19,
+            "q75": 103.6,
+            "q95": 120.17
+          },
+          {
+            "date": "2026-10-27",
+            "mean": 92.89,
+            "q05": 72.21,
+            "q25": 83.14,
+            "q50": 91.99,
+            "q75": 104.22,
+            "q95": 120.89
+          },
+          {
+            "date": "2026-10-28",
+            "mean": 92.96,
+            "q05": 72.15,
+            "q25": 82.88,
+            "q50": 91.56,
+            "q75": 103.96,
+            "q95": 121.6
+          },
+          {
+            "date": "2026-10-29",
+            "mean": 93.02,
+            "q05": 71.35,
+            "q25": 82.45,
+            "q50": 91.93,
+            "q75": 104.26,
+            "q95": 121.93
+          },
+          {
+            "date": "2026-10-30",
+            "mean": 93.08,
+            "q05": 71.78,
+            "q25": 82.34,
+            "q50": 92.26,
+            "q75": 104.78,
+            "q95": 122.19
+          },
+          {
+            "date": "2026-11-02",
+            "mean": 93.15,
+            "q05": 71.59,
+            "q25": 82.26,
+            "q50": 92.73,
+            "q75": 104.69,
+            "q95": 122.14
+          },
+          {
+            "date": "2026-11-03",
+            "mean": 93.21,
+            "q05": 71.77,
+            "q25": 82.09,
+            "q50": 92.04,
+            "q75": 104.55,
+            "q95": 122.1
+          },
+          {
+            "date": "2026-11-04",
+            "mean": 93.28,
+            "q05": 71.27,
+            "q25": 81.98,
+            "q50": 91.85,
+            "q75": 104.42,
+            "q95": 123.61
+          },
+          {
+            "date": "2026-11-05",
+            "mean": 93.34,
+            "q05": 70.3,
+            "q25": 82.3,
+            "q50": 92.27,
+            "q75": 103.89,
+            "q95": 124.85
+          },
+          {
+            "date": "2026-11-06",
+            "mean": 93.41,
+            "q05": 69.47,
+            "q25": 81.6,
+            "q50": 92.0,
+            "q75": 105.01,
+            "q95": 125.82
+          },
+          {
+            "date": "2026-11-09",
+            "mean": 93.47,
+            "q05": 69.53,
+            "q25": 81.31,
+            "q50": 92.63,
+            "q75": 105.51,
+            "q95": 125.5
+          },
+          {
+            "date": "2026-11-10",
+            "mean": 93.54,
+            "q05": 69.25,
+            "q25": 81.31,
+            "q50": 92.95,
+            "q75": 105.57,
+            "q95": 124.49
+          },
+          {
+            "date": "2026-11-11",
+            "mean": 93.6,
+            "q05": 69.54,
+            "q25": 81.74,
+            "q50": 94.12,
+            "q75": 105.65,
+            "q95": 124.1
+          },
+          {
+            "date": "2026-11-12",
+            "mean": 93.67,
+            "q05": 68.98,
+            "q25": 81.67,
+            "q50": 93.72,
+            "q75": 105.82,
+            "q95": 122.67
+          },
+          {
+            "date": "2026-11-13",
+            "mean": 93.73,
+            "q05": 68.52,
+            "q25": 81.81,
+            "q50": 93.72,
+            "q75": 107.08,
+            "q95": 124.04
+          },
+          {
+            "date": "2026-11-16",
+            "mean": 93.8,
+            "q05": 68.78,
+            "q25": 81.52,
+            "q50": 93.34,
+            "q75": 106.28,
+            "q95": 125.14
+          },
+          {
+            "date": "2026-11-17",
+            "mean": 93.86,
+            "q05": 68.84,
+            "q25": 81.72,
+            "q50": 92.95,
+            "q75": 106.79,
+            "q95": 125.51
+          },
+          {
+            "date": "2026-11-18",
+            "mean": 93.93,
+            "q05": 69.03,
+            "q25": 81.65,
+            "q50": 93.29,
+            "q75": 106.51,
+            "q95": 125.85
+          },
+          {
+            "date": "2026-11-19",
+            "mean": 93.99,
+            "q05": 68.38,
+            "q25": 81.59,
+            "q50": 93.5,
+            "q75": 106.98,
+            "q95": 126.35
+          },
+          {
+            "date": "2026-11-20",
+            "mean": 94.06,
+            "q05": 68.7,
+            "q25": 81.68,
+            "q50": 93.42,
+            "q75": 106.34,
+            "q95": 127.05
+          },
+          {
+            "date": "2026-11-23",
+            "mean": 94.12,
+            "q05": 68.11,
+            "q25": 81.85,
+            "q50": 93.81,
+            "q75": 107.2,
+            "q95": 129.19
+          },
+          {
+            "date": "2026-11-24",
+            "mean": 94.19,
+            "q05": 67.97,
+            "q25": 82.13,
+            "q50": 93.76,
+            "q75": 107.11,
+            "q95": 129.25
+          },
+          {
+            "date": "2026-11-25",
+            "mean": 94.25,
+            "q05": 67.99,
+            "q25": 81.97,
+            "q50": 94.14,
+            "q75": 107.48,
+            "q95": 129.08
+          },
+          {
+            "date": "2026-11-26",
+            "mean": 94.32,
+            "q05": 68.04,
+            "q25": 82.12,
+            "q50": 93.68,
+            "q75": 108.66,
+            "q95": 128.2
+          },
+          {
+            "date": "2026-11-27",
+            "mean": 94.38,
+            "q05": 67.94,
+            "q25": 82.16,
+            "q50": 93.7,
+            "q75": 107.71,
+            "q95": 126.77
+          },
+          {
+            "date": "2026-11-30",
+            "mean": 94.45,
+            "q05": 67.85,
+            "q25": 81.62,
+            "q50": 94.05,
+            "q75": 108.7,
+            "q95": 127.83
+          },
+          {
+            "date": "2026-12-01",
+            "mean": 94.51,
+            "q05": 67.53,
+            "q25": 81.12,
+            "q50": 94.13,
+            "q75": 108.0,
+            "q95": 129.92
+          },
+          {
+            "date": "2026-12-02",
+            "mean": 94.58,
+            "q05": 66.92,
+            "q25": 80.98,
+            "q50": 93.75,
+            "q75": 108.39,
+            "q95": 130.53
+          }
+        ],
+        "scenario_probs": {
+          "bull": 0.19,
+          "base": 0.492,
+          "bear": 0.318
+        },
+        "observed_date": "2026-09-01"
+      },
+      "brent": {
+        "status": "ok",
+        "endpoint": {
+          "target_date": "2026-12-02",
+          "mean": 99.57,
+          "q05": 72.39,
+          "q25": 86.64,
+          "q75": 113.88,
+          "q95": 133.96,
+          "pct_mean": 5.2,
+          "prob_up": 0.576,
+          "prob_down": 0.424
+        },
+        "path": [
+          {
+            "date": "2026-09-02",
+            "mean": 94.95,
+            "q05": 91.32,
+            "q25": 93.9,
+            "q50": 95.04,
+            "q75": 96.29,
+            "q95": 98.26
+          },
+          {
+            "date": "2026-09-03",
+            "mean": 95.01,
+            "q05": 89.88,
+            "q25": 93.26,
+            "q50": 95.11,
+            "q75": 96.62,
+            "q95": 99.67
+          },
+          {
+            "date": "2026-09-04",
+            "mean": 95.08,
+            "q05": 87.82,
+            "q25": 92.64,
+            "q50": 95.19,
+            "q75": 97.39,
+            "q95": 101.34
+          },
+          {
+            "date": "2026-09-07",
+            "mean": 95.15,
+            "q05": 87.84,
+            "q25": 92.33,
+            "q50": 95.08,
+            "q75": 97.84,
+            "q95": 102.25
+          },
+          {
+            "date": "2026-09-08",
+            "mean": 95.22,
+            "q05": 87.44,
+            "q25": 92.1,
+            "q50": 95.06,
+            "q75": 98.23,
+            "q95": 103.1
+          },
+          {
+            "date": "2026-09-09",
+            "mean": 95.29,
+            "q05": 86.33,
+            "q25": 91.9,
+            "q50": 95.19,
+            "q75": 98.87,
+            "q95": 103.63
+          },
+          {
+            "date": "2026-09-10",
+            "mean": 95.36,
+            "q05": 85.95,
+            "q25": 92.09,
+            "q50": 95.43,
+            "q75": 99.21,
+            "q95": 104.95
+          },
+          {
+            "date": "2026-09-11",
+            "mean": 95.43,
+            "q05": 84.96,
+            "q25": 91.87,
+            "q50": 95.25,
+            "q75": 99.67,
+            "q95": 105.99
+          },
+          {
+            "date": "2026-09-14",
+            "mean": 95.5,
+            "q05": 83.66,
+            "q25": 91.52,
+            "q50": 95.67,
+            "q75": 100.0,
+            "q95": 106.8
+          },
+          {
+            "date": "2026-09-15",
+            "mean": 95.57,
+            "q05": 83.84,
+            "q25": 91.36,
+            "q50": 95.9,
+            "q75": 100.13,
+            "q95": 107.67
+          },
+          {
+            "date": "2026-09-16",
+            "mean": 95.64,
+            "q05": 84.08,
+            "q25": 91.01,
+            "q50": 96.24,
+            "q75": 100.27,
+            "q95": 107.98
+          },
+          {
+            "date": "2026-09-17",
+            "mean": 95.71,
+            "q05": 83.34,
+            "q25": 91.26,
+            "q50": 96.18,
+            "q75": 100.85,
+            "q95": 108.48
+          },
+          {
+            "date": "2026-09-18",
+            "mean": 95.78,
+            "q05": 82.79,
+            "q25": 91.23,
+            "q50": 96.24,
+            "q75": 101.2,
+            "q95": 109.15
+          },
+          {
+            "date": "2026-09-21",
+            "mean": 95.85,
+            "q05": 82.31,
+            "q25": 90.97,
+            "q50": 96.11,
+            "q75": 101.7,
+            "q95": 110.32
+          },
+          {
+            "date": "2026-09-22",
+            "mean": 95.92,
+            "q05": 82.03,
+            "q25": 90.66,
+            "q50": 96.29,
+            "q75": 102.1,
+            "q95": 111.27
+          },
+          {
+            "date": "2026-09-23",
+            "mean": 95.99,
+            "q05": 81.88,
+            "q25": 90.5,
+            "q50": 96.48,
+            "q75": 102.55,
+            "q95": 111.13
+          },
+          {
+            "date": "2026-09-24",
+            "mean": 96.06,
+            "q05": 81.02,
+            "q25": 90.15,
+            "q50": 96.33,
+            "q75": 102.64,
+            "q95": 111.51
+          },
+          {
+            "date": "2026-09-25",
+            "mean": 96.13,
+            "q05": 80.16,
+            "q25": 89.88,
+            "q50": 96.48,
+            "q75": 102.98,
+            "q95": 113.11
+          },
+          {
+            "date": "2026-09-28",
+            "mean": 96.2,
+            "q05": 80.9,
+            "q25": 89.47,
+            "q50": 96.55,
+            "q75": 103.42,
+            "q95": 114.11
+          },
+          {
+            "date": "2026-09-29",
+            "mean": 96.27,
+            "q05": 80.44,
+            "q25": 89.7,
+            "q50": 96.72,
+            "q75": 103.87,
+            "q95": 115.81
+          },
+          {
+            "date": "2026-09-30",
+            "mean": 96.34,
+            "q05": 80.06,
+            "q25": 89.78,
+            "q50": 96.48,
+            "q75": 103.32,
+            "q95": 115.94
+          },
+          {
+            "date": "2026-10-01",
+            "mean": 96.41,
+            "q05": 80.0,
+            "q25": 89.43,
+            "q50": 96.67,
+            "q75": 103.0,
+            "q95": 116.58
+          },
+          {
+            "date": "2026-10-02",
+            "mean": 96.48,
+            "q05": 79.05,
+            "q25": 89.72,
+            "q50": 96.76,
+            "q75": 103.45,
+            "q95": 117.02
+          },
+          {
+            "date": "2026-10-05",
+            "mean": 96.55,
+            "q05": 78.38,
+            "q25": 89.3,
+            "q50": 97.26,
+            "q75": 103.86,
+            "q95": 116.37
+          },
+          {
+            "date": "2026-10-06",
+            "mean": 96.63,
+            "q05": 78.16,
+            "q25": 89.71,
+            "q50": 96.61,
+            "q75": 104.0,
+            "q95": 116.69
+          },
+          {
+            "date": "2026-10-07",
+            "mean": 96.7,
+            "q05": 78.32,
+            "q25": 89.29,
+            "q50": 96.88,
+            "q75": 104.61,
+            "q95": 116.33
+          },
+          {
+            "date": "2026-10-08",
+            "mean": 96.77,
+            "q05": 78.34,
+            "q25": 88.56,
+            "q50": 97.21,
+            "q75": 104.24,
+            "q95": 116.41
+          },
+          {
+            "date": "2026-10-09",
+            "mean": 96.84,
+            "q05": 78.53,
+            "q25": 88.5,
+            "q50": 97.36,
+            "q75": 104.03,
+            "q95": 117.76
+          },
+          {
+            "date": "2026-10-12",
+            "mean": 96.91,
+            "q05": 77.69,
+            "q25": 88.81,
+            "q50": 97.45,
+            "q75": 104.35,
+            "q95": 118.62
+          },
+          {
+            "date": "2026-10-13",
+            "mean": 96.98,
+            "q05": 77.45,
+            "q25": 88.37,
+            "q50": 97.06,
+            "q75": 105.36,
+            "q95": 119.55
+          },
+          {
+            "date": "2026-10-14",
+            "mean": 97.05,
+            "q05": 77.75,
+            "q25": 88.54,
+            "q50": 96.86,
+            "q75": 105.98,
+            "q95": 119.46
+          },
+          {
+            "date": "2026-10-15",
+            "mean": 97.12,
+            "q05": 77.33,
+            "q25": 88.64,
+            "q50": 96.65,
+            "q75": 106.48,
+            "q95": 120.07
+          },
+          {
+            "date": "2026-10-16",
+            "mean": 97.19,
+            "q05": 76.41,
+            "q25": 89.05,
+            "q50": 97.06,
+            "q75": 106.57,
+            "q95": 120.0
+          },
+          {
+            "date": "2026-10-19",
+            "mean": 97.27,
+            "q05": 76.89,
+            "q25": 89.07,
+            "q50": 96.8,
+            "q75": 106.8,
+            "q95": 122.31
+          },
+          {
+            "date": "2026-10-20",
+            "mean": 97.34,
+            "q05": 77.2,
+            "q25": 88.89,
+            "q50": 97.0,
+            "q75": 107.22,
+            "q95": 122.42
+          },
+          {
+            "date": "2026-10-21",
+            "mean": 97.41,
+            "q05": 76.14,
+            "q25": 88.79,
+            "q50": 96.31,
+            "q75": 107.69,
+            "q95": 124.59
+          },
+          {
+            "date": "2026-10-22",
+            "mean": 97.48,
+            "q05": 75.74,
+            "q25": 88.67,
+            "q50": 96.81,
+            "q75": 108.27,
+            "q95": 124.03
+          },
+          {
+            "date": "2026-10-23",
+            "mean": 97.55,
+            "q05": 76.1,
+            "q25": 88.54,
+            "q50": 97.09,
+            "q75": 108.48,
+            "q95": 123.94
+          },
+          {
+            "date": "2026-10-26",
+            "mean": 97.62,
+            "q05": 75.36,
+            "q25": 88.63,
+            "q50": 97.49,
+            "q75": 108.66,
+            "q95": 124.49
+          },
+          {
+            "date": "2026-10-27",
+            "mean": 97.69,
+            "q05": 76.41,
+            "q25": 88.73,
+            "q50": 97.05,
+            "q75": 108.51,
+            "q95": 125.81
+          },
+          {
+            "date": "2026-10-28",
+            "mean": 97.77,
+            "q05": 76.72,
+            "q25": 88.32,
+            "q50": 96.73,
+            "q75": 108.42,
+            "q95": 125.26
+          },
+          {
+            "date": "2026-10-29",
+            "mean": 97.84,
+            "q05": 76.5,
+            "q25": 88.0,
+            "q50": 97.25,
+            "q75": 108.62,
+            "q95": 125.86
+          },
+          {
+            "date": "2026-10-30",
+            "mean": 97.91,
+            "q05": 75.32,
+            "q25": 87.81,
+            "q50": 97.25,
+            "q75": 108.94,
+            "q95": 127.02
+          },
+          {
+            "date": "2026-11-02",
+            "mean": 97.98,
+            "q05": 75.97,
+            "q25": 87.71,
+            "q50": 97.59,
+            "q75": 108.6,
+            "q95": 126.77
+          },
+          {
+            "date": "2026-11-03",
+            "mean": 98.05,
+            "q05": 76.2,
+            "q25": 87.76,
+            "q50": 96.88,
+            "q75": 108.97,
+            "q95": 127.81
+          },
+          {
+            "date": "2026-11-04",
+            "mean": 98.12,
+            "q05": 75.25,
+            "q25": 87.85,
+            "q50": 97.01,
+            "q75": 108.29,
+            "q95": 127.62
+          },
+          {
+            "date": "2026-11-05",
+            "mean": 98.2,
+            "q05": 75.36,
+            "q25": 87.65,
+            "q50": 97.65,
+            "q75": 108.58,
+            "q95": 128.58
+          },
+          {
+            "date": "2026-11-06",
+            "mean": 98.27,
+            "q05": 74.21,
+            "q25": 87.18,
+            "q50": 97.46,
+            "q75": 109.69,
+            "q95": 130.32
+          },
+          {
+            "date": "2026-11-09",
+            "mean": 98.34,
+            "q05": 74.74,
+            "q25": 87.37,
+            "q50": 97.78,
+            "q75": 109.45,
+            "q95": 130.97
+          },
+          {
+            "date": "2026-11-10",
+            "mean": 98.41,
+            "q05": 74.85,
+            "q25": 87.14,
+            "q50": 98.03,
+            "q75": 110.34,
+            "q95": 129.64
+          },
+          {
+            "date": "2026-11-11",
+            "mean": 98.48,
+            "q05": 74.37,
+            "q25": 86.81,
+            "q50": 98.42,
+            "q75": 110.42,
+            "q95": 128.49
+          },
+          {
+            "date": "2026-11-12",
+            "mean": 98.56,
+            "q05": 73.57,
+            "q25": 86.84,
+            "q50": 98.96,
+            "q75": 110.38,
+            "q95": 129.02
+          },
+          {
+            "date": "2026-11-13",
+            "mean": 98.63,
+            "q05": 74.33,
+            "q25": 86.6,
+            "q50": 98.91,
+            "q75": 110.95,
+            "q95": 129.63
+          },
+          {
+            "date": "2026-11-16",
+            "mean": 98.7,
+            "q05": 73.54,
+            "q25": 86.69,
+            "q50": 98.79,
+            "q75": 110.77,
+            "q95": 129.43
+          },
+          {
+            "date": "2026-11-17",
+            "mean": 98.77,
+            "q05": 73.61,
+            "q25": 86.83,
+            "q50": 98.52,
+            "q75": 110.7,
+            "q95": 128.53
+          },
+          {
+            "date": "2026-11-18",
+            "mean": 98.85,
+            "q05": 73.15,
+            "q25": 86.94,
+            "q50": 98.78,
+            "q75": 111.16,
+            "q95": 131.59
+          },
+          {
+            "date": "2026-11-19",
+            "mean": 98.92,
+            "q05": 73.64,
+            "q25": 86.98,
+            "q50": 98.75,
+            "q75": 111.34,
+            "q95": 130.92
+          },
+          {
+            "date": "2026-11-20",
+            "mean": 98.99,
+            "q05": 73.17,
+            "q25": 87.27,
+            "q50": 99.33,
+            "q75": 111.4,
+            "q95": 131.73
+          },
+          {
+            "date": "2026-11-23",
+            "mean": 99.06,
+            "q05": 73.45,
+            "q25": 87.2,
+            "q50": 99.08,
+            "q75": 111.47,
+            "q95": 131.86
+          },
+          {
+            "date": "2026-11-24",
+            "mean": 99.14,
+            "q05": 72.82,
+            "q25": 87.16,
+            "q50": 99.47,
+            "q75": 111.38,
+            "q95": 132.3
+          },
+          {
+            "date": "2026-11-25",
+            "mean": 99.21,
+            "q05": 72.95,
+            "q25": 86.93,
+            "q50": 99.38,
+            "q75": 112.05,
+            "q95": 133.35
+          },
+          {
+            "date": "2026-11-26",
+            "mean": 99.28,
+            "q05": 73.48,
+            "q25": 86.92,
+            "q50": 99.52,
+            "q75": 113.05,
+            "q95": 131.98
+          },
+          {
+            "date": "2026-11-27",
+            "mean": 99.35,
+            "q05": 73.5,
+            "q25": 86.71,
+            "q50": 99.96,
+            "q75": 113.34,
+            "q95": 131.33
+          },
+          {
+            "date": "2026-11-30",
+            "mean": 99.43,
+            "q05": 73.35,
+            "q25": 86.82,
+            "q50": 100.0,
+            "q75": 113.54,
+            "q95": 132.24
+          },
+          {
+            "date": "2026-12-01",
+            "mean": 99.5,
+            "q05": 72.63,
+            "q25": 86.5,
+            "q50": 100.29,
+            "q75": 113.69,
+            "q95": 133.38
+          },
+          {
+            "date": "2026-12-02",
+            "mean": 99.57,
+            "q05": 72.39,
+            "q25": 86.64,
+            "q50": 99.37,
+            "q75": 113.88,
+            "q95": 133.96
+          }
+        ],
+        "scenario_probs": {
+          "bull": 0.19,
+          "base": 0.492,
+          "bear": 0.318
+        },
+        "observed_date": "2026-09-01"
+      },
+      "diesel": {
+        "status": "unavailable",
+        "reason": "国内0#柴油批发价真实数据不可用（unavailable）：未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充"
+      }
+    },
+    "long": {
+      "wti": {
+        "status": "ok",
+        "endpoint": {
+          "target_date": "2027-08-19",
+          "mean": 89.9,
+          "q05": 49.61,
+          "q25": 68.52,
+          "q75": 105.9,
+          "q95": 146.61,
+          "pct_mean": -0.35,
+          "prob_up": 0.427,
+          "prob_down": 0.573,
+          "checkpoints": {
+            "1个月": {
+              "mean": 90.2,
+              "q05": 77.92,
+              "q95": 103.34
+            },
+            "3个月": {
+              "mean": 90.23,
+              "q05": 69.39,
+              "q95": 115.25
+            },
+            "6个月": {
+              "mean": 90.18,
+              "q05": 61.45,
+              "q95": 126.92
+            },
+            "12个月": {
+              "mean": 89.9,
+              "q05": 49.61,
+              "q95": 146.61
+            }
+          },
+          "scenario_probs": {
+            "bull": 0.19,
+            "base": 0.492,
+            "bear": 0.318
+          },
+          "institution_anchor": null
+        },
+        "path": [
+          {
+            "date": "2026-09-02",
+            "mean": 90.23,
+            "q05": 87.41,
+            "q25": 89.06,
+            "q50": 90.19,
+            "q75": 91.36,
+            "q95": 93.06
+          },
+          {
+            "date": "2026-09-03",
+            "mean": 90.22,
+            "q05": 86.18,
+            "q25": 88.63,
+            "q50": 90.26,
+            "q75": 91.85,
+            "q95": 94.27
+          },
+          {
+            "date": "2026-09-04",
+            "mean": 90.16,
+            "q05": 85.18,
+            "q25": 88.17,
+            "q50": 90.17,
+            "q75": 92.11,
+            "q95": 95.21
+          },
+          {
+            "date": "2026-09-07",
+            "mean": 90.2,
+            "q05": 84.79,
+            "q25": 87.86,
+            "q50": 90.15,
+            "q75": 92.44,
+            "q95": 95.93
+          },
+          {
+            "date": "2026-09-08",
+            "mean": 90.18,
+            "q05": 83.91,
+            "q25": 87.67,
+            "q50": 90.12,
+            "q75": 92.73,
+            "q95": 96.66
+          },
+          {
+            "date": "2026-09-09",
+            "mean": 90.13,
+            "q05": 83.36,
+            "q25": 87.26,
+            "q50": 90.08,
+            "q75": 92.82,
+            "q95": 97.37
+          },
+          {
+            "date": "2026-09-10",
+            "mean": 90.16,
+            "q05": 82.88,
+            "q25": 86.92,
+            "q50": 89.91,
+            "q75": 93.1,
+            "q95": 98.22
+          },
+          {
+            "date": "2026-09-11",
+            "mean": 90.14,
+            "q05": 82.3,
+            "q25": 86.74,
+            "q50": 89.91,
+            "q75": 93.39,
+            "q95": 98.71
+          },
+          {
+            "date": "2026-09-14",
+            "mean": 90.02,
+            "q05": 81.77,
+            "q25": 86.46,
+            "q50": 89.86,
+            "q75": 93.41,
+            "q95": 98.8
+          },
+          {
+            "date": "2026-09-15",
+            "mean": 90.02,
+            "q05": 81.43,
+            "q25": 86.18,
+            "q50": 89.9,
+            "q75": 93.48,
+            "q95": 99.36
+          },
+          {
+            "date": "2026-09-16",
+            "mean": 90.02,
+            "q05": 81.0,
+            "q25": 85.92,
+            "q50": 89.86,
+            "q75": 93.64,
+            "q95": 99.98
+          },
+          {
+            "date": "2026-09-17",
+            "mean": 90.1,
+            "q05": 80.9,
+            "q25": 85.86,
+            "q50": 89.81,
+            "q75": 93.92,
+            "q95": 100.86
+          },
+          {
+            "date": "2026-09-18",
+            "mean": 90.11,
+            "q05": 80.7,
+            "q25": 85.78,
+            "q50": 89.76,
+            "q75": 94.09,
+            "q95": 101.46
+          },
+          {
+            "date": "2026-09-21",
+            "mean": 90.14,
+            "q05": 79.96,
+            "q25": 85.56,
+            "q50": 89.78,
+            "q75": 94.37,
+            "q95": 101.71
+          },
+          {
+            "date": "2026-09-22",
+            "mean": 90.17,
+            "q05": 79.55,
+            "q25": 85.56,
+            "q50": 89.82,
+            "q75": 94.29,
+            "q95": 102.43
+          },
+          {
+            "date": "2026-09-23",
+            "mean": 90.15,
+            "q05": 79.11,
+            "q25": 85.6,
+            "q50": 89.75,
+            "q75": 94.48,
+            "q95": 102.46
+          },
+          {
+            "date": "2026-09-24",
+            "mean": 90.14,
+            "q05": 78.9,
+            "q25": 85.38,
+            "q50": 89.74,
+            "q75": 94.63,
+            "q95": 102.27
+          },
+          {
+            "date": "2026-09-25",
+            "mean": 90.15,
+            "q05": 78.36,
+            "q25": 85.13,
+            "q50": 89.83,
+            "q75": 94.83,
+            "q95": 102.39
+          },
+          {
+            "date": "2026-09-28",
+            "mean": 90.23,
+            "q05": 78.21,
+            "q25": 85.0,
+            "q50": 89.95,
+            "q75": 95.18,
+            "q95": 102.58
+          },
+          {
+            "date": "2026-09-29",
+            "mean": 90.19,
+            "q05": 78.01,
+            "q25": 84.7,
+            "q50": 89.88,
+            "q75": 95.36,
+            "q95": 103.29
+          },
+          {
+            "date": "2026-09-30",
+            "mean": 90.2,
+            "q05": 77.92,
+            "q25": 84.66,
+            "q50": 89.94,
+            "q75": 95.42,
+            "q95": 103.34
+          },
+          {
+            "date": "2026-10-01",
+            "mean": 90.22,
+            "q05": 77.61,
+            "q25": 84.64,
+            "q50": 89.84,
+            "q75": 95.53,
+            "q95": 103.8
+          },
+          {
+            "date": "2026-10-02",
+            "mean": 90.14,
+            "q05": 77.35,
+            "q25": 84.52,
+            "q50": 89.92,
+            "q75": 95.47,
+            "q95": 104.22
+          },
+          {
+            "date": "2026-10-05",
+            "mean": 90.12,
+            "q05": 76.59,
+            "q25": 84.36,
+            "q50": 89.83,
+            "q75": 95.54,
+            "q95": 104.27
+          },
+          {
+            "date": "2026-10-06",
+            "mean": 90.1,
+            "q05": 76.56,
+            "q25": 84.27,
+            "q50": 89.79,
+            "q75": 95.62,
+            "q95": 104.44
+          },
+          {
+            "date": "2026-10-07",
+            "mean": 90.1,
+            "q05": 76.47,
+            "q25": 84.14,
+            "q50": 89.82,
+            "q75": 95.53,
+            "q95": 104.85
+          },
+          {
+            "date": "2026-10-08",
+            "mean": 90.12,
+            "q05": 76.43,
+            "q25": 84.03,
+            "q50": 89.76,
+            "q75": 95.6,
+            "q95": 105.46
+          },
+          {
+            "date": "2026-10-09",
+            "mean": 90.12,
+            "q05": 76.33,
+            "q25": 83.77,
+            "q50": 89.67,
+            "q75": 95.88,
+            "q95": 105.61
+          },
+          {
+            "date": "2026-10-12",
+            "mean": 90.14,
+            "q05": 76.03,
+            "q25": 83.62,
+            "q50": 89.76,
+            "q75": 95.96,
+            "q95": 106.14
+          },
+          {
+            "date": "2026-10-13",
+            "mean": 90.16,
+            "q05": 75.61,
+            "q25": 83.55,
+            "q50": 89.71,
+            "q75": 96.14,
+            "q95": 106.84
+          },
+          {
+            "date": "2026-10-14",
+            "mean": 90.16,
+            "q05": 75.81,
+            "q25": 83.55,
+            "q50": 89.74,
+            "q75": 96.15,
+            "q95": 107.01
+          },
+          {
+            "date": "2026-10-15",
+            "mean": 90.09,
+            "q05": 75.58,
+            "q25": 83.07,
+            "q50": 89.72,
+            "q75": 96.1,
+            "q95": 107.42
+          },
+          {
+            "date": "2026-10-16",
+            "mean": 90.07,
+            "q05": 75.45,
+            "q25": 83.1,
+            "q50": 89.59,
+            "q75": 96.26,
+            "q95": 107.94
+          },
+          {
+            "date": "2026-10-19",
+            "mean": 90.11,
+            "q05": 75.18,
+            "q25": 83.09,
+            "q50": 89.69,
+            "q75": 96.29,
+            "q95": 107.48
+          },
+          {
+            "date": "2026-10-20",
+            "mean": 90.09,
+            "q05": 75.01,
+            "q25": 82.95,
+            "q50": 89.52,
+            "q75": 96.47,
+            "q95": 108.13
+          },
+          {
+            "date": "2026-10-21",
+            "mean": 90.12,
+            "q05": 74.63,
+            "q25": 83.07,
+            "q50": 89.4,
+            "q75": 96.58,
+            "q95": 108.02
+          },
+          {
+            "date": "2026-10-22",
+            "mean": 90.13,
+            "q05": 74.33,
+            "q25": 82.97,
+            "q50": 89.29,
+            "q75": 96.69,
+            "q95": 108.48
+          },
+          {
+            "date": "2026-10-23",
+            "mean": 90.11,
+            "q05": 74.03,
+            "q25": 82.96,
+            "q50": 89.39,
+            "q75": 96.81,
+            "q95": 108.47
+          },
+          {
+            "date": "2026-10-26",
+            "mean": 90.11,
+            "q05": 73.82,
+            "q25": 82.55,
+            "q50": 89.23,
+            "q75": 96.97,
+            "q95": 109.21
+          },
+          {
+            "date": "2026-10-27",
+            "mean": 90.11,
+            "q05": 73.33,
+            "q25": 82.59,
+            "q50": 89.26,
+            "q75": 96.88,
+            "q95": 109.45
+          },
+          {
+            "date": "2026-10-28",
+            "mean": 90.06,
+            "q05": 73.17,
+            "q25": 82.22,
+            "q50": 89.25,
+            "q75": 97.18,
+            "q95": 109.94
+          },
+          {
+            "date": "2026-10-29",
+            "mean": 90.04,
+            "q05": 73.06,
+            "q25": 82.28,
+            "q50": 89.11,
+            "q75": 96.94,
+            "q95": 110.16
+          },
+          {
+            "date": "2026-10-30",
+            "mean": 90.09,
+            "q05": 72.65,
+            "q25": 82.16,
+            "q50": 89.32,
+            "q75": 97.31,
+            "q95": 109.95
+          },
+          {
+            "date": "2026-11-02",
+            "mean": 90.08,
+            "q05": 72.7,
+            "q25": 81.85,
+            "q50": 89.24,
+            "q75": 97.48,
+            "q95": 109.59
+          },
+          {
+            "date": "2026-11-03",
+            "mean": 90.06,
+            "q05": 72.36,
+            "q25": 81.6,
+            "q50": 89.35,
+            "q75": 97.65,
+            "q95": 110.4
+          },
+          {
+            "date": "2026-11-04",
+            "mean": 89.96,
+            "q05": 71.98,
+            "q25": 81.52,
+            "q50": 89.22,
+            "q75": 97.53,
+            "q95": 110.44
+          },
+          {
+            "date": "2026-11-05",
+            "mean": 90.05,
+            "q05": 71.94,
+            "q25": 81.58,
+            "q50": 89.3,
+            "q75": 97.45,
+            "q95": 111.13
+          },
+          {
+            "date": "2026-11-06",
+            "mean": 90.06,
+            "q05": 71.69,
+            "q25": 81.34,
+            "q50": 89.26,
+            "q75": 97.51,
+            "q95": 111.42
+          },
+          {
+            "date": "2026-11-09",
+            "mean": 90.05,
+            "q05": 71.45,
+            "q25": 81.4,
+            "q50": 89.28,
+            "q75": 97.63,
+            "q95": 111.53
+          },
+          {
+            "date": "2026-11-10",
+            "mean": 90.04,
+            "q05": 71.26,
+            "q25": 81.2,
+            "q50": 89.13,
+            "q75": 97.68,
+            "q95": 112.02
+          },
+          {
+            "date": "2026-11-11",
+            "mean": 90.14,
+            "q05": 71.1,
+            "q25": 81.31,
+            "q50": 89.41,
+            "q75": 97.82,
+            "q95": 112.5
+          },
+          {
+            "date": "2026-11-12",
+            "mean": 90.15,
+            "q05": 71.32,
+            "q25": 81.36,
+            "q50": 89.49,
+            "q75": 98.05,
+            "q95": 112.82
+          },
+          {
+            "date": "2026-11-13",
+            "mean": 90.2,
+            "q05": 71.36,
+            "q25": 81.29,
+            "q50": 89.23,
+            "q75": 97.8,
+            "q95": 113.2
+          },
+          {
+            "date": "2026-11-16",
+            "mean": 90.22,
+            "q05": 71.14,
+            "q25": 81.42,
+            "q50": 89.36,
+            "q75": 98.08,
+            "q95": 113.15
+          },
+          {
+            "date": "2026-11-17",
+            "mean": 90.29,
+            "q05": 70.94,
+            "q25": 81.06,
+            "q50": 89.19,
+            "q75": 98.04,
+            "q95": 113.6
+          },
+          {
+            "date": "2026-11-18",
+            "mean": 90.26,
+            "q05": 70.64,
+            "q25": 80.93,
+            "q50": 89.24,
+            "q75": 98.13,
+            "q95": 113.92
+          },
+          {
+            "date": "2026-11-19",
+            "mean": 90.28,
+            "q05": 70.35,
+            "q25": 80.8,
+            "q50": 89.27,
+            "q75": 98.23,
+            "q95": 114.71
+          },
+          {
+            "date": "2026-11-20",
+            "mean": 90.27,
+            "q05": 70.3,
+            "q25": 80.79,
+            "q50": 89.2,
+            "q75": 98.29,
+            "q95": 114.93
+          },
+          {
+            "date": "2026-11-23",
+            "mean": 90.29,
+            "q05": 70.15,
+            "q25": 80.38,
+            "q50": 89.36,
+            "q75": 98.36,
+            "q95": 115.27
+          },
+          {
+            "date": "2026-11-24",
+            "mean": 90.23,
+            "q05": 69.91,
+            "q25": 80.36,
+            "q50": 89.38,
+            "q75": 98.12,
+            "q95": 115.11
+          },
+          {
+            "date": "2026-11-25",
+            "mean": 90.23,
+            "q05": 69.98,
+            "q25": 80.37,
+            "q50": 89.3,
+            "q75": 97.98,
+            "q95": 115.31
+          },
+          {
+            "date": "2026-11-26",
+            "mean": 90.2,
+            "q05": 69.67,
+            "q25": 80.25,
+            "q50": 89.34,
+            "q75": 98.21,
+            "q95": 114.79
+          },
+          {
+            "date": "2026-11-27",
+            "mean": 90.23,
+            "q05": 69.39,
+            "q25": 80.1,
+            "q50": 89.58,
+            "q75": 98.41,
+            "q95": 115.25
+          },
+          {
+            "date": "2026-11-30",
+            "mean": 90.17,
+            "q05": 68.83,
+            "q25": 79.82,
+            "q50": 89.16,
+            "q75": 98.58,
+            "q95": 115.47
+          },
+          {
+            "date": "2026-12-01",
+            "mean": 90.06,
+            "q05": 68.7,
+            "q25": 79.66,
+            "q50": 89.26,
+            "q75": 98.38,
+            "q95": 115.7
+          },
+          {
+            "date": "2026-12-02",
+            "mean": 90.08,
+            "q05": 68.92,
+            "q25": 79.7,
+            "q50": 89.09,
+            "q75": 98.42,
+            "q95": 115.91
+          },
+          {
+            "date": "2026-12-03",
+            "mean": 90.14,
+            "q05": 68.78,
+            "q25": 79.87,
+            "q50": 89.23,
+            "q75": 98.57,
+            "q95": 116.03
+          },
+          {
+            "date": "2026-12-04",
+            "mean": 90.15,
+            "q05": 68.62,
+            "q25": 79.68,
+            "q50": 89.0,
+            "q75": 98.95,
+            "q95": 116.39
+          },
+          {
+            "date": "2026-12-07",
+            "mean": 90.19,
+            "q05": 68.59,
+            "q25": 79.65,
+            "q50": 89.12,
+            "q75": 99.12,
+            "q95": 116.6
+          },
+          {
+            "date": "2026-12-08",
+            "mean": 90.17,
+            "q05": 68.67,
+            "q25": 79.85,
+            "q50": 88.84,
+            "q75": 99.22,
+            "q95": 116.78
+          },
+          {
+            "date": "2026-12-09",
+            "mean": 90.17,
+            "q05": 69.0,
+            "q25": 79.8,
+            "q50": 88.86,
+            "q75": 99.36,
+            "q95": 116.8
+          },
+          {
+            "date": "2026-12-10",
+            "mean": 90.14,
+            "q05": 68.36,
+            "q25": 79.61,
+            "q50": 88.81,
+            "q75": 99.6,
+            "q95": 116.79
+          },
+          {
+            "date": "2026-12-11",
+            "mean": 90.14,
+            "q05": 68.18,
+            "q25": 79.74,
+            "q50": 88.6,
+            "q75": 99.23,
+            "q95": 117.52
+          },
+          {
+            "date": "2026-12-14",
+            "mean": 90.12,
+            "q05": 68.08,
+            "q25": 79.75,
+            "q50": 88.92,
+            "q75": 99.31,
+            "q95": 117.27
+          },
+          {
+            "date": "2026-12-15",
+            "mean": 90.12,
+            "q05": 67.84,
+            "q25": 79.44,
+            "q50": 88.76,
+            "q75": 99.45,
+            "q95": 117.45
+          },
+          {
+            "date": "2026-12-16",
+            "mean": 90.14,
+            "q05": 67.71,
+            "q25": 79.19,
+            "q50": 88.81,
+            "q75": 99.35,
+            "q95": 117.25
+          },
+          {
+            "date": "2026-12-17",
+            "mean": 90.12,
+            "q05": 67.6,
+            "q25": 79.33,
+            "q50": 88.93,
+            "q75": 99.1,
+            "q95": 117.07
+          },
+          {
+            "date": "2026-12-18",
+            "mean": 90.15,
+            "q05": 67.22,
+            "q25": 79.22,
+            "q50": 89.03,
+            "q75": 99.48,
+            "q95": 117.77
+          },
+          {
+            "date": "2026-12-21",
+            "mean": 90.15,
+            "q05": 66.86,
+            "q25": 79.18,
+            "q50": 88.87,
+            "q75": 99.67,
+            "q95": 117.85
+          },
+          {
+            "date": "2026-12-22",
+            "mean": 90.17,
+            "q05": 66.34,
+            "q25": 79.12,
+            "q50": 88.99,
+            "q75": 99.76,
+            "q95": 117.93
+          },
+          {
+            "date": "2026-12-23",
+            "mean": 90.19,
+            "q05": 66.49,
+            "q25": 79.15,
+            "q50": 88.82,
+            "q75": 99.78,
+            "q95": 118.42
+          },
+          {
+            "date": "2026-12-24",
+            "mean": 90.23,
+            "q05": 66.53,
+            "q25": 79.27,
+            "q50": 89.01,
+            "q75": 99.67,
+            "q95": 118.43
+          },
+          {
+            "date": "2026-12-25",
+            "mean": 90.19,
+            "q05": 66.71,
+            "q25": 78.85,
+            "q50": 88.75,
+            "q75": 99.71,
+            "q95": 118.47
+          },
+          {
+            "date": "2026-12-28",
+            "mean": 90.19,
+            "q05": 66.9,
+            "q25": 78.56,
+            "q50": 88.66,
+            "q75": 99.85,
+            "q95": 118.77
+          },
+          {
+            "date": "2026-12-29",
+            "mean": 90.13,
+            "q05": 66.29,
+            "q25": 78.65,
+            "q50": 88.74,
+            "q75": 100.03,
+            "q95": 118.21
+          },
+          {
+            "date": "2026-12-30",
+            "mean": 90.16,
+            "q05": 66.46,
+            "q25": 78.5,
+            "q50": 88.34,
+            "q75": 100.06,
+            "q95": 118.68
+          },
+          {
+            "date": "2026-12-31",
+            "mean": 90.12,
+            "q05": 65.99,
+            "q25": 78.11,
+            "q50": 88.32,
+            "q75": 100.14,
+            "q95": 118.8
+          },
+          {
+            "date": "2027-01-01",
+            "mean": 90.13,
+            "q05": 66.23,
+            "q25": 78.04,
+            "q50": 88.5,
+            "q75": 100.1,
+            "q95": 119.42
+          },
+          {
+            "date": "2027-01-04",
+            "mean": 90.11,
+            "q05": 66.17,
+            "q25": 77.74,
+            "q50": 88.23,
+            "q75": 100.47,
+            "q95": 120.28
+          },
+          {
+            "date": "2027-01-05",
+            "mean": 90.19,
+            "q05": 66.07,
+            "q25": 77.95,
+            "q50": 88.21,
+            "q75": 100.75,
+            "q95": 119.93
+          },
+          {
+            "date": "2027-01-06",
+            "mean": 90.26,
+            "q05": 66.04,
+            "q25": 77.82,
+            "q50": 88.58,
+            "q75": 100.71,
+            "q95": 119.42
+          },
+          {
+            "date": "2027-01-07",
+            "mean": 90.35,
+            "q05": 66.05,
+            "q25": 77.74,
+            "q50": 88.52,
+            "q75": 101.08,
+            "q95": 120.16
+          },
+          {
+            "date": "2027-01-08",
+            "mean": 90.36,
+            "q05": 66.3,
+            "q25": 77.58,
+            "q50": 88.71,
+            "q75": 100.96,
+            "q95": 120.6
+          },
+          {
+            "date": "2027-01-11",
+            "mean": 90.28,
+            "q05": 65.91,
+            "q25": 77.34,
+            "q50": 88.83,
+            "q75": 100.95,
+            "q95": 120.2
+          },
+          {
+            "date": "2027-01-12",
+            "mean": 90.23,
+            "q05": 65.69,
+            "q25": 77.51,
+            "q50": 88.4,
+            "q75": 100.73,
+            "q95": 120.91
+          },
+          {
+            "date": "2027-01-13",
+            "mean": 90.22,
+            "q05": 65.76,
+            "q25": 77.36,
+            "q50": 88.57,
+            "q75": 100.79,
+            "q95": 120.88
+          },
+          {
+            "date": "2027-01-14",
+            "mean": 90.2,
+            "q05": 65.22,
+            "q25": 77.59,
+            "q50": 88.61,
+            "q75": 101.11,
+            "q95": 122.13
+          },
+          {
+            "date": "2027-01-15",
+            "mean": 90.26,
+            "q05": 64.89,
+            "q25": 77.43,
+            "q50": 88.79,
+            "q75": 101.08,
+            "q95": 122.13
+          },
+          {
+            "date": "2027-01-18",
+            "mean": 90.34,
+            "q05": 65.04,
+            "q25": 77.41,
+            "q50": 88.65,
+            "q75": 101.36,
+            "q95": 122.41
+          },
+          {
+            "date": "2027-01-19",
+            "mean": 90.36,
+            "q05": 64.83,
+            "q25": 77.41,
+            "q50": 88.57,
+            "q75": 101.16,
+            "q95": 123.16
+          },
+          {
+            "date": "2027-01-20",
+            "mean": 90.34,
+            "q05": 64.85,
+            "q25": 77.46,
+            "q50": 88.61,
+            "q75": 101.5,
+            "q95": 122.41
+          },
+          {
+            "date": "2027-01-21",
+            "mean": 90.31,
+            "q05": 64.36,
+            "q25": 77.3,
+            "q50": 88.78,
+            "q75": 101.3,
+            "q95": 123.47
+          },
+          {
+            "date": "2027-01-22",
+            "mean": 90.26,
+            "q05": 63.9,
+            "q25": 77.06,
+            "q50": 88.58,
+            "q75": 101.63,
+            "q95": 122.85
+          },
+          {
+            "date": "2027-01-25",
+            "mean": 90.29,
+            "q05": 63.63,
+            "q25": 76.84,
+            "q50": 88.76,
+            "q75": 101.5,
+            "q95": 123.06
+          },
+          {
+            "date": "2027-01-26",
+            "mean": 90.25,
+            "q05": 63.5,
+            "q25": 76.65,
+            "q50": 88.85,
+            "q75": 101.75,
+            "q95": 122.98
+          },
+          {
+            "date": "2027-01-27",
+            "mean": 90.19,
+            "q05": 63.4,
+            "q25": 76.64,
+            "q50": 88.7,
+            "q75": 101.48,
+            "q95": 123.32
+          },
+          {
+            "date": "2027-01-28",
+            "mean": 90.14,
+            "q05": 63.25,
+            "q25": 76.49,
+            "q50": 88.85,
+            "q75": 101.15,
+            "q95": 123.0
+          },
+          {
+            "date": "2027-01-29",
+            "mean": 90.17,
+            "q05": 63.09,
+            "q25": 76.71,
+            "q50": 88.61,
+            "q75": 101.53,
+            "q95": 123.36
+          },
+          {
+            "date": "2027-02-01",
+            "mean": 90.13,
+            "q05": 63.14,
+            "q25": 76.73,
+            "q50": 88.08,
+            "q75": 101.57,
+            "q95": 124.0
+          },
+          {
+            "date": "2027-02-02",
+            "mean": 90.14,
+            "q05": 62.92,
+            "q25": 76.58,
+            "q50": 88.2,
+            "q75": 101.49,
+            "q95": 123.98
+          },
+          {
+            "date": "2027-02-03",
+            "mean": 90.12,
+            "q05": 63.01,
+            "q25": 76.41,
+            "q50": 88.05,
+            "q75": 101.63,
+            "q95": 125.03
+          },
+          {
+            "date": "2027-02-04",
+            "mean": 90.06,
+            "q05": 62.94,
+            "q25": 76.3,
+            "q50": 88.08,
+            "q75": 101.64,
+            "q95": 125.12
+          },
+          {
+            "date": "2027-02-05",
+            "mean": 90.12,
+            "q05": 62.52,
+            "q25": 76.41,
+            "q50": 88.1,
+            "q75": 101.46,
+            "q95": 125.55
+          },
+          {
+            "date": "2027-02-08",
+            "mean": 90.07,
+            "q05": 62.69,
+            "q25": 76.36,
+            "q50": 88.24,
+            "q75": 101.57,
+            "q95": 124.51
+          },
+          {
+            "date": "2027-02-09",
+            "mean": 90.07,
+            "q05": 62.95,
+            "q25": 76.03,
+            "q50": 88.2,
+            "q75": 101.76,
+            "q95": 124.98
+          },
+          {
+            "date": "2027-02-10",
+            "mean": 90.08,
+            "q05": 62.63,
+            "q25": 76.24,
+            "q50": 88.06,
+            "q75": 101.9,
+            "q95": 125.09
+          },
+          {
+            "date": "2027-02-11",
+            "mean": 90.07,
+            "q05": 62.59,
+            "q25": 76.05,
+            "q50": 87.88,
+            "q75": 101.73,
+            "q95": 125.79
+          },
+          {
+            "date": "2027-02-12",
+            "mean": 90.12,
+            "q05": 62.61,
+            "q25": 75.81,
+            "q50": 87.85,
+            "q75": 101.96,
+            "q95": 126.62
+          },
+          {
+            "date": "2027-02-15",
+            "mean": 90.13,
+            "q05": 62.47,
+            "q25": 75.8,
+            "q50": 87.88,
+            "q75": 102.04,
+            "q95": 125.92
+          },
+          {
+            "date": "2027-02-16",
+            "mean": 90.1,
+            "q05": 62.77,
+            "q25": 75.6,
+            "q50": 87.83,
+            "q75": 102.25,
+            "q95": 127.12
+          },
+          {
+            "date": "2027-02-17",
+            "mean": 90.14,
+            "q05": 62.17,
+            "q25": 75.46,
+            "q50": 87.98,
+            "q75": 101.73,
+            "q95": 126.75
+          },
+          {
+            "date": "2027-02-18",
+            "mean": 90.16,
+            "q05": 61.94,
+            "q25": 75.43,
+            "q50": 88.08,
+            "q75": 102.13,
+            "q95": 127.25
+          },
+          {
+            "date": "2027-02-19",
+            "mean": 90.15,
+            "q05": 61.53,
+            "q25": 75.2,
+            "q50": 88.07,
+            "q75": 102.47,
+            "q95": 126.67
+          },
+          {
+            "date": "2027-02-22",
+            "mean": 90.19,
+            "q05": 61.61,
+            "q25": 75.27,
+            "q50": 88.06,
+            "q75": 102.52,
+            "q95": 126.9
+          },
+          {
+            "date": "2027-02-23",
+            "mean": 90.14,
+            "q05": 61.52,
+            "q25": 75.09,
+            "q50": 88.04,
+            "q75": 102.63,
+            "q95": 126.33
+          },
+          {
+            "date": "2027-02-24",
+            "mean": 90.18,
+            "q05": 61.45,
+            "q25": 75.06,
+            "q50": 87.9,
+            "q75": 102.46,
+            "q95": 126.92
+          },
+          {
+            "date": "2027-02-25",
+            "mean": 90.11,
+            "q05": 61.23,
+            "q25": 75.15,
+            "q50": 87.91,
+            "q75": 102.57,
+            "q95": 126.61
+          },
+          {
+            "date": "2027-02-26",
+            "mean": 90.09,
+            "q05": 61.25,
+            "q25": 74.97,
+            "q50": 87.88,
+            "q75": 102.62,
+            "q95": 126.68
+          },
+          {
+            "date": "2027-03-01",
+            "mean": 90.13,
+            "q05": 61.53,
+            "q25": 74.95,
+            "q50": 88.25,
+            "q75": 102.51,
+            "q95": 127.42
+          },
+          {
+            "date": "2027-03-02",
+            "mean": 90.19,
+            "q05": 61.52,
+            "q25": 75.04,
+            "q50": 88.1,
+            "q75": 102.78,
+            "q95": 128.19
+          },
+          {
+            "date": "2027-03-03",
+            "mean": 90.22,
+            "q05": 61.64,
+            "q25": 75.19,
+            "q50": 88.09,
+            "q75": 102.84,
+            "q95": 128.07
+          },
+          {
+            "date": "2027-03-04",
+            "mean": 90.19,
+            "q05": 60.83,
+            "q25": 75.09,
+            "q50": 87.74,
+            "q75": 102.67,
+            "q95": 128.19
+          },
+          {
+            "date": "2027-03-05",
+            "mean": 90.22,
+            "q05": 60.56,
+            "q25": 75.28,
+            "q50": 87.75,
+            "q75": 102.8,
+            "q95": 128.34
+          },
+          {
+            "date": "2027-03-08",
+            "mean": 90.2,
+            "q05": 60.8,
+            "q25": 74.81,
+            "q50": 87.87,
+            "q75": 102.74,
+            "q95": 128.42
+          },
+          {
+            "date": "2027-03-09",
+            "mean": 90.18,
+            "q05": 60.31,
+            "q25": 74.84,
+            "q50": 87.52,
+            "q75": 102.71,
+            "q95": 128.62
+          },
+          {
+            "date": "2027-03-10",
+            "mean": 90.16,
+            "q05": 60.31,
+            "q25": 74.75,
+            "q50": 87.71,
+            "q75": 102.95,
+            "q95": 128.45
+          },
+          {
+            "date": "2027-03-11",
+            "mean": 90.22,
+            "q05": 60.25,
+            "q25": 74.6,
+            "q50": 87.62,
+            "q75": 103.3,
+            "q95": 129.09
+          },
+          {
+            "date": "2027-03-12",
+            "mean": 90.24,
+            "q05": 59.76,
+            "q25": 74.65,
+            "q50": 87.97,
+            "q75": 103.29,
+            "q95": 129.65
+          },
+          {
+            "date": "2027-03-15",
+            "mean": 90.24,
+            "q05": 59.88,
+            "q25": 74.69,
+            "q50": 87.68,
+            "q75": 103.4,
+            "q95": 129.67
+          },
+          {
+            "date": "2027-03-16",
+            "mean": 90.32,
+            "q05": 59.9,
+            "q25": 74.56,
+            "q50": 87.71,
+            "q75": 103.23,
+            "q95": 130.37
+          },
+          {
+            "date": "2027-03-17",
+            "mean": 90.24,
+            "q05": 60.04,
+            "q25": 74.54,
+            "q50": 87.65,
+            "q75": 103.04,
+            "q95": 129.97
+          },
+          {
+            "date": "2027-03-18",
+            "mean": 90.25,
+            "q05": 60.31,
+            "q25": 74.63,
+            "q50": 87.42,
+            "q75": 103.32,
+            "q95": 130.29
+          },
+          {
+            "date": "2027-03-19",
+            "mean": 90.3,
+            "q05": 60.11,
+            "q25": 74.14,
+            "q50": 88.0,
+            "q75": 103.6,
+            "q95": 130.43
+          },
+          {
+            "date": "2027-03-22",
+            "mean": 90.31,
+            "q05": 59.75,
+            "q25": 74.04,
+            "q50": 87.56,
+            "q75": 103.78,
+            "q95": 131.14
+          },
+          {
+            "date": "2027-03-23",
+            "mean": 90.34,
+            "q05": 60.37,
+            "q25": 73.99,
+            "q50": 87.47,
+            "q75": 103.59,
+            "q95": 130.46
+          },
+          {
+            "date": "2027-03-24",
+            "mean": 90.32,
+            "q05": 60.13,
+            "q25": 73.7,
+            "q50": 87.53,
+            "q75": 103.63,
+            "q95": 130.97
+          },
+          {
+            "date": "2027-03-25",
+            "mean": 90.35,
+            "q05": 60.06,
+            "q25": 73.86,
+            "q50": 87.4,
+            "q75": 104.02,
+            "q95": 130.99
+          },
+          {
+            "date": "2027-03-26",
+            "mean": 90.31,
+            "q05": 59.77,
+            "q25": 73.65,
+            "q50": 87.49,
+            "q75": 104.16,
+            "q95": 131.2
+          },
+          {
+            "date": "2027-03-29",
+            "mean": 90.32,
+            "q05": 59.35,
+            "q25": 73.78,
+            "q50": 87.5,
+            "q75": 104.17,
+            "q95": 130.8
+          },
+          {
+            "date": "2027-03-30",
+            "mean": 90.36,
+            "q05": 58.69,
+            "q25": 73.76,
+            "q50": 87.57,
+            "q75": 104.23,
+            "q95": 131.0
+          },
+          {
+            "date": "2027-03-31",
+            "mean": 90.36,
+            "q05": 59.3,
+            "q25": 73.73,
+            "q50": 87.31,
+            "q75": 104.12,
+            "q95": 130.61
+          },
+          {
+            "date": "2027-04-01",
+            "mean": 90.35,
+            "q05": 58.7,
+            "q25": 73.49,
+            "q50": 87.45,
+            "q75": 104.27,
+            "q95": 130.63
+          },
+          {
+            "date": "2027-04-02",
+            "mean": 90.32,
+            "q05": 58.3,
+            "q25": 73.35,
+            "q50": 87.47,
+            "q75": 104.03,
+            "q95": 131.1
+          },
+          {
+            "date": "2027-04-05",
+            "mean": 90.36,
+            "q05": 58.06,
+            "q25": 73.33,
+            "q50": 87.53,
+            "q75": 104.24,
+            "q95": 131.7
+          },
+          {
+            "date": "2027-04-06",
+            "mean": 90.34,
+            "q05": 57.8,
+            "q25": 73.29,
+            "q50": 87.52,
+            "q75": 104.05,
+            "q95": 131.81
+          },
+          {
+            "date": "2027-04-07",
+            "mean": 90.3,
+            "q05": 57.77,
+            "q25": 72.96,
+            "q50": 87.7,
+            "q75": 103.78,
+            "q95": 131.96
+          },
+          {
+            "date": "2027-04-08",
+            "mean": 90.34,
+            "q05": 57.34,
+            "q25": 72.94,
+            "q50": 87.49,
+            "q75": 103.66,
+            "q95": 132.44
+          },
+          {
+            "date": "2027-04-09",
+            "mean": 90.3,
+            "q05": 57.88,
+            "q25": 72.91,
+            "q50": 87.36,
+            "q75": 103.34,
+            "q95": 132.95
+          },
+          {
+            "date": "2027-04-12",
+            "mean": 90.34,
+            "q05": 57.64,
+            "q25": 72.77,
+            "q50": 87.25,
+            "q75": 103.55,
+            "q95": 133.51
+          },
+          {
+            "date": "2027-04-13",
+            "mean": 90.36,
+            "q05": 57.53,
+            "q25": 72.56,
+            "q50": 87.28,
+            "q75": 103.77,
+            "q95": 133.42
+          },
+          {
+            "date": "2027-04-14",
+            "mean": 90.43,
+            "q05": 57.28,
+            "q25": 72.73,
+            "q50": 87.39,
+            "q75": 103.93,
+            "q95": 133.33
+          },
+          {
+            "date": "2027-04-15",
+            "mean": 90.37,
+            "q05": 57.29,
+            "q25": 72.71,
+            "q50": 87.42,
+            "q75": 104.36,
+            "q95": 133.68
+          },
+          {
+            "date": "2027-04-16",
+            "mean": 90.39,
+            "q05": 57.29,
+            "q25": 72.69,
+            "q50": 87.45,
+            "q75": 104.33,
+            "q95": 133.89
+          },
+          {
+            "date": "2027-04-19",
+            "mean": 90.38,
+            "q05": 57.6,
+            "q25": 72.43,
+            "q50": 87.28,
+            "q75": 104.16,
+            "q95": 133.76
+          },
+          {
+            "date": "2027-04-20",
+            "mean": 90.36,
+            "q05": 57.42,
+            "q25": 72.32,
+            "q50": 87.24,
+            "q75": 104.27,
+            "q95": 135.15
+          },
+          {
+            "date": "2027-04-21",
+            "mean": 90.31,
+            "q05": 57.49,
+            "q25": 72.14,
+            "q50": 87.41,
+            "q75": 104.23,
+            "q95": 134.73
+          },
+          {
+            "date": "2027-04-22",
+            "mean": 90.34,
+            "q05": 57.14,
+            "q25": 72.0,
+            "q50": 87.28,
+            "q75": 104.09,
+            "q95": 135.95
+          },
+          {
+            "date": "2027-04-23",
+            "mean": 90.3,
+            "q05": 56.64,
+            "q25": 72.04,
+            "q50": 87.17,
+            "q75": 104.0,
+            "q95": 135.42
+          },
+          {
+            "date": "2027-04-26",
+            "mean": 90.3,
+            "q05": 56.16,
+            "q25": 72.13,
+            "q50": 87.21,
+            "q75": 103.83,
+            "q95": 135.71
+          },
+          {
+            "date": "2027-04-27",
+            "mean": 90.23,
+            "q05": 56.45,
+            "q25": 72.01,
+            "q50": 87.11,
+            "q75": 103.78,
+            "q95": 135.78
+          },
+          {
+            "date": "2027-04-28",
+            "mean": 90.24,
+            "q05": 56.25,
+            "q25": 72.3,
+            "q50": 87.29,
+            "q75": 104.14,
+            "q95": 136.31
+          },
+          {
+            "date": "2027-04-29",
+            "mean": 90.22,
+            "q05": 56.14,
+            "q25": 72.31,
+            "q50": 87.34,
+            "q75": 103.84,
+            "q95": 136.0
+          },
+          {
+            "date": "2027-04-30",
+            "mean": 90.27,
+            "q05": 55.64,
+            "q25": 72.03,
+            "q50": 87.69,
+            "q75": 104.08,
+            "q95": 136.38
+          },
+          {
+            "date": "2027-05-03",
+            "mean": 90.26,
+            "q05": 55.51,
+            "q25": 71.84,
+            "q50": 87.46,
+            "q75": 104.11,
+            "q95": 137.29
+          },
+          {
+            "date": "2027-05-04",
+            "mean": 90.29,
+            "q05": 55.79,
+            "q25": 71.61,
+            "q50": 87.6,
+            "q75": 104.12,
+            "q95": 136.55
+          },
+          {
+            "date": "2027-05-05",
+            "mean": 90.25,
+            "q05": 55.66,
+            "q25": 71.61,
+            "q50": 87.16,
+            "q75": 104.43,
+            "q95": 137.07
+          },
+          {
+            "date": "2027-05-06",
+            "mean": 90.25,
+            "q05": 55.42,
+            "q25": 71.62,
+            "q50": 87.16,
+            "q75": 104.0,
+            "q95": 136.73
+          },
+          {
+            "date": "2027-05-07",
+            "mean": 90.29,
+            "q05": 55.16,
+            "q25": 71.78,
+            "q50": 87.18,
+            "q75": 104.32,
+            "q95": 136.52
+          },
+          {
+            "date": "2027-05-10",
+            "mean": 90.3,
+            "q05": 55.06,
+            "q25": 71.83,
+            "q50": 87.21,
+            "q75": 104.4,
+            "q95": 135.8
+          },
+          {
+            "date": "2027-05-11",
+            "mean": 90.23,
+            "q05": 54.92,
+            "q25": 71.66,
+            "q50": 87.29,
+            "q75": 104.19,
+            "q95": 135.76
+          },
+          {
+            "date": "2027-05-12",
+            "mean": 90.22,
+            "q05": 54.84,
+            "q25": 71.28,
+            "q50": 87.59,
+            "q75": 104.39,
+            "q95": 135.93
+          },
+          {
+            "date": "2027-05-13",
+            "mean": 90.22,
+            "q05": 54.85,
+            "q25": 71.39,
+            "q50": 87.71,
+            "q75": 104.28,
+            "q95": 135.72
+          },
+          {
+            "date": "2027-05-14",
+            "mean": 90.13,
+            "q05": 54.73,
+            "q25": 71.45,
+            "q50": 87.56,
+            "q75": 103.92,
+            "q95": 136.38
+          },
+          {
+            "date": "2027-05-17",
+            "mean": 90.15,
+            "q05": 55.0,
+            "q25": 71.49,
+            "q50": 87.48,
+            "q75": 103.85,
+            "q95": 137.43
+          },
+          {
+            "date": "2027-05-18",
+            "mean": 90.13,
+            "q05": 54.65,
+            "q25": 71.51,
+            "q50": 87.62,
+            "q75": 103.99,
+            "q95": 136.78
+          },
+          {
+            "date": "2027-05-19",
+            "mean": 90.15,
+            "q05": 54.6,
+            "q25": 71.69,
+            "q50": 87.51,
+            "q75": 103.69,
+            "q95": 137.44
+          },
+          {
+            "date": "2027-05-20",
+            "mean": 90.19,
+            "q05": 54.59,
+            "q25": 71.55,
+            "q50": 87.58,
+            "q75": 104.01,
+            "q95": 137.69
+          },
+          {
+            "date": "2027-05-21",
+            "mean": 90.11,
+            "q05": 54.61,
+            "q25": 71.35,
+            "q50": 87.3,
+            "q75": 104.18,
+            "q95": 137.87
+          },
+          {
+            "date": "2027-05-24",
+            "mean": 90.05,
+            "q05": 54.3,
+            "q25": 71.54,
+            "q50": 87.22,
+            "q75": 104.13,
+            "q95": 137.87
+          },
+          {
+            "date": "2027-05-25",
+            "mean": 90.0,
+            "q05": 53.92,
+            "q25": 71.12,
+            "q50": 87.13,
+            "q75": 103.72,
+            "q95": 138.0
+          },
+          {
+            "date": "2027-05-26",
+            "mean": 90.03,
+            "q05": 53.78,
+            "q25": 70.98,
+            "q50": 87.41,
+            "q75": 104.02,
+            "q95": 137.93
+          },
+          {
+            "date": "2027-05-27",
+            "mean": 90.02,
+            "q05": 53.74,
+            "q25": 71.05,
+            "q50": 87.06,
+            "q75": 103.62,
+            "q95": 139.22
+          },
+          {
+            "date": "2027-05-28",
+            "mean": 89.95,
+            "q05": 53.43,
+            "q25": 70.76,
+            "q50": 87.13,
+            "q75": 103.87,
+            "q95": 138.92
+          },
+          {
+            "date": "2027-05-31",
+            "mean": 89.98,
+            "q05": 53.49,
+            "q25": 70.94,
+            "q50": 87.32,
+            "q75": 103.64,
+            "q95": 138.51
+          },
+          {
+            "date": "2027-06-01",
+            "mean": 90.04,
+            "q05": 53.51,
+            "q25": 70.78,
+            "q50": 87.31,
+            "q75": 104.02,
+            "q95": 138.89
+          },
+          {
+            "date": "2027-06-02",
+            "mean": 90.01,
+            "q05": 53.39,
+            "q25": 70.34,
+            "q50": 87.32,
+            "q75": 104.16,
+            "q95": 138.91
+          },
+          {
+            "date": "2027-06-03",
+            "mean": 90.07,
+            "q05": 52.82,
+            "q25": 70.25,
+            "q50": 87.31,
+            "q75": 104.67,
+            "q95": 138.45
+          },
+          {
+            "date": "2027-06-04",
+            "mean": 90.08,
+            "q05": 53.19,
+            "q25": 70.2,
+            "q50": 87.01,
+            "q75": 104.76,
+            "q95": 140.0
+          },
+          {
+            "date": "2027-06-07",
+            "mean": 90.08,
+            "q05": 53.3,
+            "q25": 70.5,
+            "q50": 87.21,
+            "q75": 104.94,
+            "q95": 138.51
+          },
+          {
+            "date": "2027-06-08",
+            "mean": 90.06,
+            "q05": 53.02,
+            "q25": 70.4,
+            "q50": 87.08,
+            "q75": 104.99,
+            "q95": 138.76
+          },
+          {
+            "date": "2027-06-09",
+            "mean": 90.02,
+            "q05": 53.14,
+            "q25": 70.44,
+            "q50": 87.26,
+            "q75": 104.92,
+            "q95": 139.04
+          },
+          {
+            "date": "2027-06-10",
+            "mean": 89.95,
+            "q05": 52.94,
+            "q25": 70.4,
+            "q50": 87.09,
+            "q75": 104.74,
+            "q95": 138.9
+          },
+          {
+            "date": "2027-06-11",
+            "mean": 89.94,
+            "q05": 53.02,
+            "q25": 70.52,
+            "q50": 87.11,
+            "q75": 104.69,
+            "q95": 140.12
+          },
+          {
+            "date": "2027-06-14",
+            "mean": 89.89,
+            "q05": 52.49,
+            "q25": 70.47,
+            "q50": 87.14,
+            "q75": 104.94,
+            "q95": 139.59
+          },
+          {
+            "date": "2027-06-15",
+            "mean": 89.89,
+            "q05": 52.62,
+            "q25": 70.38,
+            "q50": 87.03,
+            "q75": 104.85,
+            "q95": 140.2
+          },
+          {
+            "date": "2027-06-16",
+            "mean": 89.89,
+            "q05": 52.51,
+            "q25": 70.33,
+            "q50": 86.82,
+            "q75": 104.87,
+            "q95": 139.82
+          },
+          {
+            "date": "2027-06-17",
+            "mean": 89.97,
+            "q05": 52.65,
+            "q25": 70.45,
+            "q50": 86.98,
+            "q75": 105.01,
+            "q95": 140.87
+          },
+          {
+            "date": "2027-06-18",
+            "mean": 89.99,
+            "q05": 52.86,
+            "q25": 70.53,
+            "q50": 86.65,
+            "q75": 104.85,
+            "q95": 140.85
+          },
+          {
+            "date": "2027-06-21",
+            "mean": 90.04,
+            "q05": 52.48,
+            "q25": 70.34,
+            "q50": 87.02,
+            "q75": 104.8,
+            "q95": 141.17
+          },
+          {
+            "date": "2027-06-22",
+            "mean": 90.07,
+            "q05": 52.13,
+            "q25": 70.52,
+            "q50": 86.98,
+            "q75": 104.39,
+            "q95": 140.61
+          },
+          {
+            "date": "2027-06-23",
+            "mean": 90.04,
+            "q05": 51.85,
+            "q25": 70.54,
+            "q50": 86.61,
+            "q75": 104.79,
+            "q95": 140.94
+          },
+          {
+            "date": "2027-06-24",
+            "mean": 90.01,
+            "q05": 52.08,
+            "q25": 70.52,
+            "q50": 87.06,
+            "q75": 105.02,
+            "q95": 140.56
+          },
+          {
+            "date": "2027-06-25",
+            "mean": 89.94,
+            "q05": 51.93,
+            "q25": 70.26,
+            "q50": 86.76,
+            "q75": 104.65,
+            "q95": 141.23
+          },
+          {
+            "date": "2027-06-28",
+            "mean": 89.91,
+            "q05": 51.73,
+            "q25": 70.07,
+            "q50": 86.87,
+            "q75": 104.76,
+            "q95": 140.37
+          },
+          {
+            "date": "2027-06-29",
+            "mean": 89.9,
+            "q05": 51.84,
+            "q25": 70.0,
+            "q50": 86.78,
+            "q75": 104.88,
+            "q95": 141.7
+          },
+          {
+            "date": "2027-06-30",
+            "mean": 89.85,
+            "q05": 51.75,
+            "q25": 69.87,
+            "q50": 87.03,
+            "q75": 104.97,
+            "q95": 141.32
+          },
+          {
+            "date": "2027-07-01",
+            "mean": 89.85,
+            "q05": 51.5,
+            "q25": 69.95,
+            "q50": 86.91,
+            "q75": 105.32,
+            "q95": 141.89
+          },
+          {
+            "date": "2027-07-02",
+            "mean": 89.84,
+            "q05": 51.84,
+            "q25": 69.86,
+            "q50": 86.83,
+            "q75": 105.59,
+            "q95": 142.06
+          },
+          {
+            "date": "2027-07-05",
+            "mean": 89.86,
+            "q05": 51.64,
+            "q25": 69.75,
+            "q50": 86.5,
+            "q75": 105.62,
+            "q95": 141.5
+          },
+          {
+            "date": "2027-07-06",
+            "mean": 89.87,
+            "q05": 51.22,
+            "q25": 69.92,
+            "q50": 86.28,
+            "q75": 105.57,
+            "q95": 141.49
+          },
+          {
+            "date": "2027-07-07",
+            "mean": 89.85,
+            "q05": 51.13,
+            "q25": 69.85,
+            "q50": 86.07,
+            "q75": 105.49,
+            "q95": 141.27
+          },
+          {
+            "date": "2027-07-08",
+            "mean": 89.98,
+            "q05": 51.49,
+            "q25": 69.49,
+            "q50": 86.15,
+            "q75": 105.72,
+            "q95": 142.43
+          },
+          {
+            "date": "2027-07-09",
+            "mean": 89.98,
+            "q05": 51.35,
+            "q25": 69.56,
+            "q50": 86.35,
+            "q75": 105.63,
+            "q95": 143.07
+          },
+          {
+            "date": "2027-07-12",
+            "mean": 89.98,
+            "q05": 51.33,
+            "q25": 69.57,
+            "q50": 86.21,
+            "q75": 105.92,
+            "q95": 142.74
+          },
+          {
+            "date": "2027-07-13",
+            "mean": 90.0,
+            "q05": 51.19,
+            "q25": 69.39,
+            "q50": 86.02,
+            "q75": 105.56,
+            "q95": 142.79
+          },
+          {
+            "date": "2027-07-14",
+            "mean": 90.06,
+            "q05": 51.21,
+            "q25": 69.39,
+            "q50": 85.8,
+            "q75": 105.64,
+            "q95": 144.19
+          },
+          {
+            "date": "2027-07-15",
+            "mean": 90.01,
+            "q05": 51.23,
+            "q25": 69.32,
+            "q50": 85.76,
+            "q75": 105.69,
+            "q95": 144.72
+          },
+          {
+            "date": "2027-07-16",
+            "mean": 89.99,
+            "q05": 51.08,
+            "q25": 69.06,
+            "q50": 85.85,
+            "q75": 105.67,
+            "q95": 144.51
+          },
+          {
+            "date": "2027-07-19",
+            "mean": 89.94,
+            "q05": 51.33,
+            "q25": 69.03,
+            "q50": 85.54,
+            "q75": 105.41,
+            "q95": 146.01
+          },
+          {
+            "date": "2027-07-20",
+            "mean": 89.88,
+            "q05": 51.37,
+            "q25": 69.35,
+            "q50": 85.36,
+            "q75": 105.19,
+            "q95": 145.92
+          },
+          {
+            "date": "2027-07-21",
+            "mean": 89.9,
+            "q05": 51.21,
+            "q25": 68.9,
+            "q50": 85.16,
+            "q75": 105.69,
+            "q95": 146.34
+          },
+          {
+            "date": "2027-07-22",
+            "mean": 89.85,
+            "q05": 51.15,
+            "q25": 68.8,
+            "q50": 85.3,
+            "q75": 105.49,
+            "q95": 145.88
+          },
+          {
+            "date": "2027-07-23",
+            "mean": 89.83,
+            "q05": 50.78,
+            "q25": 68.79,
+            "q50": 85.39,
+            "q75": 105.28,
+            "q95": 146.07
+          },
+          {
+            "date": "2027-07-26",
+            "mean": 89.78,
+            "q05": 50.94,
+            "q25": 68.8,
+            "q50": 85.32,
+            "q75": 105.35,
+            "q95": 145.47
+          },
+          {
+            "date": "2027-07-27",
+            "mean": 89.78,
+            "q05": 50.59,
+            "q25": 68.55,
+            "q50": 85.14,
+            "q75": 105.2,
+            "q95": 145.96
+          },
+          {
+            "date": "2027-07-28",
+            "mean": 89.7,
+            "q05": 50.75,
+            "q25": 68.59,
+            "q50": 85.37,
+            "q75": 105.08,
+            "q95": 145.47
+          },
+          {
+            "date": "2027-07-29",
+            "mean": 89.67,
+            "q05": 50.54,
+            "q25": 68.36,
+            "q50": 85.21,
+            "q75": 104.86,
+            "q95": 146.57
+          },
+          {
+            "date": "2027-07-30",
+            "mean": 89.74,
+            "q05": 50.53,
+            "q25": 68.48,
+            "q50": 85.2,
+            "q75": 105.19,
+            "q95": 146.16
+          },
+          {
+            "date": "2027-08-02",
+            "mean": 89.77,
+            "q05": 50.28,
+            "q25": 68.46,
+            "q50": 84.95,
+            "q75": 104.92,
+            "q95": 146.34
+          },
+          {
+            "date": "2027-08-03",
+            "mean": 89.72,
+            "q05": 50.34,
+            "q25": 68.37,
+            "q50": 84.96,
+            "q75": 104.74,
+            "q95": 146.15
+          },
+          {
+            "date": "2027-08-04",
+            "mean": 89.69,
+            "q05": 50.22,
+            "q25": 68.37,
+            "q50": 84.91,
+            "q75": 104.61,
+            "q95": 147.0
+          },
+          {
+            "date": "2027-08-05",
+            "mean": 89.68,
+            "q05": 50.0,
+            "q25": 68.52,
+            "q50": 84.86,
+            "q75": 104.36,
+            "q95": 147.45
+          },
+          {
+            "date": "2027-08-06",
+            "mean": 89.7,
+            "q05": 49.84,
+            "q25": 68.44,
+            "q50": 84.83,
+            "q75": 105.12,
+            "q95": 145.98
+          },
+          {
+            "date": "2027-08-09",
+            "mean": 89.75,
+            "q05": 49.74,
+            "q25": 68.29,
+            "q50": 84.7,
+            "q75": 105.37,
+            "q95": 147.92
+          },
+          {
+            "date": "2027-08-10",
+            "mean": 89.69,
+            "q05": 49.76,
+            "q25": 67.99,
+            "q50": 84.82,
+            "q75": 105.2,
+            "q95": 147.6
+          },
+          {
+            "date": "2027-08-11",
+            "mean": 89.71,
+            "q05": 49.66,
+            "q25": 68.17,
+            "q50": 84.37,
+            "q75": 105.6,
+            "q95": 147.27
+          },
+          {
+            "date": "2027-08-12",
+            "mean": 89.75,
+            "q05": 49.35,
+            "q25": 68.34,
+            "q50": 84.78,
+            "q75": 105.53,
+            "q95": 147.0
+          },
+          {
+            "date": "2027-08-13",
+            "mean": 89.82,
+            "q05": 49.28,
+            "q25": 68.67,
+            "q50": 84.57,
+            "q75": 105.76,
+            "q95": 147.0
+          },
+          {
+            "date": "2027-08-16",
+            "mean": 89.89,
+            "q05": 49.22,
+            "q25": 68.81,
+            "q50": 84.64,
+            "q75": 105.91,
+            "q95": 146.85
+          },
+          {
+            "date": "2027-08-17",
+            "mean": 89.89,
+            "q05": 49.29,
+            "q25": 68.69,
+            "q50": 84.58,
+            "q75": 106.8,
+            "q95": 145.21
+          },
+          {
+            "date": "2027-08-18",
+            "mean": 89.87,
+            "q05": 49.3,
+            "q25": 68.66,
+            "q50": 84.52,
+            "q75": 106.21,
+            "q95": 145.22
+          },
+          {
+            "date": "2027-08-19",
+            "mean": 89.9,
+            "q05": 49.61,
+            "q25": 68.52,
+            "q50": 84.56,
+            "q75": 105.9,
+            "q95": 146.61
+          }
+        ],
+        "observed_date": "2026-09-01"
+      },
+      "brent": {
+        "status": "ok",
+        "endpoint": {
+          "target_date": "2027-08-19",
+          "mean": 94.32,
+          "q05": 52.05,
+          "q25": 71.89,
+          "q75": 111.1,
+          "q95": 153.81,
+          "pct_mean": -0.35,
+          "prob_up": 0.427,
+          "prob_down": 0.573,
+          "checkpoints": {
+            "1个月": {
+              "mean": 94.63,
+              "q05": 81.75,
+              "q95": 108.42
+            },
+            "3个月": {
+              "mean": 94.66,
+              "q05": 72.8,
+              "q95": 120.91
+            },
+            "6个月": {
+              "mean": 94.61,
+              "q05": 64.46,
+              "q95": 133.15
+            },
+            "12个月": {
+              "mean": 94.32,
+              "q05": 52.05,
+              "q95": 153.81
+            }
+          },
+          "scenario_probs": {
+            "bull": 0.19,
+            "base": 0.492,
+            "bear": 0.318
+          },
+          "institution_anchor": null
+        },
+        "path": [
+          {
+            "date": "2026-09-02",
+            "mean": 94.66,
+            "q05": 91.71,
+            "q25": 93.43,
+            "q50": 94.62,
+            "q75": 95.85,
+            "q95": 97.63
+          },
+          {
+            "date": "2026-09-03",
+            "mean": 94.65,
+            "q05": 90.41,
+            "q25": 92.99,
+            "q50": 94.69,
+            "q75": 96.36,
+            "q95": 98.9
+          },
+          {
+            "date": "2026-09-04",
+            "mean": 94.59,
+            "q05": 89.36,
+            "q25": 92.5,
+            "q50": 94.6,
+            "q75": 96.64,
+            "q95": 99.89
+          },
+          {
+            "date": "2026-09-07",
+            "mean": 94.63,
+            "q05": 88.95,
+            "q25": 92.18,
+            "q50": 94.58,
+            "q75": 96.98,
+            "q95": 100.65
+          },
+          {
+            "date": "2026-09-08",
+            "mean": 94.61,
+            "q05": 88.03,
+            "q25": 91.98,
+            "q50": 94.55,
+            "q75": 97.28,
+            "q95": 101.4
+          },
+          {
+            "date": "2026-09-09",
+            "mean": 94.55,
+            "q05": 87.45,
+            "q25": 91.54,
+            "q50": 94.5,
+            "q75": 97.37,
+            "q95": 102.15
+          },
+          {
+            "date": "2026-09-10",
+            "mean": 94.59,
+            "q05": 86.95,
+            "q25": 91.19,
+            "q50": 94.33,
+            "q75": 97.67,
+            "q95": 103.05
+          },
+          {
+            "date": "2026-09-11",
+            "mean": 94.57,
+            "q05": 86.35,
+            "q25": 91.0,
+            "q50": 94.32,
+            "q75": 97.98,
+            "q95": 103.55
+          },
+          {
+            "date": "2026-09-14",
+            "mean": 94.44,
+            "q05": 85.79,
+            "q25": 90.71,
+            "q50": 94.27,
+            "q75": 97.99,
+            "q95": 103.65
+          },
+          {
+            "date": "2026-09-15",
+            "mean": 94.44,
+            "q05": 85.43,
+            "q25": 90.41,
+            "q50": 94.31,
+            "q75": 98.07,
+            "q95": 104.23
+          },
+          {
+            "date": "2026-09-16",
+            "mean": 94.44,
+            "q05": 84.98,
+            "q25": 90.14,
+            "q50": 94.27,
+            "q75": 98.23,
+            "q95": 104.89
+          },
+          {
+            "date": "2026-09-17",
+            "mean": 94.52,
+            "q05": 84.87,
+            "q25": 90.08,
+            "q50": 94.22,
+            "q75": 98.53,
+            "q95": 105.81
+          },
+          {
+            "date": "2026-09-18",
+            "mean": 94.53,
+            "q05": 84.66,
+            "q25": 89.99,
+            "q50": 94.17,
+            "q75": 98.71,
+            "q95": 106.44
+          },
+          {
+            "date": "2026-09-21",
+            "mean": 94.56,
+            "q05": 83.89,
+            "q25": 89.76,
+            "q50": 94.19,
+            "q75": 99.0,
+            "q95": 106.7
+          },
+          {
+            "date": "2026-09-22",
+            "mean": 94.6,
+            "q05": 83.46,
+            "q25": 89.76,
+            "q50": 94.23,
+            "q75": 98.92,
+            "q95": 107.46
+          },
+          {
+            "date": "2026-09-23",
+            "mean": 94.57,
+            "q05": 82.99,
+            "q25": 89.81,
+            "q50": 94.16,
+            "q75": 99.12,
+            "q95": 107.49
+          },
+          {
+            "date": "2026-09-24",
+            "mean": 94.57,
+            "q05": 82.78,
+            "q25": 89.57,
+            "q50": 94.14,
+            "q75": 99.27,
+            "q95": 107.29
+          },
+          {
+            "date": "2026-09-25",
+            "mean": 94.57,
+            "q05": 82.21,
+            "q25": 89.31,
+            "q50": 94.25,
+            "q75": 99.49,
+            "q95": 107.42
+          },
+          {
+            "date": "2026-09-28",
+            "mean": 94.66,
+            "q05": 82.05,
+            "q25": 89.18,
+            "q50": 94.37,
+            "q75": 99.85,
+            "q95": 107.62
+          },
+          {
+            "date": "2026-09-29",
+            "mean": 94.61,
+            "q05": 81.84,
+            "q25": 88.86,
+            "q50": 94.3,
+            "q75": 100.04,
+            "q95": 108.36
+          },
+          {
+            "date": "2026-09-30",
+            "mean": 94.63,
+            "q05": 81.75,
+            "q25": 88.82,
+            "q50": 94.36,
+            "q75": 100.11,
+            "q95": 108.42
+          },
+          {
+            "date": "2026-10-01",
+            "mean": 94.65,
+            "q05": 81.42,
+            "q25": 88.8,
+            "q50": 94.25,
+            "q75": 100.22,
+            "q95": 108.9
+          },
+          {
+            "date": "2026-10-02",
+            "mean": 94.57,
+            "q05": 81.14,
+            "q25": 88.67,
+            "q50": 94.34,
+            "q75": 100.16,
+            "q95": 109.34
+          },
+          {
+            "date": "2026-10-05",
+            "mean": 94.55,
+            "q05": 80.35,
+            "q25": 88.5,
+            "q50": 94.24,
+            "q75": 100.23,
+            "q95": 109.39
+          },
+          {
+            "date": "2026-10-06",
+            "mean": 94.52,
+            "q05": 80.32,
+            "q25": 88.41,
+            "q50": 94.2,
+            "q75": 100.31,
+            "q95": 109.57
+          },
+          {
+            "date": "2026-10-07",
+            "mean": 94.53,
+            "q05": 80.23,
+            "q25": 88.27,
+            "q50": 94.23,
+            "q75": 100.22,
+            "q95": 110.0
+          },
+          {
+            "date": "2026-10-08",
+            "mean": 94.55,
+            "q05": 80.18,
+            "q25": 88.16,
+            "q50": 94.17,
+            "q75": 100.3,
+            "q95": 110.64
+          },
+          {
+            "date": "2026-10-09",
+            "mean": 94.54,
+            "q05": 80.08,
+            "q25": 87.88,
+            "q50": 94.07,
+            "q75": 100.59,
+            "q95": 110.8
+          },
+          {
+            "date": "2026-10-12",
+            "mean": 94.57,
+            "q05": 79.76,
+            "q25": 87.72,
+            "q50": 94.17,
+            "q75": 100.67,
+            "q95": 111.35
+          },
+          {
+            "date": "2026-10-13",
+            "mean": 94.58,
+            "q05": 79.32,
+            "q25": 87.65,
+            "q50": 94.11,
+            "q75": 100.86,
+            "q95": 112.08
+          },
+          {
+            "date": "2026-10-14",
+            "mean": 94.59,
+            "q05": 79.53,
+            "q25": 87.66,
+            "q50": 94.15,
+            "q75": 100.87,
+            "q95": 112.26
+          },
+          {
+            "date": "2026-10-15",
+            "mean": 94.51,
+            "q05": 79.29,
+            "q25": 87.15,
+            "q50": 94.13,
+            "q75": 100.82,
+            "q95": 112.69
+          },
+          {
+            "date": "2026-10-16",
+            "mean": 94.49,
+            "q05": 79.15,
+            "q25": 87.18,
+            "q50": 93.98,
+            "q75": 100.98,
+            "q95": 113.24
+          },
+          {
+            "date": "2026-10-19",
+            "mean": 94.53,
+            "q05": 78.88,
+            "q25": 87.17,
+            "q50": 94.1,
+            "q75": 101.02,
+            "q95": 112.76
+          },
+          {
+            "date": "2026-10-20",
+            "mean": 94.51,
+            "q05": 78.69,
+            "q25": 87.02,
+            "q50": 93.91,
+            "q75": 101.21,
+            "q95": 113.44
+          },
+          {
+            "date": "2026-10-21",
+            "mean": 94.55,
+            "q05": 78.3,
+            "q25": 87.14,
+            "q50": 93.79,
+            "q75": 101.32,
+            "q95": 113.33
+          },
+          {
+            "date": "2026-10-22",
+            "mean": 94.56,
+            "q05": 77.98,
+            "q25": 87.05,
+            "q50": 93.68,
+            "q75": 101.43,
+            "q95": 113.81
+          },
+          {
+            "date": "2026-10-23",
+            "mean": 94.53,
+            "q05": 77.67,
+            "q25": 87.03,
+            "q50": 93.78,
+            "q75": 101.57,
+            "q95": 113.8
+          },
+          {
+            "date": "2026-10-26",
+            "mean": 94.54,
+            "q05": 77.45,
+            "q25": 86.61,
+            "q50": 93.61,
+            "q75": 101.73,
+            "q95": 114.58
+          },
+          {
+            "date": "2026-10-27",
+            "mean": 94.54,
+            "q05": 76.93,
+            "q25": 86.65,
+            "q50": 93.64,
+            "q75": 101.64,
+            "q95": 114.83
+          },
+          {
+            "date": "2026-10-28",
+            "mean": 94.48,
+            "q05": 76.76,
+            "q25": 86.26,
+            "q50": 93.64,
+            "q75": 101.95,
+            "q95": 115.34
+          },
+          {
+            "date": "2026-10-29",
+            "mean": 94.46,
+            "q05": 76.65,
+            "q25": 86.32,
+            "q50": 93.48,
+            "q75": 101.7,
+            "q95": 115.57
+          },
+          {
+            "date": "2026-10-30",
+            "mean": 94.52,
+            "q05": 76.22,
+            "q25": 86.2,
+            "q50": 93.7,
+            "q75": 102.09,
+            "q95": 115.35
+          },
+          {
+            "date": "2026-11-02",
+            "mean": 94.5,
+            "q05": 76.27,
+            "q25": 85.87,
+            "q50": 93.62,
+            "q75": 102.27,
+            "q95": 114.97
+          },
+          {
+            "date": "2026-11-03",
+            "mean": 94.48,
+            "q05": 75.91,
+            "q25": 85.6,
+            "q50": 93.74,
+            "q75": 102.45,
+            "q95": 115.82
+          },
+          {
+            "date": "2026-11-04",
+            "mean": 94.38,
+            "q05": 75.52,
+            "q25": 85.53,
+            "q50": 93.6,
+            "q75": 102.32,
+            "q95": 115.86
+          },
+          {
+            "date": "2026-11-05",
+            "mean": 94.47,
+            "q05": 75.47,
+            "q25": 85.58,
+            "q50": 93.69,
+            "q75": 102.23,
+            "q95": 116.59
+          },
+          {
+            "date": "2026-11-06",
+            "mean": 94.48,
+            "q05": 75.21,
+            "q25": 85.33,
+            "q50": 93.64,
+            "q75": 102.3,
+            "q95": 116.89
+          },
+          {
+            "date": "2026-11-09",
+            "mean": 94.47,
+            "q05": 74.96,
+            "q25": 85.4,
+            "q50": 93.66,
+            "q75": 102.43,
+            "q95": 117.01
+          },
+          {
+            "date": "2026-11-10",
+            "mean": 94.47,
+            "q05": 74.76,
+            "q25": 85.19,
+            "q50": 93.51,
+            "q75": 102.48,
+            "q95": 117.52
+          },
+          {
+            "date": "2026-11-11",
+            "mean": 94.56,
+            "q05": 74.59,
+            "q25": 85.3,
+            "q50": 93.8,
+            "q75": 102.62,
+            "q95": 118.02
+          },
+          {
+            "date": "2026-11-12",
+            "mean": 94.58,
+            "q05": 74.82,
+            "q25": 85.35,
+            "q50": 93.89,
+            "q75": 102.86,
+            "q95": 118.36
+          },
+          {
+            "date": "2026-11-13",
+            "mean": 94.62,
+            "q05": 74.87,
+            "q25": 85.29,
+            "q50": 93.61,
+            "q75": 102.6,
+            "q95": 118.75
+          },
+          {
+            "date": "2026-11-16",
+            "mean": 94.65,
+            "q05": 74.63,
+            "q25": 85.42,
+            "q50": 93.75,
+            "q75": 102.89,
+            "q95": 118.7
+          },
+          {
+            "date": "2026-11-17",
+            "mean": 94.72,
+            "q05": 74.43,
+            "q25": 85.04,
+            "q50": 93.57,
+            "q75": 102.86,
+            "q95": 119.18
+          },
+          {
+            "date": "2026-11-18",
+            "mean": 94.7,
+            "q05": 74.11,
+            "q25": 84.9,
+            "q50": 93.62,
+            "q75": 102.95,
+            "q95": 119.52
+          },
+          {
+            "date": "2026-11-19",
+            "mean": 94.72,
+            "q05": 73.8,
+            "q25": 84.77,
+            "q50": 93.66,
+            "q75": 103.06,
+            "q95": 120.34
+          },
+          {
+            "date": "2026-11-20",
+            "mean": 94.7,
+            "q05": 73.75,
+            "q25": 84.75,
+            "q50": 93.58,
+            "q75": 103.12,
+            "q95": 120.58
+          },
+          {
+            "date": "2026-11-23",
+            "mean": 94.72,
+            "q05": 73.6,
+            "q25": 84.32,
+            "q50": 93.75,
+            "q75": 103.19,
+            "q95": 120.93
+          },
+          {
+            "date": "2026-11-24",
+            "mean": 94.66,
+            "q05": 73.34,
+            "q25": 84.31,
+            "q50": 93.76,
+            "q75": 102.94,
+            "q95": 120.76
+          },
+          {
+            "date": "2026-11-25",
+            "mean": 94.66,
+            "q05": 73.41,
+            "q25": 84.32,
+            "q50": 93.68,
+            "q75": 102.79,
+            "q95": 120.97
+          },
+          {
+            "date": "2026-11-26",
+            "mean": 94.63,
+            "q05": 73.09,
+            "q25": 84.19,
+            "q50": 93.73,
+            "q75": 103.04,
+            "q95": 120.42
+          },
+          {
+            "date": "2026-11-27",
+            "mean": 94.66,
+            "q05": 72.8,
+            "q25": 84.03,
+            "q50": 93.98,
+            "q75": 103.24,
+            "q95": 120.91
+          },
+          {
+            "date": "2026-11-30",
+            "mean": 94.59,
+            "q05": 72.21,
+            "q25": 83.74,
+            "q50": 93.54,
+            "q75": 103.42,
+            "q95": 121.14
+          },
+          {
+            "date": "2026-12-01",
+            "mean": 94.49,
+            "q05": 72.07,
+            "q25": 83.57,
+            "q50": 93.64,
+            "q75": 103.21,
+            "q95": 121.39
+          },
+          {
+            "date": "2026-12-02",
+            "mean": 94.5,
+            "q05": 72.31,
+            "q25": 83.62,
+            "q50": 93.46,
+            "q75": 103.26,
+            "q95": 121.6
+          },
+          {
+            "date": "2026-12-03",
+            "mean": 94.57,
+            "q05": 72.15,
+            "q25": 83.79,
+            "q50": 93.61,
+            "q75": 103.41,
+            "q95": 121.73
+          },
+          {
+            "date": "2026-12-04",
+            "mean": 94.58,
+            "q05": 71.99,
+            "q25": 83.59,
+            "q50": 93.37,
+            "q75": 103.81,
+            "q95": 122.11
+          },
+          {
+            "date": "2026-12-07",
+            "mean": 94.62,
+            "q05": 71.96,
+            "q25": 83.56,
+            "q50": 93.5,
+            "q75": 103.98,
+            "q95": 122.33
+          },
+          {
+            "date": "2026-12-08",
+            "mean": 94.6,
+            "q05": 72.04,
+            "q25": 83.77,
+            "q50": 93.2,
+            "q75": 104.1,
+            "q95": 122.51
+          },
+          {
+            "date": "2026-12-09",
+            "mean": 94.6,
+            "q05": 72.39,
+            "q25": 83.71,
+            "q50": 93.23,
+            "q75": 104.24,
+            "q95": 122.53
+          },
+          {
+            "date": "2026-12-10",
+            "mean": 94.57,
+            "q05": 71.71,
+            "q25": 83.52,
+            "q50": 93.17,
+            "q75": 104.49,
+            "q95": 122.52
+          },
+          {
+            "date": "2026-12-11",
+            "mean": 94.56,
+            "q05": 71.53,
+            "q25": 83.66,
+            "q50": 92.95,
+            "q75": 104.1,
+            "q95": 123.29
+          },
+          {
+            "date": "2026-12-14",
+            "mean": 94.55,
+            "q05": 71.42,
+            "q25": 83.67,
+            "q50": 93.29,
+            "q75": 104.19,
+            "q95": 123.02
+          },
+          {
+            "date": "2026-12-15",
+            "mean": 94.55,
+            "q05": 71.18,
+            "q25": 83.34,
+            "q50": 93.12,
+            "q75": 104.33,
+            "q95": 123.22
+          },
+          {
+            "date": "2026-12-16",
+            "mean": 94.57,
+            "q05": 71.04,
+            "q25": 83.08,
+            "q50": 93.18,
+            "q75": 104.23,
+            "q95": 123.0
+          },
+          {
+            "date": "2026-12-17",
+            "mean": 94.55,
+            "q05": 70.92,
+            "q25": 83.22,
+            "q50": 93.3,
+            "q75": 103.97,
+            "q95": 122.82
+          },
+          {
+            "date": "2026-12-18",
+            "mean": 94.58,
+            "q05": 70.52,
+            "q25": 83.11,
+            "q50": 93.4,
+            "q75": 104.36,
+            "q95": 123.55
+          },
+          {
+            "date": "2026-12-21",
+            "mean": 94.57,
+            "q05": 70.14,
+            "q25": 83.06,
+            "q50": 93.23,
+            "q75": 104.56,
+            "q95": 123.64
+          },
+          {
+            "date": "2026-12-22",
+            "mean": 94.6,
+            "q05": 69.6,
+            "q25": 83.0,
+            "q50": 93.36,
+            "q75": 104.66,
+            "q95": 123.72
+          },
+          {
+            "date": "2026-12-23",
+            "mean": 94.62,
+            "q05": 69.76,
+            "q25": 83.03,
+            "q50": 93.18,
+            "q75": 104.68,
+            "q95": 124.23
+          },
+          {
+            "date": "2026-12-24",
+            "mean": 94.66,
+            "q05": 69.8,
+            "q25": 83.16,
+            "q50": 93.38,
+            "q75": 104.56,
+            "q95": 124.25
+          },
+          {
+            "date": "2026-12-25",
+            "mean": 94.62,
+            "q05": 69.98,
+            "q25": 82.72,
+            "q50": 93.11,
+            "q75": 104.61,
+            "q95": 124.29
+          },
+          {
+            "date": "2026-12-28",
+            "mean": 94.62,
+            "q05": 70.19,
+            "q25": 82.42,
+            "q50": 93.02,
+            "q75": 104.76,
+            "q95": 124.6
+          },
+          {
+            "date": "2026-12-29",
+            "mean": 94.55,
+            "q05": 69.54,
+            "q25": 82.51,
+            "q50": 93.1,
+            "q75": 104.94,
+            "q95": 124.02
+          },
+          {
+            "date": "2026-12-30",
+            "mean": 94.59,
+            "q05": 69.72,
+            "q25": 82.35,
+            "q50": 92.68,
+            "q75": 104.97,
+            "q95": 124.51
+          },
+          {
+            "date": "2026-12-31",
+            "mean": 94.54,
+            "q05": 69.23,
+            "q25": 81.95,
+            "q50": 92.66,
+            "q75": 105.06,
+            "q95": 124.63
+          },
+          {
+            "date": "2027-01-01",
+            "mean": 94.55,
+            "q05": 69.49,
+            "q25": 81.87,
+            "q50": 92.85,
+            "q75": 105.02,
+            "q95": 125.28
+          },
+          {
+            "date": "2027-01-04",
+            "mean": 94.53,
+            "q05": 69.42,
+            "q25": 81.56,
+            "q50": 92.57,
+            "q75": 105.4,
+            "q95": 126.19
+          },
+          {
+            "date": "2027-01-05",
+            "mean": 94.62,
+            "q05": 69.32,
+            "q25": 81.78,
+            "q50": 92.54,
+            "q75": 105.7,
+            "q95": 125.82
+          },
+          {
+            "date": "2027-01-06",
+            "mean": 94.69,
+            "q05": 69.28,
+            "q25": 81.65,
+            "q50": 92.93,
+            "q75": 105.66,
+            "q95": 125.29
+          },
+          {
+            "date": "2027-01-07",
+            "mean": 94.79,
+            "q05": 69.3,
+            "q25": 81.56,
+            "q50": 92.86,
+            "q75": 106.04,
+            "q95": 126.06
+          },
+          {
+            "date": "2027-01-08",
+            "mean": 94.8,
+            "q05": 69.56,
+            "q25": 81.39,
+            "q50": 93.06,
+            "q75": 105.92,
+            "q95": 126.52
+          },
+          {
+            "date": "2027-01-11",
+            "mean": 94.72,
+            "q05": 69.15,
+            "q25": 81.14,
+            "q50": 93.19,
+            "q75": 105.9,
+            "q95": 126.1
+          },
+          {
+            "date": "2027-01-12",
+            "mean": 94.66,
+            "q05": 68.92,
+            "q25": 81.32,
+            "q50": 92.74,
+            "q75": 105.68,
+            "q95": 126.85
+          },
+          {
+            "date": "2027-01-13",
+            "mean": 94.65,
+            "q05": 68.98,
+            "q25": 81.16,
+            "q50": 92.92,
+            "q75": 105.74,
+            "q95": 126.82
+          },
+          {
+            "date": "2027-01-14",
+            "mean": 94.63,
+            "q05": 68.42,
+            "q25": 81.4,
+            "q50": 92.96,
+            "q75": 106.07,
+            "q95": 128.12
+          },
+          {
+            "date": "2027-01-15",
+            "mean": 94.7,
+            "q05": 68.07,
+            "q25": 81.23,
+            "q50": 93.15,
+            "q75": 106.04,
+            "q95": 128.13
+          },
+          {
+            "date": "2027-01-18",
+            "mean": 94.77,
+            "q05": 68.24,
+            "q25": 81.21,
+            "q50": 93.0,
+            "q75": 106.34,
+            "q95": 128.42
+          },
+          {
+            "date": "2027-01-19",
+            "mean": 94.8,
+            "q05": 68.02,
+            "q25": 81.21,
+            "q50": 92.92,
+            "q75": 106.12,
+            "q95": 129.21
+          },
+          {
+            "date": "2027-01-20",
+            "mean": 94.78,
+            "q05": 68.03,
+            "q25": 81.26,
+            "q50": 92.96,
+            "q75": 106.48,
+            "q95": 128.42
+          },
+          {
+            "date": "2027-01-21",
+            "mean": 94.74,
+            "q05": 67.52,
+            "q25": 81.09,
+            "q50": 93.14,
+            "q75": 106.27,
+            "q95": 129.53
+          },
+          {
+            "date": "2027-01-22",
+            "mean": 94.7,
+            "q05": 67.04,
+            "q25": 80.84,
+            "q50": 92.93,
+            "q75": 106.62,
+            "q95": 128.88
+          },
+          {
+            "date": "2027-01-25",
+            "mean": 94.72,
+            "q05": 66.76,
+            "q25": 80.62,
+            "q50": 93.12,
+            "q75": 106.49,
+            "q95": 129.1
+          },
+          {
+            "date": "2027-01-26",
+            "mean": 94.68,
+            "q05": 66.62,
+            "q25": 80.41,
+            "q50": 93.21,
+            "q75": 106.74,
+            "q95": 129.02
+          },
+          {
+            "date": "2027-01-27",
+            "mean": 94.62,
+            "q05": 66.51,
+            "q25": 80.4,
+            "q50": 93.05,
+            "q75": 106.46,
+            "q95": 129.37
+          },
+          {
+            "date": "2027-01-28",
+            "mean": 94.57,
+            "q05": 66.36,
+            "q25": 80.24,
+            "q50": 93.21,
+            "q75": 106.11,
+            "q95": 129.04
+          },
+          {
+            "date": "2027-01-29",
+            "mean": 94.6,
+            "q05": 66.19,
+            "q25": 80.47,
+            "q50": 92.96,
+            "q75": 106.52,
+            "q95": 129.42
+          },
+          {
+            "date": "2027-02-01",
+            "mean": 94.55,
+            "q05": 66.24,
+            "q25": 80.5,
+            "q50": 92.4,
+            "q75": 106.56,
+            "q95": 130.09
+          },
+          {
+            "date": "2027-02-02",
+            "mean": 94.57,
+            "q05": 66.01,
+            "q25": 80.34,
+            "q50": 92.53,
+            "q75": 106.48,
+            "q95": 130.07
+          },
+          {
+            "date": "2027-02-03",
+            "mean": 94.55,
+            "q05": 66.11,
+            "q25": 80.16,
+            "q50": 92.37,
+            "q75": 106.62,
+            "q95": 131.17
+          },
+          {
+            "date": "2027-02-04",
+            "mean": 94.48,
+            "q05": 66.03,
+            "q25": 80.05,
+            "q50": 92.41,
+            "q75": 106.63,
+            "q95": 131.26
+          },
+          {
+            "date": "2027-02-05",
+            "mean": 94.54,
+            "q05": 65.59,
+            "q25": 80.16,
+            "q50": 92.42,
+            "q75": 106.44,
+            "q95": 131.72
+          },
+          {
+            "date": "2027-02-08",
+            "mean": 94.49,
+            "q05": 65.77,
+            "q25": 80.11,
+            "q50": 92.58,
+            "q75": 106.56,
+            "q95": 130.63
+          },
+          {
+            "date": "2027-02-09",
+            "mean": 94.49,
+            "q05": 66.04,
+            "q25": 79.76,
+            "q50": 92.53,
+            "q75": 106.76,
+            "q95": 131.11
+          },
+          {
+            "date": "2027-02-10",
+            "mean": 94.51,
+            "q05": 65.7,
+            "q25": 79.98,
+            "q50": 92.39,
+            "q75": 106.91,
+            "q95": 131.23
+          },
+          {
+            "date": "2027-02-11",
+            "mean": 94.5,
+            "q05": 65.66,
+            "q25": 79.79,
+            "q50": 92.19,
+            "q75": 106.72,
+            "q95": 131.97
+          },
+          {
+            "date": "2027-02-12",
+            "mean": 94.54,
+            "q05": 65.69,
+            "q25": 79.53,
+            "q50": 92.17,
+            "q75": 106.97,
+            "q95": 132.84
+          },
+          {
+            "date": "2027-02-15",
+            "mean": 94.55,
+            "q05": 65.54,
+            "q25": 79.52,
+            "q50": 92.19,
+            "q75": 107.05,
+            "q95": 132.1
+          },
+          {
+            "date": "2027-02-16",
+            "mean": 94.53,
+            "q05": 65.85,
+            "q25": 79.31,
+            "q50": 92.14,
+            "q75": 107.28,
+            "q95": 133.37
+          },
+          {
+            "date": "2027-02-17",
+            "mean": 94.57,
+            "q05": 65.22,
+            "q25": 79.16,
+            "q50": 92.3,
+            "q75": 106.72,
+            "q95": 132.98
+          },
+          {
+            "date": "2027-02-18",
+            "mean": 94.59,
+            "q05": 64.99,
+            "q25": 79.14,
+            "q50": 92.41,
+            "q75": 107.15,
+            "q95": 133.5
+          },
+          {
+            "date": "2027-02-19",
+            "mean": 94.58,
+            "q05": 64.55,
+            "q25": 78.9,
+            "q50": 92.4,
+            "q75": 107.5,
+            "q95": 132.89
+          },
+          {
+            "date": "2027-02-22",
+            "mean": 94.61,
+            "q05": 64.64,
+            "q25": 78.96,
+            "q50": 92.38,
+            "q75": 107.55,
+            "q95": 133.13
+          },
+          {
+            "date": "2027-02-23",
+            "mean": 94.57,
+            "q05": 64.55,
+            "q25": 78.78,
+            "q50": 92.36,
+            "q75": 107.67,
+            "q95": 132.54
+          },
+          {
+            "date": "2027-02-24",
+            "mean": 94.61,
+            "q05": 64.46,
+            "q25": 78.75,
+            "q50": 92.21,
+            "q75": 107.49,
+            "q95": 133.15
+          },
+          {
+            "date": "2027-02-25",
+            "mean": 94.53,
+            "q05": 64.24,
+            "q25": 78.84,
+            "q50": 92.23,
+            "q75": 107.61,
+            "q95": 132.83
+          },
+          {
+            "date": "2027-02-26",
+            "mean": 94.52,
+            "q05": 64.26,
+            "q25": 78.65,
+            "q50": 92.19,
+            "q75": 107.66,
+            "q95": 132.9
+          },
+          {
+            "date": "2027-03-01",
+            "mean": 94.55,
+            "q05": 64.55,
+            "q25": 78.63,
+            "q50": 92.58,
+            "q75": 107.54,
+            "q95": 133.67
+          },
+          {
+            "date": "2027-03-02",
+            "mean": 94.61,
+            "q05": 64.54,
+            "q25": 78.73,
+            "q50": 92.43,
+            "q75": 107.83,
+            "q95": 134.48
+          },
+          {
+            "date": "2027-03-03",
+            "mean": 94.65,
+            "q05": 64.66,
+            "q25": 78.88,
+            "q50": 92.42,
+            "q75": 107.89,
+            "q95": 134.36
+          },
+          {
+            "date": "2027-03-04",
+            "mean": 94.62,
+            "q05": 63.82,
+            "q25": 78.78,
+            "q50": 92.05,
+            "q75": 107.71,
+            "q95": 134.49
+          },
+          {
+            "date": "2027-03-05",
+            "mean": 94.65,
+            "q05": 63.53,
+            "q25": 78.97,
+            "q50": 92.06,
+            "q75": 107.85,
+            "q95": 134.65
+          },
+          {
+            "date": "2027-03-08",
+            "mean": 94.63,
+            "q05": 63.79,
+            "q25": 78.48,
+            "q50": 92.18,
+            "q75": 107.78,
+            "q95": 134.72
+          },
+          {
+            "date": "2027-03-09",
+            "mean": 94.61,
+            "q05": 63.27,
+            "q25": 78.51,
+            "q50": 91.82,
+            "q75": 107.75,
+            "q95": 134.93
+          },
+          {
+            "date": "2027-03-10",
+            "mean": 94.59,
+            "q05": 63.27,
+            "q25": 78.42,
+            "q50": 92.01,
+            "q75": 108.01,
+            "q95": 134.76
+          },
+          {
+            "date": "2027-03-11",
+            "mean": 94.65,
+            "q05": 63.2,
+            "q25": 78.27,
+            "q50": 91.92,
+            "q75": 108.37,
+            "q95": 135.43
+          },
+          {
+            "date": "2027-03-12",
+            "mean": 94.67,
+            "q05": 62.7,
+            "q25": 78.31,
+            "q50": 92.29,
+            "q75": 108.36,
+            "q95": 136.02
+          },
+          {
+            "date": "2027-03-15",
+            "mean": 94.68,
+            "q05": 62.82,
+            "q25": 78.36,
+            "q50": 91.99,
+            "q75": 108.48,
+            "q95": 136.04
+          },
+          {
+            "date": "2027-03-16",
+            "mean": 94.75,
+            "q05": 62.84,
+            "q25": 78.22,
+            "q50": 92.02,
+            "q75": 108.3,
+            "q95": 136.77
+          },
+          {
+            "date": "2027-03-17",
+            "mean": 94.67,
+            "q05": 62.99,
+            "q25": 78.2,
+            "q50": 91.95,
+            "q75": 108.1,
+            "q95": 136.35
+          },
+          {
+            "date": "2027-03-18",
+            "mean": 94.68,
+            "q05": 63.27,
+            "q25": 78.3,
+            "q50": 91.71,
+            "q75": 108.39,
+            "q95": 136.69
+          },
+          {
+            "date": "2027-03-19",
+            "mean": 94.73,
+            "q05": 63.07,
+            "q25": 77.78,
+            "q50": 92.32,
+            "q75": 108.69,
+            "q95": 136.84
+          },
+          {
+            "date": "2027-03-22",
+            "mean": 94.75,
+            "q05": 62.68,
+            "q25": 77.67,
+            "q50": 91.86,
+            "q75": 108.87,
+            "q95": 137.58
+          },
+          {
+            "date": "2027-03-23",
+            "mean": 94.78,
+            "q05": 63.33,
+            "q25": 77.62,
+            "q50": 91.77,
+            "q75": 108.68,
+            "q95": 136.87
+          },
+          {
+            "date": "2027-03-24",
+            "mean": 94.76,
+            "q05": 63.08,
+            "q25": 77.32,
+            "q50": 91.82,
+            "q75": 108.72,
+            "q95": 137.4
+          },
+          {
+            "date": "2027-03-25",
+            "mean": 94.78,
+            "q05": 63.01,
+            "q25": 77.48,
+            "q50": 91.69,
+            "q75": 109.12,
+            "q95": 137.42
+          },
+          {
+            "date": "2027-03-26",
+            "mean": 94.75,
+            "q05": 62.71,
+            "q25": 77.26,
+            "q50": 91.79,
+            "q75": 109.28,
+            "q95": 137.64
+          },
+          {
+            "date": "2027-03-29",
+            "mean": 94.76,
+            "q05": 62.26,
+            "q25": 77.4,
+            "q50": 91.79,
+            "q75": 109.29,
+            "q95": 137.22
+          },
+          {
+            "date": "2027-03-30",
+            "mean": 94.79,
+            "q05": 61.57,
+            "q25": 77.38,
+            "q50": 91.87,
+            "q75": 109.35,
+            "q95": 137.44
+          },
+          {
+            "date": "2027-03-31",
+            "mean": 94.8,
+            "q05": 62.21,
+            "q25": 77.35,
+            "q50": 91.6,
+            "q75": 109.23,
+            "q95": 137.02
+          },
+          {
+            "date": "2027-04-01",
+            "mean": 94.78,
+            "q05": 61.58,
+            "q25": 77.09,
+            "q50": 91.75,
+            "q75": 109.39,
+            "q95": 137.04
+          },
+          {
+            "date": "2027-04-02",
+            "mean": 94.76,
+            "q05": 61.16,
+            "q25": 76.95,
+            "q50": 91.76,
+            "q75": 109.14,
+            "q95": 137.54
+          },
+          {
+            "date": "2027-04-05",
+            "mean": 94.79,
+            "q05": 60.91,
+            "q25": 76.94,
+            "q50": 91.83,
+            "q75": 109.36,
+            "q95": 138.17
+          },
+          {
+            "date": "2027-04-06",
+            "mean": 94.78,
+            "q05": 60.64,
+            "q25": 76.89,
+            "q50": 91.81,
+            "q75": 109.16,
+            "q95": 138.28
+          },
+          {
+            "date": "2027-04-07",
+            "mean": 94.74,
+            "q05": 60.6,
+            "q25": 76.54,
+            "q50": 92.01,
+            "q75": 108.87,
+            "q95": 138.44
+          },
+          {
+            "date": "2027-04-08",
+            "mean": 94.78,
+            "q05": 60.16,
+            "q25": 76.52,
+            "q50": 91.78,
+            "q75": 108.75,
+            "q95": 138.95
+          },
+          {
+            "date": "2027-04-09",
+            "mean": 94.74,
+            "q05": 60.73,
+            "q25": 76.49,
+            "q50": 91.65,
+            "q75": 108.42,
+            "q95": 139.48
+          },
+          {
+            "date": "2027-04-12",
+            "mean": 94.77,
+            "q05": 60.47,
+            "q25": 76.35,
+            "q50": 91.53,
+            "q75": 108.63,
+            "q95": 140.07
+          },
+          {
+            "date": "2027-04-13",
+            "mean": 94.8,
+            "q05": 60.35,
+            "q25": 76.12,
+            "q50": 91.56,
+            "q75": 108.87,
+            "q95": 139.97
+          },
+          {
+            "date": "2027-04-14",
+            "mean": 94.87,
+            "q05": 60.1,
+            "q25": 76.3,
+            "q50": 91.68,
+            "q75": 109.04,
+            "q95": 139.87
+          },
+          {
+            "date": "2027-04-15",
+            "mean": 94.81,
+            "q05": 60.1,
+            "q25": 76.28,
+            "q50": 91.71,
+            "q75": 109.48,
+            "q95": 140.24
+          },
+          {
+            "date": "2027-04-16",
+            "mean": 94.83,
+            "q05": 60.1,
+            "q25": 76.26,
+            "q50": 91.74,
+            "q75": 109.45,
+            "q95": 140.47
+          },
+          {
+            "date": "2027-04-19",
+            "mean": 94.82,
+            "q05": 60.42,
+            "q25": 75.99,
+            "q50": 91.57,
+            "q75": 109.28,
+            "q95": 140.32
+          },
+          {
+            "date": "2027-04-20",
+            "mean": 94.79,
+            "q05": 60.24,
+            "q25": 75.87,
+            "q50": 91.53,
+            "q75": 109.39,
+            "q95": 141.79
+          },
+          {
+            "date": "2027-04-21",
+            "mean": 94.74,
+            "q05": 60.32,
+            "q25": 75.69,
+            "q50": 91.7,
+            "q75": 109.35,
+            "q95": 141.34
+          },
+          {
+            "date": "2027-04-22",
+            "mean": 94.78,
+            "q05": 59.95,
+            "q25": 75.53,
+            "q50": 91.57,
+            "q75": 109.2,
+            "q95": 142.62
+          },
+          {
+            "date": "2027-04-23",
+            "mean": 94.73,
+            "q05": 59.42,
+            "q25": 75.57,
+            "q50": 91.45,
+            "q75": 109.11,
+            "q95": 142.07
+          },
+          {
+            "date": "2027-04-26",
+            "mean": 94.73,
+            "q05": 58.92,
+            "q25": 75.67,
+            "q50": 91.49,
+            "q75": 108.93,
+            "q95": 142.37
+          },
+          {
+            "date": "2027-04-27",
+            "mean": 94.66,
+            "q05": 59.22,
+            "q25": 75.54,
+            "q50": 91.39,
+            "q75": 108.87,
+            "q95": 142.45
+          },
+          {
+            "date": "2027-04-28",
+            "mean": 94.68,
+            "q05": 59.01,
+            "q25": 75.86,
+            "q50": 91.58,
+            "q75": 109.25,
+            "q95": 143.01
+          },
+          {
+            "date": "2027-04-29",
+            "mean": 94.65,
+            "q05": 58.9,
+            "q25": 75.86,
+            "q50": 91.63,
+            "q75": 108.94,
+            "q95": 142.67
+          },
+          {
+            "date": "2027-04-30",
+            "mean": 94.7,
+            "q05": 58.37,
+            "q25": 75.57,
+            "q50": 92.0,
+            "q75": 109.19,
+            "q95": 143.08
+          },
+          {
+            "date": "2027-05-03",
+            "mean": 94.69,
+            "q05": 58.23,
+            "q25": 75.36,
+            "q50": 91.76,
+            "q75": 109.22,
+            "q95": 144.03
+          },
+          {
+            "date": "2027-05-04",
+            "mean": 94.73,
+            "q05": 58.53,
+            "q25": 75.12,
+            "q50": 91.9,
+            "q75": 109.23,
+            "q95": 143.26
+          },
+          {
+            "date": "2027-05-05",
+            "mean": 94.69,
+            "q05": 58.4,
+            "q25": 75.13,
+            "q50": 91.44,
+            "q75": 109.55,
+            "q95": 143.8
+          },
+          {
+            "date": "2027-05-06",
+            "mean": 94.68,
+            "q05": 58.14,
+            "q25": 75.14,
+            "q50": 91.44,
+            "q75": 109.11,
+            "q95": 143.45
+          },
+          {
+            "date": "2027-05-07",
+            "mean": 94.72,
+            "q05": 57.86,
+            "q25": 75.3,
+            "q50": 91.46,
+            "q75": 109.44,
+            "q95": 143.23
+          },
+          {
+            "date": "2027-05-10",
+            "mean": 94.73,
+            "q05": 57.77,
+            "q25": 75.36,
+            "q50": 91.49,
+            "q75": 109.52,
+            "q95": 142.47
+          },
+          {
+            "date": "2027-05-11",
+            "mean": 94.66,
+            "q05": 57.62,
+            "q25": 75.18,
+            "q50": 91.58,
+            "q75": 109.3,
+            "q95": 142.43
+          },
+          {
+            "date": "2027-05-12",
+            "mean": 94.64,
+            "q05": 57.54,
+            "q25": 74.78,
+            "q50": 91.89,
+            "q75": 109.52,
+            "q95": 142.61
+          },
+          {
+            "date": "2027-05-13",
+            "mean": 94.65,
+            "q05": 57.54,
+            "q25": 74.89,
+            "q50": 92.02,
+            "q75": 109.4,
+            "q95": 142.38
+          },
+          {
+            "date": "2027-05-14",
+            "mean": 94.55,
+            "q05": 57.41,
+            "q25": 74.96,
+            "q50": 91.86,
+            "q75": 109.03,
+            "q95": 143.08
+          },
+          {
+            "date": "2027-05-17",
+            "mean": 94.58,
+            "q05": 57.7,
+            "q25": 75.0,
+            "q50": 91.78,
+            "q75": 108.95,
+            "q95": 144.17
+          },
+          {
+            "date": "2027-05-18",
+            "mean": 94.56,
+            "q05": 57.34,
+            "q25": 75.02,
+            "q50": 91.92,
+            "q75": 109.1,
+            "q95": 143.49
+          },
+          {
+            "date": "2027-05-19",
+            "mean": 94.58,
+            "q05": 57.29,
+            "q25": 75.21,
+            "q50": 91.81,
+            "q75": 108.78,
+            "q95": 144.19
+          },
+          {
+            "date": "2027-05-20",
+            "mean": 94.61,
+            "q05": 57.27,
+            "q25": 75.06,
+            "q50": 91.88,
+            "q75": 109.12,
+            "q95": 144.45
+          },
+          {
+            "date": "2027-05-21",
+            "mean": 94.53,
+            "q05": 57.29,
+            "q25": 74.85,
+            "q50": 91.59,
+            "q75": 109.3,
+            "q95": 144.64
+          },
+          {
+            "date": "2027-05-24",
+            "mean": 94.47,
+            "q05": 56.96,
+            "q25": 75.05,
+            "q50": 91.5,
+            "q75": 109.24,
+            "q95": 144.64
+          },
+          {
+            "date": "2027-05-25",
+            "mean": 94.42,
+            "q05": 56.57,
+            "q25": 74.61,
+            "q50": 91.41,
+            "q75": 108.81,
+            "q95": 144.78
+          },
+          {
+            "date": "2027-05-26",
+            "mean": 94.45,
+            "q05": 56.42,
+            "q25": 74.47,
+            "q50": 91.71,
+            "q75": 109.12,
+            "q95": 144.7
+          },
+          {
+            "date": "2027-05-27",
+            "mean": 94.44,
+            "q05": 56.38,
+            "q25": 74.54,
+            "q50": 91.34,
+            "q75": 108.71,
+            "q95": 146.06
+          },
+          {
+            "date": "2027-05-28",
+            "mean": 94.36,
+            "q05": 56.05,
+            "q25": 74.24,
+            "q50": 91.41,
+            "q75": 108.97,
+            "q95": 145.74
+          },
+          {
+            "date": "2027-05-31",
+            "mean": 94.4,
+            "q05": 56.12,
+            "q25": 74.42,
+            "q50": 91.6,
+            "q75": 108.73,
+            "q95": 145.31
+          },
+          {
+            "date": "2027-06-01",
+            "mean": 94.46,
+            "q05": 56.14,
+            "q25": 74.26,
+            "q50": 91.59,
+            "q75": 109.13,
+            "q95": 145.71
+          },
+          {
+            "date": "2027-06-02",
+            "mean": 94.43,
+            "q05": 56.01,
+            "q25": 73.8,
+            "q50": 91.61,
+            "q75": 109.27,
+            "q95": 145.73
+          },
+          {
+            "date": "2027-06-03",
+            "mean": 94.5,
+            "q05": 55.41,
+            "q25": 73.7,
+            "q50": 91.6,
+            "q75": 109.81,
+            "q95": 145.25
+          },
+          {
+            "date": "2027-06-04",
+            "mean": 94.5,
+            "q05": 55.8,
+            "q25": 73.65,
+            "q50": 91.28,
+            "q75": 109.91,
+            "q95": 146.88
+          },
+          {
+            "date": "2027-06-07",
+            "mean": 94.51,
+            "q05": 55.92,
+            "q25": 73.96,
+            "q50": 91.49,
+            "q75": 110.09,
+            "q95": 145.31
+          },
+          {
+            "date": "2027-06-08",
+            "mean": 94.48,
+            "q05": 55.62,
+            "q25": 73.86,
+            "q50": 91.36,
+            "q75": 110.15,
+            "q95": 145.57
+          },
+          {
+            "date": "2027-06-09",
+            "mean": 94.44,
+            "q05": 55.75,
+            "q25": 73.9,
+            "q50": 91.54,
+            "q75": 110.08,
+            "q95": 145.87
+          },
+          {
+            "date": "2027-06-10",
+            "mean": 94.36,
+            "q05": 55.54,
+            "q25": 73.86,
+            "q50": 91.36,
+            "q75": 109.88,
+            "q95": 145.72
+          },
+          {
+            "date": "2027-06-11",
+            "mean": 94.36,
+            "q05": 55.62,
+            "q25": 73.98,
+            "q50": 91.38,
+            "q75": 109.83,
+            "q95": 147.0
+          },
+          {
+            "date": "2027-06-14",
+            "mean": 94.31,
+            "q05": 55.06,
+            "q25": 73.93,
+            "q50": 91.42,
+            "q75": 110.09,
+            "q95": 146.45
+          },
+          {
+            "date": "2027-06-15",
+            "mean": 94.3,
+            "q05": 55.21,
+            "q25": 73.84,
+            "q50": 91.3,
+            "q75": 110.0,
+            "q95": 147.08
+          },
+          {
+            "date": "2027-06-16",
+            "mean": 94.31,
+            "q05": 55.09,
+            "q25": 73.78,
+            "q50": 91.09,
+            "q75": 110.02,
+            "q95": 146.68
+          },
+          {
+            "date": "2027-06-17",
+            "mean": 94.39,
+            "q05": 55.24,
+            "q25": 73.91,
+            "q50": 91.25,
+            "q75": 110.17,
+            "q95": 147.79
+          },
+          {
+            "date": "2027-06-18",
+            "mean": 94.41,
+            "q05": 55.45,
+            "q25": 73.99,
+            "q50": 90.9,
+            "q75": 110.0,
+            "q95": 147.77
+          },
+          {
+            "date": "2027-06-21",
+            "mean": 94.46,
+            "q05": 55.06,
+            "q25": 73.8,
+            "q50": 91.29,
+            "q75": 109.95,
+            "q95": 148.1
+          },
+          {
+            "date": "2027-06-22",
+            "mean": 94.49,
+            "q05": 54.69,
+            "q25": 73.98,
+            "q50": 91.25,
+            "q75": 109.51,
+            "q95": 147.52
+          },
+          {
+            "date": "2027-06-23",
+            "mean": 94.47,
+            "q05": 54.4,
+            "q25": 74.0,
+            "q50": 90.86,
+            "q75": 109.93,
+            "q95": 147.86
+          },
+          {
+            "date": "2027-06-24",
+            "mean": 94.43,
+            "q05": 54.64,
+            "q25": 73.98,
+            "q50": 91.34,
+            "q75": 110.18,
+            "q95": 147.46
+          },
+          {
+            "date": "2027-06-25",
+            "mean": 94.36,
+            "q05": 54.48,
+            "q25": 73.71,
+            "q50": 91.02,
+            "q75": 109.79,
+            "q95": 148.16
+          },
+          {
+            "date": "2027-06-28",
+            "mean": 94.32,
+            "q05": 54.27,
+            "q25": 73.51,
+            "q50": 91.14,
+            "q75": 109.9,
+            "q95": 147.27
+          },
+          {
+            "date": "2027-06-29",
+            "mean": 94.31,
+            "q05": 54.38,
+            "q25": 73.43,
+            "q50": 91.04,
+            "q75": 110.03,
+            "q95": 148.66
+          },
+          {
+            "date": "2027-06-30",
+            "mean": 94.26,
+            "q05": 54.29,
+            "q25": 73.3,
+            "q50": 91.3,
+            "q75": 110.13,
+            "q95": 148.26
+          },
+          {
+            "date": "2027-07-01",
+            "mean": 94.26,
+            "q05": 54.03,
+            "q25": 73.38,
+            "q50": 91.18,
+            "q75": 110.49,
+            "q95": 148.85
+          },
+          {
+            "date": "2027-07-02",
+            "mean": 94.25,
+            "q05": 54.39,
+            "q25": 73.29,
+            "q50": 91.09,
+            "q75": 110.77,
+            "q95": 149.03
+          },
+          {
+            "date": "2027-07-05",
+            "mean": 94.27,
+            "q05": 54.18,
+            "q25": 73.17,
+            "q50": 90.75,
+            "q75": 110.81,
+            "q95": 148.45
+          },
+          {
+            "date": "2027-07-06",
+            "mean": 94.28,
+            "q05": 53.74,
+            "q25": 73.36,
+            "q50": 90.52,
+            "q75": 110.76,
+            "q95": 148.44
+          },
+          {
+            "date": "2027-07-07",
+            "mean": 94.27,
+            "q05": 53.64,
+            "q25": 73.28,
+            "q50": 90.29,
+            "q75": 110.67,
+            "q95": 148.21
+          },
+          {
+            "date": "2027-07-08",
+            "mean": 94.39,
+            "q05": 54.02,
+            "q25": 72.9,
+            "q50": 90.38,
+            "q75": 110.91,
+            "q95": 149.42
+          },
+          {
+            "date": "2027-07-09",
+            "mean": 94.4,
+            "q05": 53.87,
+            "q25": 72.98,
+            "q50": 90.59,
+            "q75": 110.82,
+            "q95": 150.09
+          },
+          {
+            "date": "2027-07-12",
+            "mean": 94.4,
+            "q05": 53.85,
+            "q25": 72.98,
+            "q50": 90.44,
+            "q75": 111.12,
+            "q95": 149.75
+          },
+          {
+            "date": "2027-07-13",
+            "mean": 94.42,
+            "q05": 53.71,
+            "q25": 72.8,
+            "q50": 90.25,
+            "q75": 110.74,
+            "q95": 149.8
+          },
+          {
+            "date": "2027-07-14",
+            "mean": 94.48,
+            "q05": 53.72,
+            "q25": 72.79,
+            "q50": 90.01,
+            "q75": 110.83,
+            "q95": 151.27
+          },
+          {
+            "date": "2027-07-15",
+            "mean": 94.43,
+            "q05": 53.74,
+            "q25": 72.73,
+            "q50": 89.98,
+            "q75": 110.88,
+            "q95": 151.83
+          },
+          {
+            "date": "2027-07-16",
+            "mean": 94.41,
+            "q05": 53.59,
+            "q25": 72.45,
+            "q50": 90.06,
+            "q75": 110.86,
+            "q95": 151.61
+          },
+          {
+            "date": "2027-07-19",
+            "mean": 94.36,
+            "q05": 53.85,
+            "q25": 72.42,
+            "q50": 89.75,
+            "q75": 110.59,
+            "q95": 153.18
+          },
+          {
+            "date": "2027-07-20",
+            "mean": 94.3,
+            "q05": 53.89,
+            "q25": 72.76,
+            "q50": 89.55,
+            "q75": 110.35,
+            "q95": 153.08
+          },
+          {
+            "date": "2027-07-21",
+            "mean": 94.31,
+            "q05": 53.72,
+            "q25": 72.28,
+            "q50": 89.34,
+            "q75": 110.87,
+            "q95": 153.52
+          },
+          {
+            "date": "2027-07-22",
+            "mean": 94.27,
+            "q05": 53.66,
+            "q25": 72.18,
+            "q50": 89.48,
+            "q75": 110.67,
+            "q95": 153.05
+          },
+          {
+            "date": "2027-07-23",
+            "mean": 94.24,
+            "q05": 53.28,
+            "q25": 72.17,
+            "q50": 89.59,
+            "q75": 110.45,
+            "q95": 153.24
+          },
+          {
+            "date": "2027-07-26",
+            "mean": 94.18,
+            "q05": 53.44,
+            "q25": 72.18,
+            "q50": 89.51,
+            "q75": 110.52,
+            "q95": 152.62
+          },
+          {
+            "date": "2027-07-27",
+            "mean": 94.18,
+            "q05": 53.08,
+            "q25": 71.92,
+            "q50": 89.33,
+            "q75": 110.37,
+            "q95": 153.13
+          },
+          {
+            "date": "2027-07-28",
+            "mean": 94.1,
+            "q05": 53.24,
+            "q25": 71.96,
+            "q50": 89.56,
+            "q75": 110.24,
+            "q95": 152.61
+          },
+          {
+            "date": "2027-07-29",
+            "mean": 94.07,
+            "q05": 53.03,
+            "q25": 71.72,
+            "q50": 89.39,
+            "q75": 110.01,
+            "q95": 153.77
+          },
+          {
+            "date": "2027-07-30",
+            "mean": 94.15,
+            "q05": 53.01,
+            "q25": 71.84,
+            "q50": 89.39,
+            "q75": 110.35,
+            "q95": 153.34
+          },
+          {
+            "date": "2027-08-02",
+            "mean": 94.18,
+            "q05": 52.75,
+            "q25": 71.83,
+            "q50": 89.13,
+            "q75": 110.07,
+            "q95": 153.53
+          },
+          {
+            "date": "2027-08-03",
+            "mean": 94.13,
+            "q05": 52.81,
+            "q25": 71.73,
+            "q50": 89.13,
+            "q75": 109.88,
+            "q95": 153.33
+          },
+          {
+            "date": "2027-08-04",
+            "mean": 94.09,
+            "q05": 52.68,
+            "q25": 71.73,
+            "q50": 89.08,
+            "q75": 109.74,
+            "q95": 154.22
+          },
+          {
+            "date": "2027-08-05",
+            "mean": 94.08,
+            "q05": 52.45,
+            "q25": 71.88,
+            "q50": 89.03,
+            "q75": 109.48,
+            "q95": 154.69
+          },
+          {
+            "date": "2027-08-06",
+            "mean": 94.1,
+            "q05": 52.29,
+            "q25": 71.8,
+            "q50": 88.99,
+            "q75": 110.28,
+            "q95": 153.15
+          },
+          {
+            "date": "2027-08-09",
+            "mean": 94.15,
+            "q05": 52.18,
+            "q25": 71.65,
+            "q50": 88.86,
+            "q75": 110.54,
+            "q95": 155.18
+          },
+          {
+            "date": "2027-08-10",
+            "mean": 94.09,
+            "q05": 52.2,
+            "q25": 71.33,
+            "q50": 88.98,
+            "q75": 110.37,
+            "q95": 154.85
+          },
+          {
+            "date": "2027-08-11",
+            "mean": 94.11,
+            "q05": 52.09,
+            "q25": 71.52,
+            "q50": 88.52,
+            "q75": 110.79,
+            "q95": 154.5
+          },
+          {
+            "date": "2027-08-12",
+            "mean": 94.15,
+            "q05": 51.78,
+            "q25": 71.7,
+            "q50": 88.94,
+            "q75": 110.71,
+            "q95": 154.22
+          },
+          {
+            "date": "2027-08-13",
+            "mean": 94.23,
+            "q05": 51.7,
+            "q25": 72.04,
+            "q50": 88.72,
+            "q75": 110.95,
+            "q95": 154.22
+          },
+          {
+            "date": "2027-08-16",
+            "mean": 94.3,
+            "q05": 51.64,
+            "q25": 72.19,
+            "q50": 88.79,
+            "q75": 111.11,
+            "q95": 154.06
+          },
+          {
+            "date": "2027-08-17",
+            "mean": 94.31,
+            "q05": 51.71,
+            "q25": 72.06,
+            "q50": 88.73,
+            "q75": 112.05,
+            "q95": 152.34
+          },
+          {
+            "date": "2027-08-18",
+            "mean": 94.28,
+            "q05": 51.72,
+            "q25": 72.03,
+            "q50": 88.67,
+            "q75": 111.43,
+            "q95": 152.35
+          },
+          {
+            "date": "2027-08-19",
+            "mean": 94.32,
+            "q05": 52.05,
+            "q25": 71.89,
+            "q50": 88.72,
+            "q75": 111.1,
+            "q95": 153.81
+          }
+        ],
+        "observed_date": "2026-09-01"
+      },
+      "diesel": {
+        "status": "unavailable",
+        "reason": "国内0#柴油批发价真实数据不可用（unavailable）：未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充"
+      }
+    }
+  },
+  "weights": [
+    {
+      "factor": "jobs_surprise",
+      "weight": 0.3356,
+      "model_importance": 0.2976,
+      "prior": 0.06,
+      "available": true
+    },
+    {
+      "factor": "cpi_surprise",
+      "weight": 0.1763,
+      "model_importance": 0.2295,
+      "prior": 0.1,
+      "available": true
+    },
+    {
+      "factor": "fed_policy_expectation",
+      "weight": 0.1274,
+      "model_importance": 0.1758,
+      "prior": 0.1,
+      "available": true
+    },
+    {
+      "factor": "geopolitical_risk",
+      "weight": 0.0879,
+      "model_importance": 0.069,
+      "prior": 0.18,
+      "available": true
+    },
+    {
+      "factor": "usd_index",
+      "weight": 0.0791,
+      "model_importance": 0.0639,
+      "prior": 0.14,
+      "available": true
+    },
+    {
+      "factor": "supply_disruption",
+      "weight": 0.079,
+      "model_importance": 0.0345,
+      "prior": 0.2,
+      "available": true
+    },
+    {
+      "factor": "demand_outlook",
+      "weight": 0.0669,
+      "model_importance": 0.0843,
+      "prior": 0.08,
+      "available": true
+    },
+    {
+      "factor": "us_treasury_10y",
+      "weight": 0.0478,
+      "model_importance": 0.0454,
+      "prior": 0.08,
+      "available": true
+    },
+    {
+      "factor": "institutional_view",
+      "weight": NaN,
+      "model_importance": NaN,
+      "prior": 0.06,
+      "available": false
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-09-04",
+      "title": "WSJ Dollar Index Falls 0.68% This Week to 95.24",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "demand_outlook",
+      "sentiment": "negative",
+      "intensity": 0.2,
+      "est_price_impact": -0.36,
+      "url": "https://www.wsj.com/finance/currencies/yen-consolidates-likely-buoyed-by-prospects-of-hawkish-boj-rate-hike-b1eb9c38?mod=rss_markets_main"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "U.S. Stocks Fall as Robust August Jobs Data Spurs Yields, Rate-Hike Bets",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "demand_outlook",
+      "sentiment": "negative",
+      "intensity": 0.2,
+      "est_price_impact": -0.36,
+      "url": "https://www.wsj.com/finance/investing/u-s-stocks-fall-as-robust-august-jobs-data-spurs-yields-rate-hike-bets-0adff908?mod=rss_markets_main"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Tesla’s stock falls as Cybercab launch lands with a thud",
+      "source": "MarketWatch",
+      "feed": "MarketWatch",
+      "theme": "demand_outlook",
+      "sentiment": "negative",
+      "intensity": 0.2,
+      "est_price_impact": -0.36,
+      "url": "https://www.marketwatch.com/story/teslas-stock-falls-as-cybercab-launch-lands-with-a-thud-1108376b?mod=mw_rss_topstories"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Stocks Fall After Hot Jobs Report",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "jobs_surprise",
+      "sentiment": "negative",
+      "intensity": 0.2,
+      "est_price_impact": -0.24,
+      "url": "https://www.wsj.com/finance/stocks/stocks-fall-after-hot-jobs-report-2298977c?mod=rss_markets_main"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Oil Futures Post Weekly Gains on Middle East Escalation",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "geopolitical_risk",
+      "sentiment": "positive",
+      "intensity": 0.32,
+      "est_price_impact": 0.96,
+      "url": "https://www.wsj.com/finance/commodities-futures/oil-rises-amid-elevated-supply-disruption-concerns-fa01461e?mod=rss_markets_main"
+    },
+    {
+      "date": "2026-09-04",
+      "title": "Ukraine Pushes Congress for Russia Sanctions Before Election Recess",
+      "source": "OilPrice",
+      "feed": "OilPrice",
+      "theme": "supply_disruption",
+      "sentiment": "positive",
+      "intensity": 0.36,
+      "est_price_impact": 1.26,
+      "url": "https://oilprice.com/Geopolitics/Europe/Ukraine-Pushes-Congress-for-Russia-Sanctions-Before-Election-Recess.html"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "WSJ Dollar Index Falls 0.57% to 95.15",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "demand_outlook",
+      "sentiment": "negative",
+      "intensity": 0.2,
+      "est_price_impact": -0.36,
+      "url": "https://www.wsj.com/finance/currencies/yen-consolidates-may-be-supported-by-lingering-risks-of-fx-intervention-45c3cccb?mod=rss_markets_main"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Stocks, Bonds Rally After Dovish Fed Comments",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "fed_policy_expectation",
+      "sentiment": "positive",
+      "intensity": 0.32,
+      "est_price_impact": 0.51,
+      "url": "https://www.wsj.com/finance/stocks/stocks-bonds-rally-after-dovish-fed-comments-b95763ae?mod=rss_markets_main"
+    },
+    {
+      "date": "2026-09-03",
+      "title": "Stocks Climb As Rate Hike Fears Ebb",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "fed_policy_expectation",
+      "sentiment": "negative",
+      "intensity": 0.32,
+      "est_price_impact": -0.51,
+      "url": "https://www.wsj.com/finance/investing/stocks-climb-as-rate-hike-fears-ebb-9be555f7?mod=rss_markets_main"
+    },
+    {
+      "date": "2026-09-02",
+      "title": "The WSJ Dollar Index Falls 0.21% to 95.70",
+      "source": "WSJMarkets",
+      "feed": "WSJMarkets",
+      "theme": "demand_outlook",
+      "sentiment": "negative",
+      "intensity": 0.2,
+      "est_price_impact": -0.36,
+      "url": "https://www.wsj.com/finance/currencies/yen-consolidates-traders-digest-remarks-from-katayama-ueda-70108fc2?mod=rss_markets_main"
+    }
+  ],
+  "views": [],
+  "backtest": {
+    "available": true,
+    "mae_pct": 9.29,
+    "rmse_pct": 11.13,
+    "benchmark_mae_pct": 7.24,
+    "direction_accuracy": 0.5,
+    "n_origins": 6,
+    "horizon_td": 10
+  },
+  "model_learning": {
+    "retrained_at": "2026-09-05 14:25:59",
+    "rolling_window": 180,
+    "train_meta": {
+      "wti": {
+        "n_rows": 540,
+        "n_valid": 540,
+        "window": 180,
+        "train_start": "2024-08-07",
+        "train_end": "2026-09-01",
+        "n_steps": 10,
+        "fitted_at": "2026-09-05 14:25:33"
+      },
+      "brent": {
+        "n_rows": 540,
+        "n_valid": 540,
+        "window": 180,
+        "train_start": "2024-08-07",
+        "train_end": "2026-09-01",
+        "n_steps": 10,
+        "fitted_at": "2026-09-05 14:25:39"
+      }
+    },
+    "prev_weight_date": "2026-09-05",
+    "weight_delta": [
+      {
+        "factor": "非农就业数据",
+        "prev": 40.77,
+        "now": 33.56,
+        "delta_pp": -7.21
+      },
+      {
+        "factor": "美国通胀(CPI)超预期程度",
+        "prev": 16.54,
+        "now": 17.63,
+        "delta_pp": 1.09
+      },
+      {
+        "factor": "美联储降息/加息预期",
+        "prev": 10.9,
+        "now": 12.74,
+        "delta_pp": 1.84
+      },
+      {
+        "factor": "地缘政治风险",
+        "prev": 7.6,
+        "now": 8.79,
+        "delta_pp": 1.19
+      },
+      {
+        "factor": "美元指数",
+        "prev": 7.22,
+        "now": 7.91,
+        "delta_pp": 0.69
+      },
+      {
+        "factor": "供给中断与OPEC+产量政策",
+        "prev": 7.31,
+        "now": 7.9,
+        "delta_pp": 0.59
+      },
+      {
+        "factor": "全球需求前景",
+        "prev": 5.52,
+        "now": 6.69,
+        "delta_pp": 1.17
+      },
+      {
+        "factor": "美国10年期国债收益率",
+        "prev": 4.14,
+        "now": 4.78,
+        "delta_pp": 0.64
+      }
+    ],
+    "backtest": {
+      "available": true,
+      "mae_pct": 9.29,
+      "rmse_pct": 11.13,
+      "benchmark_mae_pct": 7.24,
+      "direction_accuracy": 0.5,
+      "n_origins": 6,
+      "horizon_td": 10
+    },
+    "review": {
+      "available": false,
+      "reason": "历史预测的目标日尚无已实现真实价格，暂无可复盘样本"
+    },
+    "n_runs": 5
+  },
+  "narratives": {
+    "trends": {
+      "wti": "截至真实观测日 2026-09-01，WTI原油收于 90.22 美元/桶，近5个交易日上涨9.54%、近20日上涨19.07%、近60日下跌3.03%；近20日年化波动率约 35.5%，价格处于近一年真实区间 [55.27, 112.95] 的 61% 分位。",
+      "brent": "截至真实观测日 2026-09-01，布伦特原油收于 94.65 美元/桶，近5个交易日上涨6.85%、近20日上涨19.27%、近60日上涨3.50%；近20日年化波动率约 35.8%，价格处于近一年真实区间 [58.92, 118.35] 的 60% 分位。",
+      "diesel": "国内0#柴油批发价本期无真实可核验价格（状态：unavailable；未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充），不做走势判断。"
+    },
+    "short": {
+      "wti": "未来两周，模型对WTI原油的预测均值为 86.73 美元/桶（较观测日下跌 3.87%），50%概率区间 [81.06, 98.92]，95%概率区间 [72.21, 106.05]；方向概率：看涨 39% / 看跌 61%，模型对下行方向置信度约 61%。预测仅基于截至观测日的真实数据，不构成投资建议。",
+      "brent": "未来两周，模型对布伦特原油的预测均值为 90.81 美元/桶（较观测日下跌 4.05%），50%概率区间 [84.88, 102.84]，95%概率区间 [76.37, 118.88]；方向概率：看涨 40% / 看跌 60%，模型对下行方向置信度约 60%。预测仅基于截至观测日的真实数据，不构成投资建议。",
+      "diesel": "国内0#柴油批发价两周预测暂不提供：国内0#柴油批发价真实数据不可用（unavailable）：未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充。按数据原则，不以估算或合成数据替代。"
+    },
+    "mid": {
+      "wti": "未来三个月，模型对WTI原油的预测均值为 94.58 美元/桶（较观测日上涨 4.83%），50%概率区间 [80.98, 108.39]，95%概率区间 [66.92, 130.53]；方向概率：看涨 56% / 看跌 44%，模型对上行方向置信度约 56%。预测仅基于截至观测日的真实数据，不构成投资建议。",
+      "brent": "未来三个月，模型对布伦特原油的预测均值为 99.57 美元/桶（较观测日上涨 5.20%），50%概率区间 [86.64, 113.88]，95%概率区间 [72.39, 133.96]；方向概率：看涨 58% / 看跌 42%，模型对上行方向置信度约 58%。预测仅基于截至观测日的真实数据，不构成投资建议。",
+      "diesel": "国内0#柴油批发价三个月预测暂不提供：国内0#柴油批发价真实数据不可用（unavailable）：未接入可核验的国内柴油真实源；按数据原则不以国际油价推算冒充。按数据原则，不以估算或合成数据替代。"
+    },
+    "long_wti": "长期（12个月）情景概率：高油价（供给冲击） 19%、基准（供需再平衡） 49%、低油价（需求衰退） 32%；模型分布均值 89.90，95%区间 [49.61, 146.61]。",
+    "weights": "当前主导油价的前三大因素依次为 非农就业数据（权重 33.6%）、美国通胀(CPI)超预期程度（权重 17.6%）、美联储降息/加息预期（权重 12.7%）；其中「非农就业数据」是边际定价的核心变量。权重由随机森林重要性与LASSO系数融合、向人工先验收缩并与历史权重EMA平滑得到；因素【机构观点与目标价调整】因真实数据缺失未参与权重归一化。",
+    "learning": "短期模型已于 2026-09-05 14:25:59 用截至 2026-09-01 的 540 行真实样本重训（180 交易日滚动窗口）；滚动样本外回测 6 个原点，MAE 9.29%、方向命中率 50%，相对随机游走基准（7.24%）暂未跑赢；历史预测从下一期起陆续到期并纳入复测。权重每日向新数据学习并与上期平滑，全过程仅使用真实观测。",
+    "events": [
+      "09-04｜WSJ Dollar Index Falls 0.68% This Week to 95.24（主题：全球需求前景，强度 20%，规则估算利空约 0.36 美元/桶；来源：WSJMarkets）",
+      "09-04｜U.S. Stocks Fall as Robust August Jobs Data Spurs Yields, Rate-Hike Bets（主题：全球需求前景，强度 20%，规则估算利空约 0.36 美元/桶；来源：WSJMarkets）",
+      "09-04｜Tesla’s stock falls as Cybercab launch lands with a thud（主题：全球需求前景，强度 20%，规则估算利空约 0.36 美元/桶；来源：MarketWatch）",
+      "09-04｜Stocks Fall After Hot Jobs Report（主题：非农就业数据，强度 20%，规则估算利空约 0.24 美元/桶；来源：WSJMarkets）",
+      "09-04｜Oil Futures Post Weekly Gains on Middle East Escalation（主题：地缘政治风险，强度 32%，规则估算利多约 0.96 美元/桶；来源：WSJMarkets）"
+    ],
+    "backtest": "近期滚动回测（6 个样本外原点、10 交易日视野，全部基于真实历史）：平均绝对误差 9.29%，方向命中率 50%，相对随机游走基准（7.24%）暂未跑赢。",
+    "sources": "数据谱系（字段[状态|末次真实观测|来源]）：wti[可用|末次观测 2026-09-01|CNBC:@CL.1近月期货]；brent[可用|末次观测 2026-09-01|CNBC:@LCO.1近月期货]；diesel[不可用|末次观测 无观测|UNAVAILABLE（国内柴油真实源待接入 diesel.fetch_diesel_live）]；events[可用|末次观测 2026-09-04|多源RSS(MarketWatch,OilPrice,WSJMarkets)+规则打分]；institutional_view[不可用|末次观测 无观测|UNAVAILABLE]；usd_index[可用|末次观测 2026-08-28|FRED:DTWEXBGS]；us_treasury_10y[可用|末次观测 2026-09-01|FRED:DGS10]；fed_policy_expectation[可用|末次观测 2026-09-01|由 FRED:DGS2 短端利率推导]；geopolitical_risk[可用|末次观测 2026-09-04|多源真实事件代理（GPRD官方长序列不可达）]；cpi_surprise[可用|末次观测 2026-08-05|FRED:CPIAUCSL（月频，值为最近发布值并附发布日期）]；jobs_surprise[可用|末次观测 2026-09-01|FRED:PAYEMS（月频，值为最近发布值并附发布日期）]；demand_outlook[可用|末次观测 2026-08-05|FRED:INDPRO（月频，值为最近发布值并附发布日期）]；supply_disruption[可用|末次观测 2026-09-04|多源RSS(MarketWatch,OilPrice,WSJMarkets)·供给主题]"
+  }
+}
